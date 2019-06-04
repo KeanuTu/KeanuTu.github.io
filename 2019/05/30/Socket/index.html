@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Socket,">
 
 
 
@@ -86,14 +86,18 @@
 
 
 
+<meta name="description" content="网络编程网络编程是指编写运行在多个设备（计算机）的程序，这些设备都通过网络连接起来。">
+<meta name="keywords" content="Socket">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Socket">
 <meta property="og:url" content="https://TFwanan00f.github.io/2019/05/30/Socket/index.html">
 <meta property="og:site_name" content="Oskrai&#39;s Blog">
+<meta property="og:description" content="网络编程网络编程是指编写运行在多个设备（计算机）的程序，这些设备都通过网络连接起来。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-30T05:22:28.392Z">
+<meta property="og:updated_time" content="2019-06-04T02:21:13.911Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Socket">
+<meta name="twitter:description" content="网络编程网络编程是指编写运行在多个设备（计算机）的程序，这些设备都通过网络连接起来。">
 
 
 
@@ -296,6 +300,28 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -328,7 +354,144 @@
       
 
       
-        
+        <h1 id="网络编程"><a href="#网络编程" class="headerlink" title="网络编程"></a>网络编程</h1><p>网络编程是指编写运行在多个设备（计算机）的程序，这些设备都通过网络连接起来。</p>
+<a id="more"></a>
+<p><strong>java.net</strong>包中提供了低层次的通信细节。</p>
+<p>两种常用的网络协议：</p>
+<ul>
+<li><strong>TCP</strong>：TCP 是<strong><em>传输控制协议</em></strong>的缩写，它保障了两个应用程序之间的可靠通信。通常用于互联网协议，被称 TCP / IP。</li>
+<li><strong>UDP</strong>：UDP 是<strong><em>用户数据报协议</em></strong>的缩写，一个无连接的协议。提供了应用程序之间要发送的数据的数据包。</li>
+</ul>
+<h2 id="Socket编程"><a href="#Socket编程" class="headerlink" title="Socket编程"></a>Socket编程</h2><p><em>套接字（Socket）使用TCP提供了两台计算机之间的通信机制。</em></p>
+<p>建立TCP连接的步骤：</p>
+<ol>
+<li><p>服务器实例化一个ServerSocket对象，表示通过服务器上的端口通信</p>
+</li>
+<li><p>服务器调用ServerSocket类的accept()方法，该方法一直等待，直到客户端连接到服务器上给定的端口。</p>
+</li>
+<li><p>服务器在等待的时候，客户端实例化一个Socket对象，指定服务器名称和端口号来请求连接</p>
+</li>
+<li><p>Socket类的构造函数试图将客户端连接到指定服务器和端口号。如果通信被建立，则在客户端创建一个Socket对象能够与服务器端进行通信。</p>
+</li>
+<li><p>在服务器端，accept()方法返回服务器上一个新的Socket引用，给Socket连接到客户端的Socket。 </p>
+<h2 id="Socket服务端实例"><a href="#Socket服务端实例" class="headerlink" title="Socket服务端实例"></a>Socket服务端实例</h2></li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> socket;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.DataInputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.DataOutputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.net.ServerSocket;</span><br><span class="line"><span class="keyword">import</span> java.net.Socket;</span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Server</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> ServerSocket serverSocket;</span><br><span class="line"></span><br><span class="line"><span class="comment">//传入端口号</span></span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="title">Server</span><span class="params">(<span class="keyword">int</span> port)</span> <span class="keyword">throws</span> IOException</span></span><br><span class="line"><span class="function">   </span>&#123;</span><br><span class="line">      serverSocket = <span class="keyword">new</span> ServerSocket(port);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line"> <span class="comment">//重写run方法</span></span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	 <span class="keyword">while</span>(<span class="keyword">true</span>) &#123;</span><br><span class="line">		 System.out.println(<span class="string">"等待远程连接，端口号为："</span>+serverSocket.getLocalPort()+<span class="string">"......"</span>);</span><br><span class="line">		 <span class="keyword">try</span> &#123;</span><br><span class="line">			 <span class="comment">//在指定端口号监听，看是否有连接请求过来</span></span><br><span class="line">			Socket server =serverSocket.accept();</span><br><span class="line">			System.out.println(<span class="string">"远程主机地址："</span> + server.getRemoteSocketAddress());</span><br><span class="line">			</span><br><span class="line">			<span class="comment">//使用数据流对字节流进行封装</span></span><br><span class="line">			DataInputStream in = <span class="keyword">new</span> DataInputStream(server.getInputStream());</span><br><span class="line">			 System.out.println(in.readUTF());</span><br><span class="line">			<span class="comment">//使用Scanner读取控制台的输入，并发送到服务端</span></span><br><span class="line">			DataOutputStream out = <span class="keyword">new</span> DataOutputStream(server.getOutputStream());</span><br><span class="line">            Scanner sc = <span class="keyword">new</span> Scanner(System.in);	            </span><br><span class="line">            String str = sc.next();</span><br><span class="line">			out.writeUTF(str);</span><br><span class="line">			</span><br><span class="line">			<span class="comment">//关闭</span></span><br><span class="line">			server.close();</span><br><span class="line">           </span><br><span class="line">		&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">			<span class="comment">// TODO 自动生成的 catch 块</span></span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		 </span><br><span class="line">	 &#125;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	<span class="comment">// TODO 自动生成的方法存根</span></span><br><span class="line">	 Thread t;</span><br><span class="line">	<span class="keyword">try</span> &#123;</span><br><span class="line">		t = <span class="keyword">new</span> Server(<span class="number">8000</span>);</span><br><span class="line">		t.run();</span><br><span class="line">	&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">		<span class="comment">// TODO 自动生成的 catch 块</span></span><br><span class="line">		e.printStackTrace();</span><br><span class="line">	&#125;		 </span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Socket客户端实例"><a href="#Socket客户端实例" class="headerlink" title="Socket客户端实例"></a>Socket客户端实例</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> socket;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.net.*;</span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		String ServerName;</span><br><span class="line">		<span class="keyword">int</span> port;</span><br><span class="line">		Scanner sc=<span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">		System.out.println(<span class="string">"请输入你要连接的服务端IP："</span>);</span><br><span class="line">		ServerName=sc.next();</span><br><span class="line">		System.out.println(<span class="string">"请输入你要连接的端口号："</span>);</span><br><span class="line">		port=sc.nextInt();</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			Socket client=<span class="keyword">new</span> Socket(ServerName,port);</span><br><span class="line">			</span><br><span class="line"></span><br><span class="line">		 OutputStream outToServer = client.getOutputStream();</span><br><span class="line">         DataOutputStream out = <span class="keyword">new</span> DataOutputStream(outToServer);</span><br><span class="line">         String str;</span><br><span class="line">         str=sc.next();</span><br><span class="line">         out.writeUTF(str);</span><br><span class="line">         InputStream inFromServer = client.getInputStream();</span><br><span class="line">         DataInputStream in = <span class="keyword">new</span> DataInputStream(inFromServer);</span><br><span class="line">         System.out.println(<span class="string">"服务器响应： "</span> + in.readUTF());</span><br><span class="line">         client.close();</span><br><span class="line">	&#125; <span class="keyword">catch</span> (UnknownHostException e) &#123;</span><br><span class="line">		<span class="comment">// TODO 自动生成的 catch 块</span></span><br><span class="line">		e.printStackTrace();</span><br><span class="line">	&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">		<span class="comment">// TODO 自动生成的 catch 块</span></span><br><span class="line">		e.printStackTrace();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="InetAddress-类的方法"><a href="#InetAddress-类的方法" class="headerlink" title="InetAddress 类的方法"></a>InetAddress 类的方法</h2><p>这个类表示互联网协议(IP)地址。下面列出了 Socket 编程时比较有用的方法：</p>
+<table>
+<thead>
+<tr>
+<th><strong>序号</strong></th>
+<th><strong>方法描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>static InetAddress getByAddress(byte[] addr)</strong> 在给定原始 IP 地址的情况下，返回 InetAddress 对象。</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>static InetAddress getByAddress(String host, byte[] addr)</strong> 根据提供的主机名和 IP 地址创建 InetAddress。</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>static InetAddress getByName(String host)</strong> 在给定主机名的情况下确定主机的 IP 地址。</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>String getHostAddress()</strong>  返回 IP 地址字符串（以文本表现形式）。</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>String getHostName()</strong>   获取此 IP 地址的主机名。</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>static InetAddress getLocalHost()</strong> 返回本地主机。</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>String toString()</strong> 将此 IP 地址转换为 String。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Socket类的方法"><a href="#Socket类的方法" class="headerlink" title="Socket类的方法"></a>Socket类的方法</h3><p>Socket 类有五个构造方法.</p>
+<table>
+<thead>
+<tr>
+<th><strong>序号</strong></th>
+<th><strong>方法描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>public Socket(String host, int port) throws UnknownHostException, IOException.</strong> 创建一个流套接字并将其连接到指定主机上的指定端口号。</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>public Socket(InetAddress host, int port) throws IOException</strong> 创建一个流套接字并将其连接到指定 IP 地址的指定端口号。</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>public Socket(String host, int port, InetAddress localAddress, int localPort) throws IOException.</strong> 创建一个套接字并将其连接到指定远程主机上的指定远程端口。</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>public Socket(InetAddress host, int port, InetAddress localAddress, int localPort) throws IOException.</strong> 创建一个套接字并将其连接到指定远程地址上的指定远程端口。</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>public Socket()</strong> 通过系统默认类型的 SocketImpl 创建未连接套接字</td>
+</tr>
+</tbody>
+</table>
+<p>Socket类其他常用方法：</p>
+<table>
+<thead>
+<tr>
+<th><strong>序号</strong></th>
+<th><strong>方法描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>public void connect(SocketAddress host, int timeout) throws IOException</strong> 将此套接字连接到服务器，并指定一个超时值。</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>public InetAddress getInetAddress()</strong>  返回套接字连接的地址。</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>public int getPort()</strong> 返回此套接字连接到的远程端口。</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>public int getLocalPort()</strong> 返回此套接字绑定到的本地端口。</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>public SocketAddress getRemoteSocketAddress()</strong> 返回此套接字连接的端点的地址，如果未连接则返回 null。</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>public InputStream getInputStream() throws IOException</strong> 返回此套接字的输入流。</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>public OutputStream getOutputStream() throws IOException</strong> 返回此套接字的输出流。</td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>public void close() throws IOException</strong> 关闭此套接字。</td>
+</tr>
+</tbody>
+</table>
+
       
     </div>
     
@@ -342,6 +505,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Socket/" rel="tag"><i class="fas fa-anchor"></i>Socket</a>
+          
+        </div>
       
 
       
@@ -416,8 +585,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -434,7 +612,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -445,7 +623,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -456,7 +634,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -489,6 +667,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#网络编程"><span class="nav-number">1.</span> <span class="nav-text">网络编程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Socket编程"><span class="nav-number">1.1.</span> <span class="nav-text">Socket编程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Socket服务端实例"><span class="nav-number">1.2.</span> <span class="nav-text">Socket服务端实例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Socket客户端实例"><span class="nav-number">1.3.</span> <span class="nav-text">Socket客户端实例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#InetAddress-类的方法"><span class="nav-number">1.4.</span> <span class="nav-text">InetAddress 类的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Socket类的方法"><span class="nav-number">1.4.1.</span> <span class="nav-text">Socket类的方法</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

@@ -89,15 +89,16 @@
 <meta name="description" content="集合框架思维导图">
 <meta name="keywords" content="collections">
 <meta property="og:type" content="article">
-<meta property="og:title" content="collections">
+<meta property="og:title" content="Collections">
 <meta property="og:url" content="https://TFwanan00f.github.io/2019/05/26/collections/index.html">
 <meta property="og:site_name" content="Oskrai&#39;s Blog">
 <meta property="og:description" content="集合框架思维导图">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://tfwanan00f.github.io/2019/05/26/collections/集合框架.png">
-<meta property="og:updated_time" content="2019-05-26T13:47:20.601Z">
+<meta property="og:image" content="https://tfwanan00f.github.io/2019/05/26/collections/1.gif">
+<meta property="og:updated_time" content="2019-06-04T02:28:59.531Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="collections">
+<meta name="twitter:title" content="Collections">
 <meta name="twitter:description" content="集合框架思维导图">
 <meta name="twitter:image" content="https://tfwanan00f.github.io/2019/05/26/collections/集合框架.png">
 
@@ -135,7 +136,7 @@
 
 
 
-  <title>collections | Oskrai's Blog</title>
+  <title>Collections | Oskrai's Blog</title>
   
 
 
@@ -279,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">collections</h1>
+          <h1 class="post-title" itemprop="name headline">Collections</h1>
         
 
         <div class="post-meta">
@@ -301,6 +302,28 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -334,9 +357,10 @@
       
 
       
-        <h5 id="集合框架思维导图"><a href="#集合框架思维导图" class="headerlink" title="集合框架思维导图"></a>集合框架思维导图</h5><a id="more"></a>
+        <h2 id="集合框架思维导图"><a href="#集合框架思维导图" class="headerlink" title="集合框架思维导图"></a>集合框架思维导图</h2><a id="more"></a>
 <p><img src="集合框架.png" alt="集合框架"></p>
-<h5 id="三种基本集合框架："><a href="#三种基本集合框架：" class="headerlink" title="三种基本集合框架："></a>三种基本集合框架：</h5><p><strong>1、List（有序、可重复）</strong><br>List里存放的对象是有序的，同时也是可以重复的，List关注的是索引，拥有一系列和索引相关的方法，查询速度快。因为往list集合里插入或删除数据时，会伴随着后面数据的移动，所有插入删除数据速度慢。</p>
+<h2 id="Java集合框架概览"><a href="#Java集合框架概览" class="headerlink" title="Java集合框架概览"></a>Java集合框架概览</h2><p><img src="1.gif" alt></p>
+<h3 id="三种基本集合框架："><a href="#三种基本集合框架：" class="headerlink" title="三种基本集合框架："></a>三种基本集合框架：</h3><p><strong>1、List（有序、可重复）</strong><br>List里存放的对象是有序的，同时也是可以重复的，List关注的是索引，拥有一系列和索引相关的方法，查询速度快。因为往list集合里插入或删除数据时，会伴随着后面数据的移动，所有插入删除数据速度慢。</p>
 <p><strong>2、Set（无序、不能重复）</strong><br>Set里存放的对象是无序，不能重复的，集合中的对象不按特定的方式排序，只是简单地把对象加入集合中。</p>
 <p><strong>3、Map（键值对、键唯一、值不唯一）</strong><br>Map集合中存储的是键值对，键不能重复，值可以重复。根据键得到值，对map集合遍历时先得到键的set集合，对set集合进行遍历，得到相应的值。</p>
 <h5 id="区别："><a href="#区别：" class="headerlink" title="区别："></a>区别：</h5><p><strong>Vector和ArrayList</strong><br>1，vector是线程同步的，所以它也是线程安全的，而arraylist是线程异步的，是不安全的。如果不考虑到线程的安全因素，一般用arraylist效率比较高。<br>2，如果集合中的元素的数目大于目前集合数组的长度时，vector增长率为目前数组长度的100%，而arraylist增长率为目前数组长度的50%。如果在集合中使用数据量比较大的数据，用vector有一定的优势。<br>3，如果查找一个指定位置的数据，vector和arraylist使用的时间是相同的，如果频繁的访问数据，这个时候使用vector和arraylist都可以。而如果移动一个指定位置会导致后面的元素都发生移动，这个时候就应该考虑到使用linklist,因为它移动一个指定位置的数据时其它元素不移动。<br>ArrayList 和Vector是采用数组方式存储数据，此数组元素数大于实际存储的数据以便增加和插入元素，都允许直接序号索引元素，但是插入数据要涉及到数组元素移动等内存操作，所以索引数据快，插入数据慢，Vector由于使用了synchronized方法（线程安全）所以性能上比ArrayList要差，LinkedList使用双向链表实现存储，按序号索引数据需要进行向前或向后遍历，但是插入数据时只需要记录本项的前后项即可，所以插入数度较快。</p>
@@ -464,7 +488,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -475,7 +499,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -486,7 +510,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -529,7 +553,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#集合框架思维导图"><span class="nav-number">1.</span> <span class="nav-text">集合框架思维导图</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#三种基本集合框架："><span class="nav-number">2.</span> <span class="nav-text">三种基本集合框架：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#区别："><span class="nav-number">3.</span> <span class="nav-text">区别：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#集合框架思维导图"><span class="nav-number">1.</span> <span class="nav-text">集合框架思维导图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java集合框架概览"><span class="nav-number">2.</span> <span class="nav-text">Java集合框架概览</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#三种基本集合框架："><span class="nav-number">2.1.</span> <span class="nav-text">三种基本集合框架：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#区别："><span class="nav-number">2.1.0.1.</span> <span class="nav-text">区别：</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
