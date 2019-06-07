@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="R,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="R语言">
+<meta name="keywords" content="R">
+<meta property="og:type" content="article">
+<meta property="og:title" content="R">
+<meta property="og:url" content="https://TFwanan00f.github.io/2019/06/04/R/index.html">
+<meta property="og:site_name" content="Oskrai&#39;s Blog">
+<meta property="og:description" content="R语言">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://tfwanan00f.github.io/2019/06/04/R/1.jpg">
+<meta property="og:updated_time" content="2019-06-05T09:32:39.170Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="R">
+<meta name="twitter:description" content="R语言">
+<meta name="twitter:image" content="https://tfwanan00f.github.io/2019/06/04/R/1.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://TFwanan00f.github.io/2019/06/04/R/">
+
+
+
+
+
+  <title>R | Oskrai's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+<a href="https://github.com/TFwanan00f" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Oskrai's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Stay Hungry!Stay Foolish!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://TFwanan00f.github.io/2019/06/04/R/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="樊">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3249761993,448953672&fm=27&gp=0.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Oskrai's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">R</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-04T14:09:16+08:00">
+                2019-06-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/R/" itemprop="url" rel="index">
+                    <span itemprop="name">R</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="R语言"><a href="#R语言" class="headerlink" title="R语言"></a>R语言</h1><a id="more"></a>
+<h2 id="一、R的数据结构"><a href="#一、R的数据结构" class="headerlink" title="一、R的数据结构"></a>一、R的数据结构</h2><h3 id="1、对象和属性"><a href="#1、对象和属性" class="headerlink" title="1、对象和属性"></a>1、对象和属性</h3><p>赋值：&lt;-</p>
+<p> 查看数值类型class(x)</p>
+<p><strong>属性(attribute)</strong></p>
+<ul>
+<li>名称(name)</li>
+<li>维度(dimensions: matrix, array)</li>
+<li>类型(class)</li>
+<li>长度(length)</li>
+</ul>
+<p><strong>向量(vector)</strong></p>
+<ul>
+<li><p>只能包含同一类型的对象</p>
+</li>
+<li><p>创建对象</p>
+<ul>
+<li><p>vector(“type”,length= )</p>
+</li>
+<li><p>c()</p>
+</li>
+<li><p>x &lt;- 1:4</p>
+</li>
+<li><p>强制类型转换</p>
+<p>as.logical()/as.numeric()/as.character()</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>矩阵(matrix)</strong></p>
+<ul>
+<li><p>向量+维度属性(整数向量：nrow，ncol)</p>
+</li>
+<li><p>创建矩阵</p>
+<ul>
+<li><p>matrix(): 先列后行</p>
+</li>
+<li><p>vector()+dim()</p>
+</li>
+<li><p>按行/列拼接矩阵</p>
+<p>rbind()/cbind()</p>
+</li>
+<li><p>查看向量属性    attributes()</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>列表(list)</strong></p>
+<ul>
+<li><p>可以包含<strong>不同类型</strong>的对象</p>
+</li>
+<li><p>创建列表</p>
+<p>list()</p>
+</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># list</span></span><br><span class="line">  l &lt;- list(<span class="string">"a"</span>,<span class="number">2</span>,<span class="number">10L</span>,<span class="number">3</span>+<span class="number">4i</span>,<span class="literal">TRUE</span>)</span><br><span class="line">  l2&lt;-list(a=<span class="number">1</span>,b=<span class="number">2</span>,c=<span class="number">3</span>)</span><br><span class="line">  l3&lt;- list(c(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>),c(<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>))</span><br><span class="line">  x &lt;- matrix(<span class="number">1</span>:<span class="number">6</span>,nrow = <span class="number">2</span>,ncol=<span class="number">3</span>)</span><br><span class="line">  dimnames(x)&lt;-list(c(<span class="string">"a"</span>,<span class="string">"b"</span>),c(<span class="string">"e"</span>,<span class="string">"f"</span>,<span class="string">"g"</span>))</span><br></pre></td></tr></table></figure>
+<p><strong>因子(factor)</strong></p>
+<ul>
+<li><p><span color="red">分类</span>数据/有序 vs. 无序</p>
+</li>
+<li><p>整数向量+标签(label)(优于整数向量)</p>
+<p>Male/Female vs. 1/2</p>
+</li>
+<li><p>创建因子</p>
+<p>factor()</p>
+<p>整体查看因子 table()</p>
+<p>去除因子属性 unclass()</p>
+</li>
+</ul>
+<p><strong>缺失值(missing value)</strong></p>
+<ul>
+<li>NA/NaN:  NaN属于NA，NA不属于NaN</li>
+<li>NA有类型属性：integer NA，character NA等。而NaN只有integer</li>
+<li>查看元素是否为缺失值 is.na()/is.nan()</li>
+</ul>
+<p><strong>数据框(data frame)</strong></p>
+<ul>
+<li>存储表格数据</li>
+<li><p>视为各元素长度相同的列表</p>
+<ul>
+<li>每个元素代表一列数据</li>
+<li>每个元素的长度代表行数</li>
+<li>元素的类型可以不同</li>
+</ul>
+</li>
+<li><p>创建数据框</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df &lt;-  data.frame(id=c(<span class="number">1</span>,<span class="number">2</span>),name=c(<span class="string">"a"</span>,<span class="string">"b"</span>),gender=c(<span class="literal">TRUE</span>,<span class="literal">FALSE</span>))</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>日期和时间</strong></p>
+<ul>
+<li><p>日期：Date</p>
+<ul>
+<li><p>当前时间：date()/Sys.Date()</p>
+</li>
+<li><p>weekdays()/months()/quarters()  季度</p>
+</li>
+<li><p>设置时间</p>
+<p>x &lt;- as.Date(“2019-01-01”)</p>
+</li>
+</ul>
+</li>
+<li><p>时间：POSIXct/POSIXlt</p>
+<ul>
+<li>距离1970-01-01的秒数/Sys.time()</li>
+<li>POSIXct:整数，常用于存入数据框</li>
+<li>POSIXlt:列表，还包含星期、年、月、日等信息</li>
+<li>获取某个数组里面的内容用$</li>
+</ul>
+</li>
+</ul>
+<h2 id="二、构建子集"><a href="#二、构建子集" class="headerlink" title="二、构建子集"></a>二、构建子集</h2><p>原始数据 -&gt; 预处理后的数据</p>
+<p><strong>基本方法</strong></p>
+<ul>
+<li>[]:提供一个或多个类型相同的元素<ul>
+<li>元素下标从1开始</li>
+<li>枚举输出x[1:4]</li>
+<li>逻辑判断x[x<1 & x>5]</1></li>
+<li>按元素名字提取a[“name”]</li>
+</ul>
+</li>
+<li><p>[[]]:从列表或数据框中提取元素</p>
+</li>
+<li><p>$:按名字从列表或数据框中提取元素</p>
+</li>
+</ul>
+<p><strong>矩阵的子集</strong></p>
+<ul>
+<li>以向量形式1行2列的元素 x[1,2]</li>
+<li>输出一整行 x[1, ]</li>
+<li>输出x(2,3)和x(2,1) x[2,c(1,3)]</li>
+<li>以矩阵形式返回 x[1,2,drop=”FALSE”]</li>
+</ul>
+<p><strong>数据框的子集</strong></p>
+<ul>
+<li>which(x$v1&gt;2)返回满足条件的数值</li>
+<li>构建子集 subset(dateType,条件)</li>
+</ul>
+<p><strong>列表的子集</strong></p>
+<ul>
+<li>x[1]/x[“id”] 列表的元素</li>
+<li>x[[1]]/x[[“id”]]/x$id 列表的内容</li>
+<li>嵌套列表 <code>x[[1][2]]</code>/x[c(1,2)]</li>
+<li>不完全匹配 x[[“a”,exact=FALSE]]/x$a</li>
+</ul>
+<p><strong>处理缺省值</strong></p>
+<ul>
+<li>返回x,y对应位置是否有缺省值，有返回FALSE complete.cases(x,y)</li>
+</ul>
+<p><strong>向量化操作</strong></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">x &lt;- <span class="number">1</span>:<span class="number">5</span></span><br><span class="line">y &lt;- <span class="number">6</span>:<span class="number">10</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#每个向量对应位置的值做运算</span></span><br><span class="line">x+y</span><br><span class="line">x*y</span><br><span class="line"></span><br><span class="line">x1&lt;-matrix(<span class="number">1</span>:<span class="number">4</span>,nrow=<span class="number">2</span>,ncol=<span class="number">2</span>)</span><br><span class="line">y1&lt;-matrix(rep(<span class="number">2</span>,<span class="number">4</span>),nrow = <span class="number">2</span>,ncol = <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">x1+y1</span><br><span class="line">x1/y1</span><br><span class="line">x1 %*% y1</span><br></pre></td></tr></table></figure>
+<h2 id="三、重要函数的使用"><a href="#三、重要函数的使用" class="headerlink" title="三、重要函数的使用"></a>三、重要函数的使用</h2><h4 id="1、-lapply"><a href="#1、-lapply" class="headerlink" title="1、  lapply()"></a>1、  lapply()</h4><p>lapply(列表/其他的也会自动转换为列表，循环要处理的函数名，上一个函数所需的参数)</p>
+<p>总是返回一个列表</p>
+<p>sapply表示在能精简的情况下，尽可能精简处理结果</p>
+<ol>
+<li>结果列表元素长度均为1，返回向量</li>
+<li>结果列表元素长度相同且大于1，返回矩阵</li>
+</ol>
+<ul>
+<li>mean求平均值</li>
+</ul>
+<h3 id="2、apply"><a href="#2、apply" class="headerlink" title="2、apply"></a>2、apply</h3><ul>
+<li>沿着数组的某一维度处理数据</li>
+<li>apply(数组，维度，函数名)</li>
+</ul>
+<h3 id="3、tapply"><a href="#3、tapply" class="headerlink" title="3、tapply"></a>3、tapply</h3><ul>
+<li>对向量的子集进行操作</li>
+<li>tapply (向量，因子/因子列表，函数/函数名)</li>
+</ul>
+<h3 id="4、split"><a href="#4、split" class="headerlink" title="4、split"></a>4、split</h3><ul>
+<li>根据因子或者因子列表将向量或其他对象分组</li>
+<li>通常与lapply一起使用</li>
+<li>split(向量/列表/数据框，因子/因子列表)</li>
+</ul>
+<h2 id="四、R的绘图系统"><a href="#四、R的绘图系统" class="headerlink" title="四、R的绘图系统"></a>四、R的绘图系统</h2><h4 id="1-基本绘图系统"><a href="#1-基本绘图系统" class="headerlink" title="1)基本绘图系统"></a>1)基本绘图系统</h4><p>绘图函数（graphics包）</p>
+<ul>
+<li><span color="red">plot</span>/hist/boxplot/pionts/lines/text/title/axis</li>
+<li>调用函数会启用一个图形设备（如果没有正在运行的图形设备）并在设备上绘图<ul>
+<li>基本绘图系统+屏幕设备</li>
+</ul>
+</li>
+</ul>
+<p><strong>plot()</strong></p>
+<ul>
+<li><p>重要参数：</p>
+<p>xlab/ylab 表示x，y坐标轴标签</p>
+<p>lwd 线宽</p>
+<p>lty 线的类型</p>
+<p>pch 点的类型</p>
+<p>col 图形的颜色</p>
+</li>
+</ul>
+<p><strong>par ()</strong></p>
+<ul>
+<li><p>用于设置全局参数(作用于R中的所有plot绘图)</p>
+<p>bg 背景色</p>
+<p>mar 边界边距</p>
+<p>mfrow 当前画板划分为几行</p>
+<p>mfcol 划分为几列</p>
+</li>
+</ul>
+<h4 id="2）Lattice绘图系统"><a href="#2）Lattice绘图系统" class="headerlink" title="2）Lattice绘图系统"></a>2）Lattice绘图系统</h4><h5 id="1-绘图函数"><a href="#1-绘图函数" class="headerlink" title="1.绘图函数"></a>1.绘图函数</h5><p>​    <strong>lattice包</strong></p>
+<pre><code>+ xyplot  散点图函数
++ histogram 柱状图函数
++ dotplot 点图
++ contourplot
+</code></pre><p>格式：xyplot(y~x|f*g,data)</p>
+<ul>
+<li>panel函数，用于控制每个面板内的绘图</li>
+</ul>
+<p>grid包</p>
+<ul>
+<li>实现了独立于base的绘图系统</li>
+<li>lattice包是基于grid创建的</li>
+</ul>
+<h4 id="3）Lattice与Base的重要区别"><a href="#3）Lattice与Base的重要区别" class="headerlink" title="3）Lattice与Base的重要区别"></a>3）Lattice与Base的重要区别</h4><p>​    Base绘图函数直接在图形设备上绘图</p>
+<p>​    Lattice绘图函数返回trellis类对象</p>
+<p>​        打印函数真正执行了在设备上绘图</p>
+<h4 id="4）ggplot2绘图系统"><a href="#4）ggplot2绘图系统" class="headerlink" title="4）ggplot2绘图系统"></a>4）ggplot2绘图系统</h4><p><img src="1.jpg" alt></p>
+<p>绘图函数</p>
+<p>​    qplot()</p>
+<ul>
+<li><p>类似与Base系统的plot()，参数包含aesthetics/geom/facet…</p>
+<p>ggplot()</p>
+</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">library</span>(ggplot2)</span><br><span class="line"></span><br><span class="line">qplot(Wind,Temp,data=airquality,color=Month,shape=Month,size=Month</span><br><span class="line">      ,xlab=<span class="string">"Wind(mph)"</span>,ylab=<span class="string">"Temperature"</span>,main=<span class="string">"Wind vs. Temp"</span>)</span><br><span class="line"></span><br><span class="line">qplot(Wind,Temp,data=airquality,color=Month,geom=c(<span class="string">"point"</span>,<span class="string">"smooth"</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment">#设置面板属性 ~. Month 表示按月份划分行，1列</span></span><br><span class="line">qplot(Wind,Temp,data=airquality,facets = Month ~.)</span><br><span class="line"></span><br><span class="line">qplot(Wind,data = airquality,facets = .~ Month)</span><br><span class="line"></span><br><span class="line"><span class="comment">#累加柱状图</span></span><br><span class="line">qplot(Wind,data = airquality,fill=Month)</span><br><span class="line"></span><br><span class="line"><span class="comment">#密度函数</span></span><br><span class="line">qplot(Wind,data = airquality,geom=<span class="string">"density"</span>,color=Month)</span><br><span class="line">qplot(Wind,data = airquality,geom=<span class="string">"dotplot"</span>,color=Month)</span><br></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p><strong>图形参数：</strong><br> 符号和线条：pch、cex、lty、lwd<br> 颜色：col、col.axis、col.lab、col.main、col.sub、fg、bg<br> 文本属性：cex、cex.axis、cex.lab、cex.main、cex.sub、font、font.axis、font.lab、font.main、font.sub</p>
+</li>
+<li><p><strong>文本添加、坐标轴的自定义和图例</strong><br> title()、main、sub、xlab、ylab、text()<br> axis()、abline()<br> legend()</p>
+</li>
+<li><p><strong>多图绘制时候，可使用par()设置默认的图形参数</strong><br> par(lwd=2, cex=1.5)</p>
+</li>
+<li><p><strong>图形参数设置</strong>：<br> par(optionname=value,…)<br> par(pin=c(width,height)) 图形尺寸<br> par(mfrow=c(nr,nc)) 图形组合，一页多图<br> layout(mat) 图形组合，一页多图<br> par(mar=c(bottom,left,top,right)) 边界尺寸<br> par(fig=c(x1,x2,y1,y2),new=TURE) 多图叠加或排布成一幅图</p>
+</li>
+</ul>
+<h4 id="R语言绘图颜色"><a href="#R语言绘图颜色" class="headerlink" title="R语言绘图颜色"></a>R语言绘图颜色</h4><p>RColorBrewer包</p>
+<ul>
+<li>三类调色板：sequential（渐变）/diverging（极端） /qualitative（分类变量）</li>
+</ul>
+<p>参考学习博文链接：</p>
+<p><a href="https://blog.csdn.net/u013538542/article/details/80033055" target="_blank" rel="noopener">R语言入门</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/R/" rel="tag"><i class="fas fa-anchor"></i>R</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/03/multiThread/" rel="next" title="MultiThread">
+                <i class="fa fa-chevron-left"></i> MultiThread
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3249761993,448953672&fm=27&gp=0.jpg" alt="樊">
+            
+              <p class="site-author-name" itemprop="name">樊</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/TFwanan00f" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#R语言"><span class="nav-number">1.</span> <span class="nav-text">R语言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、R的数据结构"><span class="nav-number">1.1.</span> <span class="nav-text">一、R的数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、对象和属性"><span class="nav-number">1.1.1.</span> <span class="nav-text">1、对象和属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、构建子集"><span class="nav-number">1.2.</span> <span class="nav-text">二、构建子集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、重要函数的使用"><span class="nav-number">1.3.</span> <span class="nav-text">三、重要函数的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、-lapply"><span class="nav-number">1.3.0.1.</span> <span class="nav-text">1、  lapply()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、apply"><span class="nav-number">1.3.1.</span> <span class="nav-text">2、apply</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、tapply"><span class="nav-number">1.3.2.</span> <span class="nav-text">3、tapply</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、split"><span class="nav-number">1.3.3.</span> <span class="nav-text">4、split</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、R的绘图系统"><span class="nav-number">1.4.</span> <span class="nav-text">四、R的绘图系统</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-基本绘图系统"><span class="nav-number">1.4.0.1.</span> <span class="nav-text">1)基本绘图系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2）Lattice绘图系统"><span class="nav-number">1.4.0.2.</span> <span class="nav-text">2）Lattice绘图系统</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-绘图函数"><span class="nav-number">1.4.0.2.1.</span> <span class="nav-text">1.绘图函数</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3）Lattice与Base的重要区别"><span class="nav-number">1.4.0.3.</span> <span class="nav-text">3）Lattice与Base的重要区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4）ggplot2绘图系统"><span class="nav-number">1.4.0.4.</span> <span class="nav-text">4）ggplot2绘图系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#R语言绘图颜色"><span class="nav-number">1.4.0.5.</span> <span class="nav-text">R语言绘图颜色</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">樊</span>
+
+  
+</div>
+
+<!--
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+-->
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
