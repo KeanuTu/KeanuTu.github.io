@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="数学建模,机器学习,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="遗传算法">
+<meta name="keywords" content="数学建模,机器学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="遗传算法">
+<meta property="og:url" content="https://TFwanan00f.github.io/2019/08/10/遗传算法/index.html">
+<meta property="og:site_name" content="Oskrai&#39;s Blog">
+<meta property="og:description" content="遗传算法">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://tfwanan00f.github.io/2019/08/10/遗传算法/GA.png">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/10386940-bf5ce56a414e10db.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/502/format/webp">
+<meta property="og:updated_time" content="2019-08-10T08:20:37.588Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="遗传算法">
+<meta name="twitter:description" content="遗传算法">
+<meta name="twitter:image" content="https://tfwanan00f.github.io/2019/08/10/遗传算法/GA.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://TFwanan00f.github.io/2019/08/10/遗传算法/">
+
+
+
+
+
+  <title>遗传算法 | Oskrai's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+<a href="https://github.com/TFwanan00f" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Oskrai's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Stay Hungry!Stay Foolish!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://TFwanan00f.github.io/2019/08/10/遗传算法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="樊">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3249761993,448953672&fm=27&gp=0.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Oskrai's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">遗传算法</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-10T09:12:07+08:00">
+                2019-08-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数学建模/" itemprop="url" rel="index">
+                    <span itemprop="name">数学建模</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">本文总阅读数 <i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="遗传算法"><a href="#遗传算法" class="headerlink" title="遗传算法"></a>遗传算法</h1><a id="more"></a>
+<h2 id="1、什么是遗传算法"><a href="#1、什么是遗传算法" class="headerlink" title="1、什么是遗传算法"></a>1、什么是遗传算法</h2><h3 id="1-1-定义"><a href="#1-1-定义" class="headerlink" title="1.1 定义"></a>1.1 定义</h3><p>遗传算法(Genetic Algorithm <strong>GA</strong>）是模拟达尔文生物进化论的自然选择和遗传学机理的生物进化过程的计算模型，<strong>是一种通过模拟自然进化过程搜索最优解的方法。</strong></p>
+<p>其主要特点是直接队结构体对象进行操作，不存在求导和函数连续性的限定；</p>
+<p>具有内在的隐并性和更好的全局寻优能力；</p>
+<p>采用概率化的寻优方法，不需要确定的规则就能自动获取和指导优化的搜索空间，自适应地调整搜索方向。</p>
+<h3 id="1-2-遗传算法执行过程"><a href="#1-2-遗传算法执行过程" class="headerlink" title="1.2 遗传算法执行过程"></a>1.2 遗传算法执行过程</h3><p><img src="GA.png" alt="遗传算法流程图"></p>
+<p>遗传算法是从代表问题可能潜在的解集的一个种群（population）开始的，而一个种群则由经过基因（gene）编码的一定数目的个体(individual)组成。每个个体实际上是染色体(chromosome)带有特征的实体。</p>
+<p>染色体作为遗传物质的主要载体，即多个基因的集合，其内部表现（即基因型）是某种基因组合，它决定了个体的形状的外部表现，我们往往进行简化，<strong>如二进制编码</strong>。</p>
+<p>初始群体产生后，按照<strong>适者生存和优胜劣汰</strong>的原理，<strong>逐代演化出越来越好的近似解</strong>，在每一代，根据<strong>适应度大小选择个体</strong>，并借助于自然遗传双子进行组合<strong>交叉和变异</strong>，产生出代表新的解集的种群。</p>
+<p>这个过程将导致种群像自然进化一样的后生种群比前代更加适应于环境，末代种群中的最有个体经过解码，可以作为问题的近似最优解。</p>
+<h3 id="1-3-相关术语"><a href="#1-3-相关术语" class="headerlink" title="1.3  相关术语"></a>1.3  相关术语</h3><p>为了更好了解遗传算法，在此之前先简单介绍一下相关生物学术语</p>
+<ul>
+<li>基因型(genotype)：性状染色体的内部表现；</li>
+<li>表现型(phenotype)：染色体决定的性状的外部表现，或者说，根据基因型形成的个体的外部表现；</li>
+<li>进化(evolution)：种群逐渐适应生存环境，品质不断得到改良。生物的进化是以种群的形式进行的。</li>
+<li>适应度(fitness)：度量某个物种对于生存环境的适应程度。</li>
+<li>选择(selection)：以一定的概率从种群中选择若干个个体。一般，选择过程是一种基于适应度的优胜劣汰的过程。</li>
+<li>复制(reproduction)：细胞分裂时，遗传物质DNA通过复制而转移到新产生的细胞中，新细胞就继承了旧细胞的基因。</li>
+<li>交叉(crossover)：两个染色体的某一相同位置处DNA被切断，前后两串分别交叉组合形成两个新的染色体。也称基因重组或杂交；</li>
+<li>变异(mutation)：复制时可能（很小的概率）产生某些复制差错，变异产生新的染色体，表现出新的性状。</li>
+<li>编码(coding)：DNA中遗传信息在一个长链上按一定的模式排列。遗传编码可看作从表现型到基因型的映射。</li>
+<li>解码(decoding)：基因型到表现型的映射。</li>
+<li>个体（individual）：指染色体带有特征的实体；</li>
+<li>种群（population）：个体的集合，该集合内个体数称为种群</li>
+</ul>
+<h2 id="2、实现过程"><a href="#2、实现过程" class="headerlink" title="2、实现过程"></a>2、实现过程</h2><h3 id="（1）建立表现型和基因型的映射关系，数字化编码"><a href="#（1）建立表现型和基因型的映射关系，数字化编码" class="headerlink" title="（1）建立表现型和基因型的映射关系，数字化编码"></a><strong>（1）建立表现型和基因型的映射关系，数字化编码</strong></h3><p>​            编码是应用遗传算法时要解决的首要问题，也是设计遗传算法   时的一个关键步骤。编码方法影响到交叉算            子、变异算子等遗传算子的运算方法，大很大程度上决定了遗传进化的效率。</p>
+<p>​            a、<em>二进制编码</em></p>
+<p>它由二进制符号0和1所组成的二值符号集。它有以下一些优点：</p>
+<ol>
+<li>编码、解码操作简单易行</li>
+<li>交叉、变异等遗传操作便于实现</li>
+<li>合最小字符集编码原则</li>
+<li>利用模式定理对算法进行理论分析。</li>
+</ol>
+<p>二进制编码的缺点是：对于一些连续函数的优化问题，由于其随机性使得其局部搜索能力较差，如对于一些高精度的问题（如上题），当解迫近于最优解后，由于其变异后表现型变化很大，不连续，所以会远离最优解，达不到稳定。</p>
+<p>​            b、<em>浮点编码法</em></p>
+<p>所谓浮点法，是指个体每个基因值用某一范围内的一个浮点数来表示。在浮点数编码方法中，必须保证基因值在给定的区间限制范围内，遗传算法中使用的交叉、变异等遗传算子也必须保证其运算结果所产生的新个体的基因值也在这个区间限制范围内。</p>
+<p>浮点数编码方法有下面几个优点：</p>
+<ol>
+<li><p>适用于在遗传算法中表示范围较大的数</p>
+</li>
+<li><p>适用于精度要求较高的遗传算法</p>
+</li>
+<li><p>便于较大空间的遗传搜索</p>
+</li>
+<li><p>改善了遗传算法的计算复杂性，提高了运算交率</p>
+</li>
+<li><p>便于遗传算法与经典优化方法的混合使用</p>
+</li>
+<li><p>便于设计针对问题的专门知识的知识型遗传算子</p>
+</li>
+<li><p>便于处理复杂的决策变量约束条件</p>
+<p>​    c、<em>符号编码法</em></p>
+<p>符号编码法是指个体染色体编码串中的基因值取自一个无数值含义、而只有代码含义的符号集如｛A,B,C…｝。<br>符号编码的主要优点是：</p>
+<ol>
+<li>符合有意义积术块编码原则</li>
+<li>便于在遗传算法中利用所求解问题的专门知识</li>
+<li>便于遗传算法与相关近似算法之间的混合使用。</li>
+</ol>
+</li>
+</ol>
+<h3 id="（2）评价个体的适应度–适应度函数"><a href="#（2）评价个体的适应度–适应度函数" class="headerlink" title="（2）评价个体的适应度–适应度函数"></a><strong>（2）评价个体的适应度–适应度函数</strong></h3><p>​    评价个体适应度的一般过程：</p>
+<pre><code>1. 对个体编码串进行解码处理后，可得到个体的表现型。
+  2. 由个体的表现型可计算出对应个体的目标函数值。
+  3. 根据最优化问题的类型，由努比奥函数值按一定的转换规则求出个体的适应度。
+</code></pre><h3 id="（3）选择函数"><a href="#（3）选择函数" class="headerlink" title="（3）选择函数"></a><strong>（3）选择函数</strong></h3><p>遗传算法中的选择操作就是用来确定如何重父代群体中按某种方法选取那些个体，以便遗传到下一代群体。选择操作用来确定重组或交叉个体，以及被选个体将产生多少个子代个体。</p>
+<p>常用的选择算子：</p>
+<h4 id="1、轮盘赌选择："><a href="#1、轮盘赌选择：" class="headerlink" title="1、轮盘赌选择："></a>1、轮盘赌选择：</h4><p>是一种回放式随机采样方法。每个个体进入下一代的概率等于他的适应度值与整个种群中个体适应度值和的比例。选择误差大</p>
+<h4 id="2、随机竞争选择："><a href="#2、随机竞争选择：" class="headerlink" title="2、随机竞争选择："></a>2、随机竞争选择：</h4><p>每次按轮盘赌选择一对个体，然后让这两个个体间进行竞争，适应度高的被选中，如此反复，直到选满为止。</p>
+<h4 id="3、最佳保留选择："><a href="#3、最佳保留选择：" class="headerlink" title="3、最佳保留选择："></a>3、最佳保留选择：</h4><p>首先按轮盘赌选择方法执行遗传算法的选择操作，然后将当前群体中适应度最高的个体结构完整地赋值到下一代群体中。</p>
+<h4 id="4、无回放随机选择（也叫期望值选择Excepted-Value-Selection）："><a href="#4、无回放随机选择（也叫期望值选择Excepted-Value-Selection）：" class="headerlink" title="4、无回放随机选择（也叫期望值选择Excepted Value Selection）："></a>4、无回放随机选择（也叫期望值选择Excepted Value Selection）：</h4><p>根据每个个体在下一代群体中的生存期望来进行随机选择运算。方法如下:</p>
+<p>（1） 计算群体中每个个体在下一代群体中的生存期望数目N。</p>
+<p>（2） 若某一个体被选中参与交叉运算，则它在下一代中的生存期望数目减去0.5，若某一个体未 被选中参与交叉运算，则它在下一代中的生存期望数目减去1.0。</p>
+<p>（3） 随着选择过程的进行，若某一个体的生存期望数目小于0时，则该个体就不再有机会被选中。</p>
+<h4 id="5、确定式选择："><a href="#5、确定式选择：" class="headerlink" title="5、确定式选择："></a>5、确定式选择：</h4><p>一种确定的方式来进行选择操作。具体操作过程如下：</p>
+<p>（1） 计算群体中各个个体在下一代群体中的期望生存数目N。</p>
+<p>（2） 用N的整数部分确定各个对应个体在下一代群体中的生存数目。</p>
+<p>（3） 用N的小数部分对个体进行降序排列，顺序取前M个个体加入到下一代群体中。至此可完全确定出下一代群体中Ｍ个个体。</p>
+<h4 id="6、无回放余数随机选择："><a href="#6、无回放余数随机选择：" class="headerlink" title="6、无回放余数随机选择："></a>6、无回放余数随机选择：</h4><p>可确保适应度比平均适应度大的一些个体能够被遗传到下一代群体中，因而选择误差比较小。</p>
+<h4 id="7、均匀排序："><a href="#7、均匀排序：" class="headerlink" title="7、均匀排序："></a>7、均匀排序：</h4><p>对群体中的所有个体按期适应度大小进行排序，基于这个排序来分配各个个体被选中的概率。</p>
+<h4 id="8、最佳保存策略："><a href="#8、最佳保存策略：" class="headerlink" title="8、最佳保存策略："></a>8、最佳保存策略：</h4><p>当前群体中适应度最高的个体不参与交叉运算和变异运算，而是用它来代替掉本代群体中经过交叉、变异等操作后所产生的适应度最低的个体。</p>
+<h4 id="9、随机联赛选择："><a href="#9、随机联赛选择：" class="headerlink" title="9、随机联赛选择："></a>9、随机联赛选择：</h4><p>每次选取几个个体中适应度最高的一个个体遗传到下一代群体中。</p>
+<h4 id="10、排挤选择："><a href="#10、排挤选择：" class="headerlink" title="10、排挤选择："></a>10、排挤选择：</h4><p>新生成的子代将代替或排挤相似的旧父代个体，提高群体的多样性。</p>
+<p><strong><em>实例</em></strong></p>
+<p>假如有５条染色体，他们的适应度分别为５、８、３、７、２。</p>
+<p>那么总的适应度为：F = 5 + 8 + 3 + 7 + 2 = 25。</p>
+<p>那么各个个体的被选中的概率为：</p>
+<p>α1 = ( 5 / 25 ) * 100% = 20%</p>
+<p>α2 = ( 8 / 25 ) * 100% = 32%</p>
+<p>α3 = ( 3 / 25 ) * 100% = 12%</p>
+<p>α4 = ( 7 / 25 ) * 100% = 28%</p>
+<p>α5 = ( 2 / 25 ) * 100% = 8%</p>
+<p>所以转盘如下：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/10386940-bf5ce56a414e10db.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/502/format/webp" alt="img"></p>
+<p>当指针在这个转盘上转动，停止下来时指向的个体就是天选之人啦。可以看出，适应性越高的个体被选中的概率就越大。</p>
+<h3 id="4-遗传–染色体交叉"><a href="#4-遗传–染色体交叉" class="headerlink" title="(4)遗传–染色体交叉"></a>(4)遗传–染色体交叉</h3><p>遗传算法中的交叉操作，是指两队相互配对的染色体按某种方式相互交换其部分基因，从而形成两个新的个体。</p>
+<p>适用于二进制编码或浮点数编码个体的交叉算子：</p>
+<ol>
+<li><p>单点交叉：指在个体编码串中只堆积设置一个交叉点，然后再该点相互交换配对个体的部分染色体。</p>
+</li>
+<li><p>两点交叉与多点交叉：</p>
+<p>(1) 两点交叉（Two-point Crossover）：在个体编码串中随机设置了两个交叉点，然后再进行部分基因交换。</p>
+<p>(2) 多点交叉（Multi-point Crossover）</p>
+</li>
+<li><p>均匀交叉（也称一致交叉，Uniform Crossover）：两个配对个体的每个基因座上的基因都以相同的交叉概率进行交换，从而形成两个新个体。</p>
+</li>
+<li><p>算术交叉（Arithmetic Crossover）：由两个个体的线性组合而产生出两个新的个体。该操作对象一般是由浮点数编码表示的个体。</p>
+</li>
+</ol>
+<h3 id="（5）变异–基因突变"><a href="#（5）变异–基因突变" class="headerlink" title="（5）变异–基因突变"></a>（5）变异–基因突变</h3><p>遗传算法中变异运算，是指将个体染色体编码串中的某些基因座上的基因值用该基因座上其他等位基因来替换，从而产生新的个体。</p>
+<p>以下变异算子适用于二进制编码和浮点数编码的个体：</p>
+<ol>
+<li>基本位变异（Simple Mutation）：对个体编码串中以变异概率、随机指定的某一位或某几位仅因座上的值做变异运算。</li>
+<li>均匀变异（Uniform Mutation）：分别用符合某一范围内均匀分布的随机数，以某一较小的概率来替换个体编码串中各个基因座上的原有基因值。（特别适用于在算法的初级运行阶段）</li>
+<li>边界变异（Boundary Mutation）：随机的取基因座上的两个对应边界基因值之一去替代原有基因值。特别适用于最优点位于或接近于可行解的边界时的一类问题。</li>
+<li>非均匀变异：对原有的基因值做一随机扰动，以扰动后的结果作为变异后的新基因值。对每个基因座都以相同的概率进行变异运算之后，相当于整个解向量在解空间中作了一次轻微的变动。</li>
+<li>高斯近似变异：进行变异操作时用符号均值为Ｐ的平均值，方差为P**2的正态分布的一个随机数来替换原有的基因值。</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数学建模/" rel="tag"><i class="fab fa-affiliatetheme"></i>数学建模</a>
+          
+            <a href="/tags/机器学习/" rel="tag"><i class="fab fa-affiliatetheme"></i>机器学习</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/09/图论/" rel="next" title="图论">
+                <i class="fa fa-chevron-left"></i> 图论
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/09/01/相关系数/" rel="prev" title="相关系数">
+                相关系数 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NDkzNi8yMTQ1OA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3249761993,448953672&fm=27&gp=0.jpg" alt="樊">
+            
+              <p class="site-author-name" itemprop="name">樊</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/TFwanan00f" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#遗传算法"><span class="nav-number">1.</span> <span class="nav-text">遗传算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、什么是遗传算法"><span class="nav-number">1.1.</span> <span class="nav-text">1、什么是遗传算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-定义"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1 定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-遗传算法执行过程"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.2 遗传算法执行过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-相关术语"><span class="nav-number">1.1.3.</span> <span class="nav-text">1.3  相关术语</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、实现过程"><span class="nav-number">1.2.</span> <span class="nav-text">2、实现过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（1）建立表现型和基因型的映射关系，数字化编码"><span class="nav-number">1.2.1.</span> <span class="nav-text">（1）建立表现型和基因型的映射关系，数字化编码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（2）评价个体的适应度–适应度函数"><span class="nav-number">1.2.2.</span> <span class="nav-text">（2）评价个体的适应度–适应度函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（3）选择函数"><span class="nav-number">1.2.3.</span> <span class="nav-text">（3）选择函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、轮盘赌选择："><span class="nav-number">1.2.3.1.</span> <span class="nav-text">1、轮盘赌选择：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、随机竞争选择："><span class="nav-number">1.2.3.2.</span> <span class="nav-text">2、随机竞争选择：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、最佳保留选择："><span class="nav-number">1.2.3.3.</span> <span class="nav-text">3、最佳保留选择：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、无回放随机选择（也叫期望值选择Excepted-Value-Selection）："><span class="nav-number">1.2.3.4.</span> <span class="nav-text">4、无回放随机选择（也叫期望值选择Excepted Value Selection）：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、确定式选择："><span class="nav-number">1.2.3.5.</span> <span class="nav-text">5、确定式选择：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6、无回放余数随机选择："><span class="nav-number">1.2.3.6.</span> <span class="nav-text">6、无回放余数随机选择：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7、均匀排序："><span class="nav-number">1.2.3.7.</span> <span class="nav-text">7、均匀排序：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8、最佳保存策略："><span class="nav-number">1.2.3.8.</span> <span class="nav-text">8、最佳保存策略：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9、随机联赛选择："><span class="nav-number">1.2.3.9.</span> <span class="nav-text">9、随机联赛选择：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10、排挤选择："><span class="nav-number">1.2.3.10.</span> <span class="nav-text">10、排挤选择：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-遗传–染色体交叉"><span class="nav-number">1.2.4.</span> <span class="nav-text">(4)遗传–染色体交叉</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（5）变异–基因突变"><span class="nav-number">1.2.5.</span> <span class="nav-text">（5）变异–基因突变</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">樊</span>
+
+  
+</div>
+
+<!--
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+-->
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      本站访问数 <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      本站总访问数 <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false});</script></body>
+</html>
