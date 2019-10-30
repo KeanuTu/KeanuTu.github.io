@@ -88,8 +88,9 @@
 <meta property="og:description" content="JDBC (Java DataBase Connection) 是通过JAVA访问数据库">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://tfwanan00f.github.io/2019/05/30/JDBC/1.jpg">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/5/7/1633a16dd981efda?imageslim">
 <meta property="og:image" content="http://stepimagewm.how2j.cn/2655.png">
-<meta property="og:updated_time" content="2019-06-04T02:25:13.285Z">
+<meta property="og:updated_time" content="2019-10-25T13:19:02.268Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JDBC">
 <meta name="twitter:description" content="JDBC (Java DataBase Connection) 是通过JAVA访问数据库">
@@ -434,15 +435,28 @@
 <p>如果我们想再MySQL数据表中读取指定的数据，WHERE 子句是非常有用的。</p>
 <p>使用主键来作为 WHERE 子句的条件查询是非常快速的。</p>
 <p>如果给定的条件在表中没有任何匹配的记录，那么查询不会返回任何数据。</p>
-<h1 id="二、JDBC"><a href="#二、JDBC" class="headerlink" title="二、JDBC"></a>二、JDBC</h1><h3 id="1、导入mysql-jdbc的jar包（一般会放在新建的lib文件夹中）"><a href="#1、导入mysql-jdbc的jar包（一般会放在新建的lib文件夹中）" class="headerlink" title="1、导入mysql-jdbc的jar包（一般会放在新建的lib文件夹中）"></a>1、导入mysql-jdbc的jar包（一般会放在新建的lib文件夹中）</h3><h3 id="2、初始化驱动"><a href="#2、初始化驱动" class="headerlink" title="2、初始化驱动"></a>2、初始化驱动</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">     <span class="keyword">try</span> &#123;</span><br><span class="line">         <span class="comment">//驱动类com.mysql.jdbc.Driver</span></span><br><span class="line">         <span class="comment">//就在 mysql-connector-java-5.0.8-bin.jar中</span></span><br><span class="line">         <span class="comment">//如果忘记了第一个步骤的导包，就会抛出ClassNotFoundException</span></span><br><span class="line">         Class.forName(<span class="string">"com.mysql.jdbc.Driver"</span>);</span><br><span class="line">System.out.println(<span class="string">"数据库驱动加载成功 ！"</span>);</span><br><span class="line"></span><br><span class="line"> 	&#125; <span class="keyword">catch</span> (ClassNotFoundException e) &#123;  	  </span><br><span class="line">      e.printStackTrace();</span><br><span class="line"> 	&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="二、JDBC"><a href="#二、JDBC" class="headerlink" title="二、JDBC"></a>二、JDBC</h1><h3 id="1、导入mysql-jdbc的jar包（一般会放在新建的lib文件夹中）"><a href="#1、导入mysql-jdbc的jar包（一般会放在新建的lib文件夹中）" class="headerlink" title="1、导入mysql-jdbc的jar包（一般会放在新建的lib文件夹中）"></a>1、导入mysql-jdbc的jar包（一般会放在新建的lib文件夹中）</h3><p> JDBC是一个规范，遵循JDBC接口规范，各个数据库厂家各自实现自己的驱动程序(Driver)，如下图所示: <img src="https://user-gold-cdn.xitu.io/2018/5/7/1633a16dd981efda?imageslim" alt></p>
+<h3 id="2、初始化驱动"><a href="#2、初始化驱动" class="headerlink" title="2、初始化驱动"></a>2、初始化驱动</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">     <span class="keyword">try</span> &#123;</span><br><span class="line">         <span class="comment">//驱动类com.mysql.jdbc.Driver</span></span><br><span class="line">         <span class="comment">//就在 mysql-connector-java-5.0.8-bin.jar中</span></span><br><span class="line">         <span class="comment">//如果忘记了第一个步骤的导包，就会抛出ClassNotFoundException</span></span><br><span class="line">         Class.forName(<span class="string">"com.mysql.jdbc.Driver"</span>);</span><br><span class="line">System.out.println(<span class="string">"数据库驱动加载成功 ！"</span>);</span><br><span class="line"></span><br><span class="line"> 	&#125; <span class="keyword">catch</span> (ClassNotFoundException e) &#123;  	  </span><br><span class="line">      e.printStackTrace();</span><br><span class="line"> 	&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="3、建立与数据库连接"><a href="#3、建立与数据库连接" class="headerlink" title="3、建立与数据库连接"></a>3、建立与数据库连接</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Connection c = DriverManager.getConnection(<span class="string">"jdbc:mysql://127.0.0.1（本机ip地址，数据库ip）:3306（mysql专用端口号）/数据库名?characterEncoding=UTF-8"</span>（字符集）,<span class="string">"root"</span>（账号名）, <span class="string">"admin"</span>);</span><br></pre></td></tr></table></figure>
 <h3 id="4、创建Satement-PreSatement"><a href="#4、创建Satement-PreSatement" class="headerlink" title="4、创建Satement/PreSatement"></a>4、创建Satement/PreSatement</h3><blockquote>
 <p>Statement s = c.createStatement();</p>
 </blockquote>
 <p>引入包为<strong>java.sql.Satement</strong></p>
-<h4 id="PreSatement"><a href="#PreSatement" class="headerlink" title="PreSatement"></a><strong><u>PreSatement</u></strong></h4><p>String sql = “insert into hero values(null,?,?,?)”;</p>
-<p><strong>// 根据sql语句创建PreparedStatement</strong><br>            PreparedStatement ps = c.prepareStatement(sql);</p>
-<p><strong>// 设置参数</strong><br>            ps.setString(1, “提莫”);<br>            ps.setFloat(2, 313.0f);<br>            ps.setInt(3, 50);<br> <strong>// 执行</strong><br>            ps.execute();</p>
+<h4 id="PreSatement"><a href="#PreSatement" class="headerlink" title="PreSatement"></a>PreSatement</h4><blockquote>
+<p> String sql = “insert into hero values(null,?,?,?)”;</p>
+</blockquote>
+<p><strong>// 根据sql语句创建PreparedStatement</strong></p>
+<blockquote>
+<p>PreparedStatement ps = c.prepareStatement(sql); </p>
+</blockquote>
+<p><strong>// 设置参数</strong></p>
+<blockquote>
+<p>​            ps.setString(1, “提莫”);<br>​            ps.setFloat(2, 313.0f);<br>​            ps.setInt(3, 50);</p>
+</blockquote>
+<p> <strong>// 执行</strong></p>
+<blockquote>
+<p>  ps.execute();</p>
+</blockquote>
 <h5 id="excuteUpdate与excute区别"><a href="#excuteUpdate与excute区别" class="headerlink" title="excuteUpdate与excute区别"></a>excuteUpdate与excute区别</h5><h6 id="不同1："><a href="#不同1：" class="headerlink" title="不同1："></a>不同1：</h6><p>execute<strong>可以执行查询语句</strong><br>然后通过getResultSet，把结果集取出来<br>executeUpdate<strong>不能执行查询语句</strong></p>
 <h6 id="不同2"><a href="#不同2" class="headerlink" title="不同2:"></a>不同2:</h6><p>execute<strong>返回boolean类型</strong>，true表示执行的是查询语句，false表示执行的是insert,delete,update等等<br>executeUpdate<strong>返回的是int</strong>，表示有多少条数据受到了影响</p>
 <h4 id="PreparedStatement优点"><a href="#PreparedStatement优点" class="headerlink" title="PreparedStatement优点"></a><strong>PreparedStatement优点</strong></h4><ol>
@@ -635,7 +649,7 @@ var jiathis_config={
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -646,7 +660,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
