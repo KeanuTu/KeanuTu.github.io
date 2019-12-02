@@ -79,15 +79,20 @@
 
 
 
+<meta name="description" content="Jsoup是一款Java的HTML解析器,主要用来对HTML解析。">
 <meta name="keywords" content="Java,WebMagic">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Jsoup">
 <meta property="og:url" content="https://TFwanan00f.github.io/2019/11/03/Jsoup/index.html">
 <meta property="og:site_name" content="Oskrai&#39;s Blog">
+<meta property="og:description" content="Jsoup是一款Java的HTML解析器,主要用来对HTML解析。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-03T06:11:11.918Z">
+<meta property="og:image" content="e:/Hexo/source/_posts/网络爬虫.png">
+<meta property="og:updated_time" content="2019-12-02T08:05:57.634Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Jsoup">
+<meta name="twitter:description" content="Jsoup是一款Java的HTML解析器,主要用来对HTML解析。">
+<meta name="twitter:image" content="e:/Hexo/source/_posts/网络爬虫.png">
 
 
 
@@ -389,7 +394,16 @@
       
 
       
-        
+        <p><code>Jsoup</code>是一款Java的HTML解析器,主要用来对HTML解析。</p>
+<a id="more"></a>
+<p>:artificial_satellite:<a href=" https://www.open-open.com/jsoup/ " style="text-decoration= none " target="_blank" rel="noopener"><font color="red">官方中文文档</font></a></p>
+<hr>
+<p>:cowboy_hat_face:<strong>个人总结思维导图</strong></p>
+<p><img src="E:\Hexo\source\_posts\网络爬虫.png" alt="网络爬虫"></p>
+<hr>
+<p>:open_mouth:EG.</p>
+<h2 id="爬取腾讯首页全部图片"><a href="#爬取腾讯首页全部图片" class="headerlink" title="爬取腾讯首页全部图片"></a>爬取腾讯首页全部图片</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.company;</span><br><span class="line"><span class="keyword">import</span> org.jsoup.Connection;</span><br><span class="line"><span class="keyword">import</span> org.jsoup.Jsoup;</span><br><span class="line"><span class="keyword">import</span> org.jsoup.nodes.Document;</span><br><span class="line"><span class="keyword">import</span> org.jsoup.nodes.Element;</span><br><span class="line"><span class="keyword">import</span> org.jsoup.select.Elements;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">import</span> java.net.MalformedURLException;</span><br><span class="line"><span class="keyword">import</span> java.net.URL;</span><br><span class="line"><span class="keyword">import</span> java.net.URLConnection;</span><br><span class="line"><span class="keyword">import</span> java.net.URLEncoder;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">meizi</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 下载图片到指定目录</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> filePath 文件路径</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> imgUrl   图片URL</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">downImages</span><span class="params">(String filePath, String imgUrl)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 若指定文件夹没有，则先创建</span></span><br><span class="line">        File dir = <span class="keyword">new</span> File(filePath);</span><br><span class="line">        <span class="keyword">if</span> (!dir.exists()) &#123;</span><br><span class="line">            dir.mkdirs();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 截取图片文件名</span></span><br><span class="line">        String fileName = imgUrl.substring(imgUrl.lastIndexOf(<span class="string">'/'</span>) + <span class="number">1</span>, imgUrl.length());</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">// 文件名里面可能有中文或者空格，所以这里要进行处理。但空格又会被URLEncoder转义为加号</span></span><br><span class="line">            String urlTail = URLEncoder.encode(fileName, <span class="string">"UTF-8"</span>);</span><br><span class="line">            <span class="comment">// 因此要将加号转化为UTF-8格式的%20</span></span><br><span class="line">            imgUrl = imgUrl.substring(<span class="number">0</span>, imgUrl.lastIndexOf(<span class="string">'/'</span>) + <span class="number">1</span>) + urlTail.replaceAll(<span class="string">"\\+"</span>, <span class="string">"\\%20"</span>);</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">catch</span> (UnsupportedEncodingException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 写出的路径</span></span><br><span class="line">        File file = <span class="keyword">new</span> File(filePath + File.separator + fileName);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">// 获取图片URL</span></span><br><span class="line">            URL url = <span class="keyword">new</span> URL(imgUrl);</span><br><span class="line">            <span class="comment">// 获得连接</span></span><br><span class="line">            URLConnection connection = url.openConnection();</span><br><span class="line">            <span class="comment">// 设置10秒的相应时间</span></span><br><span class="line">            connection.setConnectTimeout(<span class="number">10</span> * <span class="number">1000</span>);</span><br><span class="line">            <span class="comment">// 获得输入流</span></span><br><span class="line">            InputStream in = connection.getInputStream();</span><br><span class="line">            <span class="comment">// 获得输出流</span></span><br><span class="line">            BufferedOutputStream out = <span class="keyword">new</span> BufferedOutputStream(<span class="keyword">new</span> FileOutputStream(file));</span><br><span class="line">            <span class="comment">// 构建缓冲区</span></span><br><span class="line">            <span class="keyword">byte</span>[] buf = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line">            <span class="keyword">int</span> size;</span><br><span class="line">            <span class="comment">// 写入到文件</span></span><br><span class="line">            <span class="keyword">while</span> (-<span class="number">1</span> != (size = in.read(buf))) &#123;</span><br><span class="line">                out.write(buf, <span class="number">0</span>, size);</span><br><span class="line">            &#125;</span><br><span class="line">            out.close();</span><br><span class="line">            in.close();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (MalformedURLException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 利用Jsoup获得连接</span></span><br><span class="line">        Connection connect = Jsoup.connect(<span class="string">"http://www.qq.com"</span>);</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">// 得到Document对象</span></span><br><span class="line">            Document document = connect.get();</span><br><span class="line">            <span class="comment">// 查找所有img标签</span></span><br><span class="line">            Elements imgs = document.getElementsByTag(<span class="string">"img"</span>);</span><br><span class="line">            System.out.println(<span class="string">"共检测到下列图片URL："</span>);</span><br><span class="line">            System.out.println(<span class="string">"开始下载"</span>);</span><br><span class="line">            <span class="comment">// 遍历img标签并获得src的属性</span></span><br><span class="line">            <span class="keyword">for</span> (Element element : imgs) &#123;</span><br><span class="line">                <span class="comment">//获取每个img标签URL "abs:"表示绝对路径</span></span><br><span class="line">                String imgSrc = element.attr(<span class="string">"abs:src"</span>);</span><br><span class="line">                <span class="comment">// 打印URL</span></span><br><span class="line">                System.out.println(imgSrc);</span><br><span class="line">                <span class="comment">//下载图片到本地</span></span><br><span class="line">                meizi.downImages(<span class="string">"d:/img"</span>, imgSrc);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(<span class="string">"下载完成"</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -448,6 +462,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/12/02/前端总结/" rel="prev" title="前端总结">
+                前端总结 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -530,8 +548,17 @@ var jiathis_config={
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -548,7 +575,7 @@ var jiathis_config={
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -559,7 +586,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -570,7 +597,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -603,6 +630,22 @@ var jiathis_config={
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#爬取腾讯首页全部图片"><span class="nav-number">1.</span> <span class="nav-text">爬取腾讯首页全部图片</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
