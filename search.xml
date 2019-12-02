@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Jsoup]]></title>
+    <url>%2F2019%2F11%2F03%2FJsoup%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>Java</category>
+        <category>WebMagic</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>WebMagic</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Maven]]></title>
+    <url>%2F2019%2F10%2F30%2FMaven%2F</url>
+    <content type="text"><![CDATA[Maven是专门用于构建和管理Java相关项目的工具。 一、Maven下载和配置 官方下载： http://maven.apache.org/download.cgi Maven的主要用途是： 1、相同的项目结构 ​ 1) 有一个pom.xml用于维护当前项目都用了那些jar包 ​ 2)所有的java代码都放在src/main/java下面 ​ 3)所有的测试代码都放在src/test/java下面 2、统一维护jar包 ​ 所有的jar包都放在”仓库“ 里，然后哪个项目需要用到这个jar包，只需要给出jar包的名称和版本号就行了。 这样jar包就实现了共享 二、Maven仓库 所谓的仓库就是存放项目需要的jar包的。 Maven采用一个仓库，多个项目的方式，让多个项目共享一个仓库里的相同jar包。 maven 会默认从maven官方提供的服务器下载jar包。而官方服务器在国外，因为大家都知道的原因，网速很慢，而且容易卡断。 为了便于快速下载相关jar包，可以使用国内maven 阿里云的下载地址：使用阿里云下载路径 命令行创建maven项目： mvn archetype:generate -DgroupId=com.XXX -DartifactId=j2se -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false archetype:generate 表示创建个项目-DgroupId 项目包名: com.XXX-DartifactId 项目名称: j2se-DarchetypeArtifactId 项目类型: maven-archetype-quickstart-DinteractiveMode:false 表示前面参数都给了，就不用一个一个地输入了 运行package命令： mvn package 注： 运行这个命令之前要先把当前路径切换到 j2se来 cd j2se package做了很多事情，编译，测试，打包，最后生成了一个j2se-1.0-SNAPSHOT.jar包 最后会看到一个绿色的BUILD SUCCESS 执行Jar： java -cp target/j2se-1.0-SNAPSHOT.jar com.XXX.App]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[log4j使用总结]]></title>
     <url>%2F2019%2F10%2F29%2Flog4j%2F</url>
     <content type="text"><![CDATA[日志是应用软件中不可缺少的部分，Apache的开源项目log4j是一个功能强大的日志组件,提供方便的日志记录。 在apache网站：jakarta.apache.org/log4j 可以免费下载到Log4j最新版本的软件包。 一、Log4j的基本使用方法1、新建一个Java工程，导入log4j-1.2.17.jar 2、src同级创建并设置log4j.properties #配置根Loggerlog4j.rootLogger = [ level ] , appenderName1 , appenderName2 , …#配置日志信息输出目的地Appenderlog4j.appender.appenderName = fully.qualified.name.of.appender.class log4j.appender.appenderName.option1 = value1 … log4j.appender.appenderName.optionN = valueN#配置日志信息的格式（布局）log4j.appender.appenderName.layout = fully.qualified.name.of.layout.class log4j.appender.appenderName.layout.option1 = value1 … log4j.appender.appenderName.layout.optionN = valueN 其中 [level] 是日志输出级别，共有5级： FATAL 0ERROR 3WARN 4INFO 6DEBUG 7 Appender 为日志输出目的地，Log4j提供的appender有以下几种： ​ org.apache.log4j.ConsoleAppender（控制台），org.apache.log4j.FileAppender（文件），org.apache.log4j.DailyRollingFileAppender（每天产生一个日志文件），org.apache.log4j.RollingFileAppender（文件大小到达指定尺寸的时候产生一个新的文件），org.apache.log4j.WriterAppender（将日志信息以流格式发送到任意指定的地方） Layout：日志输出格式，Log4j提供的layout有以下几种： ​ org.apache.log4j.HTMLLayout（以HTML表格形式布局），org.apache.log4j.PatternLayout（可以灵活地指定布局模式），org.apache.log4j.SimpleLayout（包含日志信息的级别和信息字符串），org.apache.log4j.TTCCLayout（包含日志产生的时间、线程、类别等等信息） 打印参数: Log4J采用类似C语言中的printf函数的打印格式格式化日志信息，如下 ​ %m 输出代码中指定的消息 %p 输出优先级，即DEBUG，INFO，WARN，ERROR，FATAL %r 输出自应用启动到输出该log信息耗费的毫秒数 %c 输出所属的类目，通常就是所在类的全名 %t 输出产生该日志事件的线程名 %n 输出一个回车换行符，Windows平台为“/r/n”，Unix平台为“/n” %d 输出日志时间点的日期或时间，默认格式为ISO8601，也可以在其后指定格式，比如：%d{yyy MMM dd HH:mm:ss , SSS}，输出类似：2002年10月18日 22 ： 10 ： 28 ， 921 %l 输出日志事件的发生位置，包括类目名、发生的线程，以及在代码中的行数。举例：Testlog4.main(TestLog4.java: 10 ) 应用举例： 1234567891011121314151617181920212223242526272829### 设置高于DEBUG级别的日志输出到控制台,D,E是别名###log4j.rootLogger = debug,stdout,D,E### 输出信息到控制台 ### #ConsoleAppender控制台log4j.appender.stdout = org.apache.log4j.ConsoleAppenderlog4j.appender.stdout.Target = System.out #PatternLayout是布局格式log4j.appender.stdout.layout = org.apache.log4j.PatternLayout #ConversionPattern布局显示器log4j.appender.stdout.layout.ConversionPattern = [%-5p] %d&#123;yyyy-MM-dd HH:mm:ss,SSS&#125; method:%l%n%m%n### 输出DEBUG 级别以上的日志到=E://logs/error.log ### #DailyRollingFileAppender每天只产生一个日志文件log4j.appender.D = org.apache.log4j.DailyRollingFileAppenderlog4j.appender.D.File = E://logs/log.loglog4j.appender.D.Append = truelog4j.appender.D.Threshold = DEBUG log4j.appender.D.layout = org.apache.log4j.PatternLayoutlog4j.appender.D.layout.ConversionPattern = %-d&#123;yyyy-MM-dd HH:mm:ss&#125; [ %t:%r ] - [ %p ] %m%n### 输出ERROR 级别以上的日志到=E://logs/error.log ###log4j.appender.E = org.apache.log4j.DailyRollingFileAppenderlog4j.appender.E.File =E://logs/error.log log4j.appender.E.Append = true #Threshold限制只输出ERROR级别以上的日志log4j.appender.E.Threshold = ERROR log4j.appender.E.layout = org.apache.log4j.PatternLayoutlog4j.appender.E.layout.ConversionPattern = %-d&#123;yyyy-MM-dd HH:mm:ss&#125; [ %t:%r ] - [ %p ] %m%n 除了使用log4j.properties,也可以使用xml格式进行配置。 如： 123456789101112131415161718192021222324252627282930&lt;?xml version="1.0" encoding="UTF-8" ?&gt;&lt;!DOCTYPE log4j:configuration PUBLIC "-//log4j/log4j Configuration//EN" "log4j.dtd"&gt; &lt;log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/"&gt; &lt;appender name="STDOUT" class="org.apache.log4j.ConsoleAppender"&gt; &lt;layout class="org.apache.log4j.PatternLayout"&gt; &lt;param name="ConversionPattern" value="%d %-5p %c.%M:%L - %m%n"/&gt; &lt;/layout&gt; &lt;/appender&gt; &lt;!-- specify the logging level for loggers from other libraries --&gt; &lt;logger name="com.opensymphony"&gt; &lt;level value="ERROR" /&gt; &lt;/logger&gt; &lt;logger name="org.apache"&gt; &lt;level value="ERROR" /&gt; &lt;/logger&gt; &lt;logger name="org.hibernate"&gt; &lt;level value="ERROR" /&gt; &lt;/logger&gt; &lt;!-- for all other loggers log only debug and above log messages --&gt; &lt;root&gt; &lt;priority value="ERROR"/&gt; &lt;appender-ref ref="STDOUT" /&gt; &lt;/root&gt; &lt;/log4j:configuration&gt; 3、设置日志内容 1234567891011121314151617181920212223package log4j;import org.apache.log4j.Logger;import org.apache.log4j.PropertyConfigurator;public class TestLog4j &#123; //获取日志记录器，得到本类的字节码文件 static Logger logger = Logger.getLogger(TestLog4j.class); public static void main(String[] args) &#123; //Log4j日志格式指定配置文件 PropertyConfigurator.configure("log4j.properties"); for (int i = 0; i &lt; 10; i++) &#123; //调用对应方法 logger.trace("跟踪信息"); logger.debug("调试信息"); logger.info("输出信息"); logger.warn("警告信息"); logger.error("错误信息"); logger.fatal("致命信息"); &#125; &#125;&#125; 二、Web项目中使用Log4j:call_me_hand:在J2EE应用使用log4j，必须先在启动服务时加载Log4j的配置文件进行初始化，可以在web.xml中进行。 1、web应用的log4j使用基本上都采用：新建一个servlet，这个servlet在init函数中为log4j执行配置。一般就是读入配置文件，所以需要在web.xml中为这个servlet配置，同时设定load-on-startup为1。 2、这个servlet配置log4j就是读出配置文件，然后调用configure函数。这里有两个问题： ​ 1）需要知道文件在哪里 ​ 2）需要正确的文件类型 3、配置文件位置在web.xml中配置一个param即可，路径一般是相对于web的root目录 4、文件类型一般有两种，一个是Java的property文件，另一种是xml文件 1234567891011121314151617181920212223242526272829&lt;xml version="1.0" encoding="UTF-8"?&gt; &lt;web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="htt p://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0"&gt; &lt;display-name&gt;LogLearning&lt;/display-name&gt; &lt;servlet&gt; &lt;servlet-name&gt;Log4JTestServlet&lt;/servlet-name&gt; &lt;servlet-class&gt;com.mucfc.Log4JTestServlet&lt;/servlet-class&gt; &lt;/servlet&gt; &lt;!--用来启动 log4jConfigLocation的servlet --&gt; &lt;servlet&gt; &lt;servlet-name&gt;Log4JInitServlet&lt;/servlet-name&gt; &lt;servlet-class&gt;com.mucfc.Log4JInitServlet&lt;/servlet-class&gt; &lt;init-param&gt; &lt;param-name&gt;log4j-properties-location&lt;/param-name&gt; &lt;param-value&gt;/WEB-INF/classes/log4j.properties&lt;/param-value&gt; &lt;/init-param&gt; &lt;load-on-startup&gt;1&lt;/load-on-startup&gt; &lt;/servlet&gt; &lt;servlet-mapping&gt; &lt;servlet-name&gt;Log4JTestServlet&lt;/servlet-name&gt; &lt;url-pattern&gt;/test&lt;/url-pattern&gt; &lt;/servlet-mapping&gt; &lt;/web-app&gt;]]></content>
@@ -34,11 +58,6 @@
         <tag>Java</tag>
         <tag>编程规范</tag>
       </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[图形界面]]></title>
-    <url>%2F2019%2F09%2F11%2F%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%2F</url>
-    <content type="text"></content>
   </entry>
   <entry>
     <title><![CDATA[典型相关]]></title>
@@ -75,11 +94,6 @@
         <tag>数学建模</tag>
         <tag>机器学习</tag>
       </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[图论]]></title>
-    <url>%2F2019%2F08%2F09%2F%E5%9B%BE%E8%AE%BA%2F</url>
-    <content type="text"></content>
   </entry>
   <entry>
     <title><![CDATA[LINGO入门]]></title>
@@ -195,7 +209,7 @@
   <entry>
     <title><![CDATA[MultiThread]]></title>
     <url>%2F2019%2F06%2F03%2FmultiThread%2F</url>
-    <content type="text"><![CDATA[多线程 线程的状态： 一个线程的生命周期： 多线程相关思维导图： Thread 方法：下表列出了Thread类的一些重要方法： 序号 方法描述 1 public void start() 使该线程开始执行；Java 虚拟机调用该线程的 run 方法。 2 public void run() 如果该线程是使用独立的 Runnable 运行对象构造的，则调用该 Runnable 对象的 run 方法；否则，该方法不执行任何操作并返回。 3 public final void setName(String name) 改变线程名称，使之与参数 name 相同。 4 public final void setPriority(int priority) 更改线程的优先级。 5 public final void setDaemon(boolean on) 将该线程标记为守护线程或用户线程。 6 public final void join(long millisec) 等待该线程终止的时间最长为 millis 毫秒。 7 public void interrupt() 中断线程。 8 public final boolean isAlive() 测试线程是否处于活动状态。]]></content>
+    <content type="text"><![CDATA[多线程 线程的状态：一个线程的生命周期： 多线程相关思维导图： Thread 方法：下表列出了Thread类的一些重要方法： 序号 方法描述 1 public void start() 使该线程开始执行；Java 虚拟机调用该线程的 run 方法。 2 public void run() 如果该线程是使用独立的 Runnable 运行对象构造的，则调用该 Runnable 对象的 run 方法；否则，该方法不执行任何操作并返回。 3 public final void setName(String name) 改变线程名称，使之与参数 name 相同。 4 public final void setPriority(int priority) 更改线程的优先级。 5 public final void setDaemon(boolean on) 将该线程标记为守护线程或用户线程。 6 public final void join(long millisec) 等待该线程终止的时间最长为 millis 毫秒。 7 public void interrupt() 中断线程。 8 public final boolean isAlive() 测试线程是否处于活动状态。]]></content>
       <categories>
         <category>Java</category>
       </categories>
