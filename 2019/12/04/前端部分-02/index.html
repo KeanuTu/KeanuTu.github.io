@@ -87,10 +87,13 @@
 <meta property="og:site_name" content="Oskrai&#39;s Blog">
 <meta property="og:description" content="引言网页和用户之间的交互，网页的动态效果。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-04T02:10:42.259Z">
+<meta property="og:image" content="https://i.loli.net/2019/06/03/5cf4fbd1b638422724.png">
+<meta property="og:image" content="https://tfwanan00f.github.io/2019/12/04/前端部分-02/DOM.png">
+<meta property="og:updated_time" content="2019-12-04T03:28:46.662Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript">
 <meta name="twitter:description" content="引言网页和用户之间的交互，网页的动态效果。">
+<meta name="twitter:image" content="https://i.loli.net/2019/06/03/5cf4fbd1b638422724.png">
 
 
 
@@ -383,7 +386,8 @@
       
         <h4 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h4><p><code>网页</code>和<code>用户</code>之间的交互，网页的动态效果。</p>
 <a id="more"></a>
-<h2 id="一、JavaScrip总结"><a href="#一、JavaScrip总结" class="headerlink" title="一、JavaScrip总结"></a>一、JavaScrip总结</h2><p>完整的JavaScript由<code>语言基础，BOM和DOM</code>组成。</p>
+<h2 id="一、JavaScrip总结"><a href="#一、JavaScrip总结" class="headerlink" title="一、JavaScrip总结"></a>一、JavaScrip总结</h2><p>[TOC]</p>
+<p>完整的JavaScript由<code>语言基础，BOM和DOM</code>组成。</p>
 <blockquote>
 <p>●ES语法：ECMAScript.主要版本ES5和ES6</p>
 <p>●DOM：文档对象模型（Document Object Model），是W3C组织推荐的处理可扩展标志语言的标准编程接口。</p>
@@ -684,10 +688,20 @@
 </tr>
 </tbody>
 </table>
-<h3 id="JS事件"><a href="#JS事件" class="headerlink" title="JS事件"></a>JS事件</h3><p><code>onclick</code> 当用户点击某个对象时调用的事件句柄。<br><strong><code>ondblclick</code> 当用户双击某个对象时调用的事件句柄。</strong></p>
-<p><strong><code>onfocus</code> 元素获得焦点。</strong><br><strong><code>onblur</code> 元素失去焦点。</strong> 应用场景：用于表单验证,用户离开某个输入框时,代表已经输入完了,我们可以对它进行验证.<br><strong><code>onchange</code> 域的内容被改变。</strong> 应用场景：通常用于表单元素,当元素内容被改变时触发.（select联动）</p>
-<p><code>onkeydown</code> 某个键盘按键被按下。 应用场景: 当用户在最后一个输入框按下回车按键时,表单提交.<br><code>onkeypress</code> 某个键盘按键被按下并松开。<br><code>onkeyup</code> 某个键盘按键被松开。<br><code>onload</code> 一张页面或一幅图像完成加载。<br><strong><code>onmousedown</code> 鼠标按钮被按下。</strong><br><strong><code>onmousemove</code> 鼠标被移动。</strong><br><strong><code>onmouseout</code> 鼠标从某元素移开。</strong><br><strong><code>onmouseover</code> 鼠标移到某元素之上。</strong></p>
-<p><code>onselect</code> 在文本框中的文本被选中时发生。<br><code>onsubmit</code> 确认按钮被点击，使用的对象是form。</p>
+<hr>
+<h3 id="3、DOM"><a href="#3、DOM" class="headerlink" title="3、DOM"></a>3、DOM</h3><p><code>DOM</code><strong><em>(Document Object Model)</em></strong>是一套对文档的内容进行抽象和概念化的方法。</p>
+<p>当网页被加载时，浏览器会创建页面的文档对象模型，HTML DOM模型被构造为对象的树。</p>
+<p><strong>HTML文档树</strong></p>
+<p><img src="https://i.loli.net/2019/06/03/5cf4fbd1b638422724.png" alt="文档树"></p>
+<p>DOM标准规定HTML文档中的<em>每个成分都是一个节点(node)</em>：</p>
+<ul>
+<li>文档节点(<strong>document对象</strong>)：代表整个文档</li>
+<li>元素节点(<strong>element 对象</strong>)：代表一个元素（标签）</li>
+<li>文本节点(<strong>text对象</strong>)：代表元素（标签）中的文本</li>
+<li>属性节点(<strong>attribute对象</strong>)：代表一个属性，元素（标签）才有属性</li>
+<li>注释是注释节点(comment对象)</li>
+</ul>
+<p><img src="DOM.png" alt="DOM"></p>
 
       
     </div>
@@ -921,7 +935,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#一、JavaScrip总结"><span class="nav-number"></span> <span class="nav-text">一、JavaScrip总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、语法"><span class="nav-number"></span> <span class="nav-text">1、语法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-引用方式"><span class="nav-number">1.</span> <span class="nav-text">1.1 引用方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-变量声明"><span class="nav-number">2.</span> <span class="nav-text">1.2 变量声明</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#变量名的定义"><span class="nav-number">2.1.</span> <span class="nav-text">变量名的定义</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-字符串操作"><span class="nav-number">3.</span> <span class="nav-text">1.3 字符串操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-数组操作"><span class="nav-number">4.</span> <span class="nav-text">1.4 数组操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-5-查看数据类型"><span class="nav-number">5.</span> <span class="nav-text">1.5 查看数据类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-6-内置对象和方法"><span class="nav-number">6.</span> <span class="nav-text">1.6 内置对象和方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-7-JavaScript自定义对象"><span class="nav-number">7.</span> <span class="nav-text">1.7 JavaScript自定义对象</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-7-1-通过new-Object创建对象"><span class="nav-number">7.1.</span> <span class="nav-text">1.7.1 通过new Object创建对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-7-2-通过function设计一个对象"><span class="nav-number">7.2.</span> <span class="nav-text">1.7.2 通过function设计一个对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-7-3-为已存在的对象，增加新的方法"><span class="nav-number">7.3.</span> <span class="nav-text">1.7.3 为已存在的对象，增加新的方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、BOM"><span class="nav-number"></span> <span class="nav-text">2、BOM</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-Window-窗口"><span class="nav-number">1.</span> <span class="nav-text">2.1 Window(窗口)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-Navigator-浏览器"><span class="nav-number">2.</span> <span class="nav-text">2.2 Navigator(浏览器)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-Screen-客户端屏幕"><span class="nav-number">3.</span> <span class="nav-text">2.3 Screen(客户端屏幕)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-History-访问历史"><span class="nav-number">4.</span> <span class="nav-text">2.4 History(访问历史)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-5-Location-浏览器地址"><span class="nav-number">5.</span> <span class="nav-text">2.5 Location(浏览器地址)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-6-弹出框"><span class="nav-number">6.</span> <span class="nav-text">2.6  弹出框</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-7-计时器"><span class="nav-number">7.</span> <span class="nav-text">2.7 计时器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JS事件"><span class="nav-number"></span> <span class="nav-text">JS事件</span></a></li></ol></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#一、JavaScrip总结"><span class="nav-number"></span> <span class="nav-text">一、JavaScrip总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、语法"><span class="nav-number"></span> <span class="nav-text">1、语法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-引用方式"><span class="nav-number">1.</span> <span class="nav-text">1.1 引用方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-变量声明"><span class="nav-number">2.</span> <span class="nav-text">1.2 变量声明</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#变量名的定义"><span class="nav-number">2.1.</span> <span class="nav-text">变量名的定义</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-字符串操作"><span class="nav-number">3.</span> <span class="nav-text">1.3 字符串操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-数组操作"><span class="nav-number">4.</span> <span class="nav-text">1.4 数组操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-5-查看数据类型"><span class="nav-number">5.</span> <span class="nav-text">1.5 查看数据类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-6-内置对象和方法"><span class="nav-number">6.</span> <span class="nav-text">1.6 内置对象和方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-7-JavaScript自定义对象"><span class="nav-number">7.</span> <span class="nav-text">1.7 JavaScript自定义对象</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-7-1-通过new-Object创建对象"><span class="nav-number">7.1.</span> <span class="nav-text">1.7.1 通过new Object创建对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-7-2-通过function设计一个对象"><span class="nav-number">7.2.</span> <span class="nav-text">1.7.2 通过function设计一个对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-7-3-为已存在的对象，增加新的方法"><span class="nav-number">7.3.</span> <span class="nav-text">1.7.3 为已存在的对象，增加新的方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、BOM"><span class="nav-number"></span> <span class="nav-text">2、BOM</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-Window-窗口"><span class="nav-number">1.</span> <span class="nav-text">2.1 Window(窗口)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-Navigator-浏览器"><span class="nav-number">2.</span> <span class="nav-text">2.2 Navigator(浏览器)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-Screen-客户端屏幕"><span class="nav-number">3.</span> <span class="nav-text">2.3 Screen(客户端屏幕)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-History-访问历史"><span class="nav-number">4.</span> <span class="nav-text">2.4 History(访问历史)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-5-Location-浏览器地址"><span class="nav-number">5.</span> <span class="nav-text">2.5 Location(浏览器地址)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-6-弹出框"><span class="nav-number">6.</span> <span class="nav-text">2.6  弹出框</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-7-计时器"><span class="nav-number">7.</span> <span class="nav-text">2.7 计时器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、DOM"><span class="nav-number"></span> <span class="nav-text">3、DOM</span></a></li></ol></li></div>
             
 
           </div>
