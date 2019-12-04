@@ -1,0 +1,1498 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="前端,JS,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="引言网页和用户之间的交互，网页的动态效果。">
+<meta name="keywords" content="前端,JS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript">
+<meta property="og:url" content="https://TFwanan00f.github.io/2019/12/04/前端部分-02/index.html">
+<meta property="og:site_name" content="Oskrai&#39;s Blog">
+<meta property="og:description" content="引言网页和用户之间的交互，网页的动态效果。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-12-04T02:10:42.259Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript">
+<meta name="twitter:description" content="引言网页和用户之间的交互，网页的动态效果。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://TFwanan00f.github.io/2019/12/04/前端部分-02/">
+
+
+
+
+
+  <title>JavaScript | Oskrai's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/click.js"></script>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+<a href="https://github.com/TFwanan00f" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Oskrai's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Stay Hungry!Stay Foolish!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://TFwanan00f.github.io/2019/12/04/前端部分-02/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="樊">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3249761993,448953672&fm=27&gp=0.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Oskrai's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JavaScript</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-04T09:52:15+08:00">
+                2019-12-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">本文总阅读数 <i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h4><p><code>网页</code>和<code>用户</code>之间的交互，网页的动态效果。</p>
+<a id="more"></a>
+<h2 id="一、JavaScrip总结"><a href="#一、JavaScrip总结" class="headerlink" title="一、JavaScrip总结"></a>一、JavaScrip总结</h2><p>完整的JavaScript由<code>语言基础，BOM和DOM</code>组成。</p>
+<blockquote>
+<p>●ES语法：ECMAScript.主要版本ES5和ES6</p>
+<p>●DOM：文档对象模型（Document Object Model），是W3C组织推荐的处理可扩展标志语言的标准编程接口。</p>
+<p>●BOM：浏览器对象模型（Browser Object Model），提供了独立于内容的、可以与浏览器窗口进行互动的对象结构；且由多个对象组成，其中代表浏览器窗口的Window对象是BOM的顶层对象，其他对象都是该对象的子对象。</p>
+</blockquote>
+<h3 id="1、语法"><a href="#1、语法" class="headerlink" title="1、语法"></a>1、语法</h3><h4 id="1-1-引用方式"><a href="#1-1-引用方式" class="headerlink" title="1.1 引用方式"></a>1.1 引用方式</h4><p>​    <strong>1) 行间式：存在于行间事件中</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;body id=<span class="string">"body"</span>onload=<span class="string">"body.style.backgroundColor='#Off'"</span>&gt;</span><br><span class="line">&lt;<span class="regexp">/body&gt;</span></span><br></pre></td></tr></table></figure>
+<p>​    <strong>2) 内联式：存在于页面Script标签中</strong> </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span> (<span class="params"></span>):</span></span><br><span class="line"><span class="function">    </span></span><br><span class="line"><span class="function">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>​    <strong>3) 外联式</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="1-2-变量声明"><a href="#1-2-变量声明" class="headerlink" title="1.2 变量声明"></a>1.2 变量声明</h4><blockquote>
+<h5 id="变量名的定义"><a href="#变量名的定义" class="headerlink" title="变量名的定义"></a>变量名的定义</h5><ol>
+<li>JavaScript的变量名可以使用_，数字，字母，$组成，不能以数字开头。</li>
+<li>声明变量使用 var 变量名; 的格式来进行声明</li>
+</ol>
+</blockquote>
+<p>注意：</p>
+<p>变量名是区分大小写的。</p>
+<p>推荐使用驼峰式命名规则。</p>
+<p>保留字不能用做<strong><em>变量名</em></strong>。</p>
+<p>补充：</p>
+<p><em>ES6新增const用来声明常量。一旦声明，其值就不能改变。</em></p>
+<p>ECMA6 中添加了新的关键字，可以命令局部作用域</p>
+<hr>
+<p> <code>JavaScript</code>不区分整型和浮点型，就只有一种数字类型 。还有一种<strong>NaN</strong>，表示不是一个数字<em>（Not a Number）</em>，NaN表示当前转换的对象不是一个数字，但是他是数值类型 </p>
+<hr>
+<h4 id="1-3-字符串操作"><a href="#1-3-字符串操作" class="headerlink" title="1.3 字符串操作"></a>1.3 字符串操作</h4><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>.length</strong></td>
+<td>返回长度</td>
+</tr>
+<tr>
+<td>.trim()</td>
+<td>移除空白</td>
+</tr>
+<tr>
+<td>.trimLeft()</td>
+<td>移除左边的空白</td>
+</tr>
+<tr>
+<td>.trimRight()</td>
+<td>移除右边的空白</td>
+</tr>
+<tr>
+<td>.charAt(n)</td>
+<td>返回第n个字符</td>
+</tr>
+<tr>
+<td><strong>.concat(value, …)</strong></td>
+<td>拼接（一般用+来进行字符串）</td>
+</tr>
+<tr>
+<td>.indexOf(substring, start)</td>
+<td>子序列位置</td>
+</tr>
+<tr>
+<td>.substring(from, to)</td>
+<td>根据索引获取子序列</td>
+</tr>
+<tr>
+<td><strong>.slice(start, end)</strong></td>
+<td>切片</td>
+</tr>
+<tr>
+<td>.toLowerCase()</td>
+<td>小写</td>
+</tr>
+<tr>
+<td>.toUpperCase()</td>
+<td>大写</td>
+</tr>
+<tr>
+<td><strong>.split(delimiter, limit)</strong></td>
+<td>分割</td>
+</tr>
+</tbody>
+</table>
+<p>slice和substring的特点：</p>
+<blockquote>
+<p> <strong>string.slice(start, stop)和string.substring(start, stop)：</strong> </p>
+<p> 两者的相同点：  </p>
+<p> 如果start等于end，返回空字符串 </p>
+<p> 如果stop参数省略，则取到字符串末 </p>
+<p> 如果某个参数超过string的长度，<strong>这个参数会被替换为string的长度</strong></p>
+<p> <strong>substirng()的特点：</strong> 如果 start &gt; stop ，start和stop将被交换 如果参数是负数或者不是数字，将会被0替换 </p>
+<p> <strong>silce()的特点：</strong> </p>
+<p> 如果 start &gt; stop 不会交换两者 </p>
+<p> 如果start小于0，则切割从字符串末尾往前数的第abs(start)个的字符开始(包括该位置的字符) </p>
+<p> 如果stop小于0，则切割在从字符串末尾往前数的第abs(stop)个字符结束(不包含该位置字符) </p>
+</blockquote>
+<p><strong>null和undefined区别：</strong></p>
+<ul>
+<li>null表示值是空，一般在需要指定或清空一个变量时才会使用，如 name=null;</li>
+<li>undefined表示当声明一个变量但未初始化时，该变量的默认值是undefined。还有就是函数无明确的返回值时，返回的也是undefined。</li>
+</ul>
+<p>null表示变量的值是空(null可以手动清空一个变量的值，使得该变量变为object类型，值为null)，undefined则表示只声明了变量，但还没有赋值</p>
+<p> <code>Number</code>转换为字符串的时候有<font color="lightGreen"><strong>默认模式</strong></font>和<font color="lightblue"><strong>基模式</strong></font>两种 </p>
+<blockquote>
+<p>//默认模式：十进制</p>
+<p>str.toString();</p>
+<p>//基模式：二进制，八进制和十六进制</p>
+<p>str.toString(2);        //8|16</p>
+</blockquote>
+<hr>
+<h4 id="1-4-数组操作"><a href="#1-4-数组操作" class="headerlink" title="1.4 数组操作"></a>1.4 数组操作</h4><p> 数组对象的作用是：使用单独的变量名来存储<strong>一系列</strong>的值。 </p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.length</td>
+<td>数组的大小</td>
+</tr>
+<tr>
+<td><strong>.push(ele)</strong></td>
+<td>尾部追加元素</td>
+</tr>
+<tr>
+<td><strong>.pop()</strong></td>
+<td>获取尾部的元素</td>
+</tr>
+<tr>
+<td>.unshift(ele)</td>
+<td>头部插入元素</td>
+</tr>
+<tr>
+<td>.shift()</td>
+<td>头部移除元素</td>
+</tr>
+<tr>
+<td>.slice(start, end)</td>
+<td>切片</td>
+</tr>
+<tr>
+<td>.reverse()</td>
+<td>反转</td>
+</tr>
+<tr>
+<td>.join(seq)</td>
+<td>将数组元素连接成字符串</td>
+</tr>
+<tr>
+<td>.concat(val, …)</td>
+<td>连接数组</td>
+</tr>
+<tr>
+<td><strong>.sort()</strong>0</td>
+<td>排序</td>
+</tr>
+<tr>
+<td><strong>.forEach()</strong></td>
+<td>将数组的每个元素传递给回调函数</td>
+</tr>
+<tr>
+<td>.splice()</td>
+<td>删除元素，并向数组添加新元素。</td>
+</tr>
+<tr>
+<td>.map()</td>
+<td>返回一个数组元素调用函数处理后的值的新数组</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="1-5-查看数据类型"><a href="#1-5-查看数据类型" class="headerlink" title="1.5 查看数据类型"></a>1.5 查看数据类型</h4><p>typeof是一个一元运算符（就像++，–，！，- 等一元运算符），不是一个函数，也不是一个语句。</p>
+<p>对变量或值调用 typeof 运算符将返回下列值之一：</p>
+<ul>
+<li>undefined - 如果变量是 Undefined 类型的</li>
+<li>boolean - 如果变量是 Boolean 类型的</li>
+<li>number - 如果变量是 Number 类型的</li>
+<li>string - 如果变量是 String 类型的</li>
+<li>object - 如果变量是一种引用类型或 Null 类型的</li>
+</ul>
+<p>:balance_scale:<strong>字符串转换为数字</strong>：内置函数parseInt()和parseFloat()，但是只会转换字符串中数字部分，出现非数字部分终止转换。</p>
+<p><code>Number()</code>和<code>parseInt()</code>的区别：Number()转换包含非数字时，会返回NaN。</p>
+<p>:gem:<strong>转换为Boolean</strong>：内置函数Boolean()</p>
+<blockquote>
+<p> 当转换字符串时：<br> <strong>非空即为true</strong><br> 当转换数字时：<br> <strong>非0即为true</strong><br> 当转换对象时：<br> <strong>非null即为true</strong> </p>
+</blockquote>
+<hr>
+<h4 id="1-6-内置对象和方法"><a href="#1-6-内置对象和方法" class="headerlink" title="1.6 内置对象和方法"></a>1.6 内置对象和方法</h4><p> <code>JavaScript</code>的对象（Object）本质上是键值对的集合<code>（Hash结构）</code>，但是只能用字符串作为键。 </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = &#123;<span class="string">"name"</span>: <span class="string">"MLXG"</span>, <span class="string">"age"</span>: <span class="number">18</span>&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(a.name);</span><br><span class="line"><span class="built_in">console</span>.log(a[<span class="string">"age"</span>]);</span><br><span class="line">&gt;&gt;&gt;‘MLXG’</span><br><span class="line">&gt;&gt;&gt;<span class="number">18</span></span><br><span class="line"><span class="keyword">var</span> a = &#123;<span class="string">"name"</span>: <span class="string">"UZI"</span>, <span class="string">"age"</span>: <span class="number">18</span>&#125;;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> a)&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(i, a[i]);</span><br><span class="line">&#125;</span><br><span class="line">&gt;&gt;&gt;name uzi</span><br><span class="line">&gt;&gt;&gt;age <span class="number">18</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong><em>Date对象</em></strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//方法1：不指定参数</span></span><br><span class="line"><span class="keyword">var</span> d1 = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="built_in">console</span>.log(d1.toLocaleString());</span><br><span class="line"><span class="comment">//方法2：参数为日期字符串</span></span><br><span class="line"><span class="keyword">var</span> d2 = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">"2004/3/20 11:12"</span>);</span><br><span class="line"><span class="built_in">console</span>.log(d2.toLocaleString());</span><br><span class="line"><span class="keyword">var</span> d3 = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">"04/03/20 11:12"</span>);</span><br><span class="line"><span class="built_in">console</span>.log(d3.toLocaleString());</span><br><span class="line"><span class="comment">//方法3：参数为毫秒数</span></span><br><span class="line"><span class="keyword">var</span> d3 = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">5000</span>);</span><br><span class="line"><span class="built_in">console</span>.log(d3.toLocaleString());</span><br><span class="line"><span class="built_in">console</span>.log(d3.toUTCString());</span><br><span class="line"></span><br><span class="line"><span class="comment">//方法4：参数为年月日小时分钟秒毫秒</span></span><br><span class="line"><span class="keyword">var</span> d4 = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">2004</span>,<span class="number">2</span>,<span class="number">20</span>,<span class="number">11</span>,<span class="number">12</span>,<span class="number">0</span>,<span class="number">300</span>);</span><br><span class="line"><span class="built_in">console</span>.log(d4.toLocaleString());  <span class="comment">//毫秒并不直接显示</span></span><br></pre></td></tr></table></figure>
+<p>Date对象的方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>(); </span><br><span class="line"><span class="comment">//getDate()                 获取日</span></span><br><span class="line"><span class="comment">//getDay ()                 获取星期</span></span><br><span class="line"><span class="comment">//getMonth ()               获取月（0-11）</span></span><br><span class="line"><span class="comment">//getFullYear ()            获取完整年份</span></span><br><span class="line"><span class="comment">//getYear ()                获取年</span></span><br><span class="line"><span class="comment">//getHours ()               获取小时</span></span><br><span class="line"><span class="comment">//getMinutes ()             获取分钟</span></span><br><span class="line"><span class="comment">//getSeconds ()             获取秒</span></span><br><span class="line"><span class="comment">//getMilliseconds ()        获取毫秒</span></span><br><span class="line"><span class="comment">//getTime ()                返回累计毫秒数</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong><em>JSON对象</em></strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str1 = <span class="string">'&#123;"name": "Faker","age":18&#125;'</span>;</span><br><span class="line"><span class="keyword">var</span> obj1 = &#123;<span class="string">"name"</span>: <span class="string">"Faker"</span>,<span class="string">"age"</span>:<span class="number">18</span>&#125;;</span><br><span class="line"><span class="comment">//JSON字符串转换成对象</span></span><br><span class="line"><span class="keyword">var</span> obj = <span class="built_in">JSON</span>.parse(str1);		<span class="comment">//loads</span></span><br><span class="line"><span class="comment">//对象转换成JSON字符串</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="built_in">JSON</span>.stringify(obj1);	<span class="comment">//dumps</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong><em>正则表达式</em></strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义正则表达式两种方式</span></span><br><span class="line"><span class="keyword">var</span> reg1 = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"^[a-zA-Z]&#123;5,11&#125;"</span>);</span><br><span class="line"><span class="keyword">var</span> reg2 = <span class="regexp">/^[a-zA-Z]&#123;5,11&#125;$/</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//正则校验数据</span></span><br><span class="line">reg1.test(<span class="string">'tjjs13'</span>);</span><br><span class="line">reg2.test(<span class="string">'thyd32'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/*第一个注意事项，正则表达式中不能有空格*/</span> </span><br><span class="line"></span><br><span class="line"><span class="comment">// 全局匹配</span></span><br><span class="line"><span class="keyword">var</span> s1 = <span class="string">'egondsb dsb dsb'</span>;</span><br><span class="line">s1.match(<span class="regexp">/s/</span>)</span><br><span class="line">s1.match(<span class="regexp">/s/g</span>)</span><br><span class="line"><span class="keyword">var</span> reg2 = <span class="regexp">/^[a-zA-Z][a-zA-Z0-9]&#123;5,9&#125;$/g</span></span><br><span class="line">reg2.test(<span class="string">'egondsb'</span>);</span><br><span class="line">reg2.test(<span class="string">'egondsb'</span>);</span><br><span class="line">reg2.lastIndex;</span><br><span class="line"><span class="comment">/*第二个注意事项，全局匹配时有一个lastIndex属性*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 校验时不传参数,默认匹配undefined</span></span><br><span class="line"><span class="keyword">var</span> reg2 = <span class="regexp">/^[a-zA-Z][a-zA-Z0-9]&#123;5,9&#125;$/</span></span><br><span class="line">reg2.test();</span><br><span class="line">reg2.test(<span class="literal">undefined</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> reg3 = <span class="regexp">/undefined/</span>;</span><br><span class="line">reg3.test();</span><br><span class="line"></span><br><span class="line"><span class="built_in">RegExp</span></span><br></pre></td></tr></table></figure>
+<p>:jack_o_lantern::jack_o_lantern::jack_o_lantern:</p>
+<hr>
+<h4 id="1-7-JavaScript自定义对象"><a href="#1-7-JavaScript自定义对象" class="headerlink" title="1.7 JavaScript自定义对象"></a>1.7 JavaScript自定义对象</h4><h5 id="1-7-1-通过new-Object创建对象"><a href="#1-7-1-通过new-Object创建对象" class="headerlink" title="1.7.1 通过new Object创建对象"></a>1.7.1 通过new Object创建对象</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">var</span> hero = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">hero.name = <span class="string">"盖伦"</span>; <span class="comment">//定义一个属性name，并且赋值</span></span><br><span class="line">hero.kill = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">document</span>.write(hero.name + <span class="string">" 正在杀敌"</span> ); <span class="comment">//定义一个函数kill</span></span><br><span class="line">&#125;</span><br><span class="line">hero.kill(); <span class="comment">//调用函数kill</span></span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="1-7-2-通过function设计一个对象"><a href="#1-7-2-通过function设计一个对象" class="headerlink" title="1.7.2 通过function设计一个对象"></a>1.7.2 通过function设计一个对象</h5><p> 通过new Object创建对象有个问题，就是每创建一个对象，都得重新定义属性和函数 。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Hero</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = name;</span><br><span class="line">  <span class="keyword">this</span>.kill = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">     <span class="built_in">document</span>.write(<span class="keyword">this</span>.name + <span class="string">"正在杀敌&lt;br&gt;"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> gareen = <span class="keyword">new</span> Hero(<span class="string">"盖伦"</span>);</span><br><span class="line">gareen.kill();</span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> teemo = <span class="keyword">new</span> Hero(<span class="string">"提莫"</span>);</span><br><span class="line">teemo.kill();</span><br><span class="line">  </span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="1-7-3-为已存在的对象，增加新的方法"><a href="#1-7-3-为已存在的对象，增加新的方法" class="headerlink" title="1.7.3 为已存在的对象，增加新的方法"></a><strong>1.7.3 为已存在的对象，增加新的方法</strong></h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">Hero.prototype.keng = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">document</span>.write(<span class="keyword">this</span>.name + <span class="string">"正在坑队友&lt;br&gt;"</span>);</span><br><span class="line">&#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="2、BOM"><a href="#2、BOM" class="headerlink" title="2、BOM"></a>2、BOM</h3><p><code>BOM</code>即浏览器对象模型<strong>（Browser Object Model）</strong></p>
+<p>浏览器对象包括：</p>
+<h4 id="2-1-Window-窗口"><a href="#2-1-Window-窗口" class="headerlink" title="2.1 Window(窗口)"></a>2.1 Window(窗口)</h4><p> 所有浏览器都支持 window 对象。它表示浏览器窗口。</p>
+<p> <em>如果文档包含框架（frame 或 iframe 标签），浏览器会为 HTML 文档创建一个 window 对象，并为每个框架创建一个额外的 window 对象。</em> </p>
+<blockquote>
+<p>所有 JavaScript 全局对象、函数以及变量均自动成为 window 对象的成员。</p>
+<p>全局变量是 window 对象的属性。全局函数是window对象的方法</p>
+</blockquote>
+<ul>
+<li>window.innerHeight - 浏览器窗口的内部高度</li>
+<li>window.innerWidth - 浏览器窗口的内部宽度</li>
+<li>window.open() - 打开新窗口</li>
+<li>window.close() - 关闭当前窗口</li>
+</ul>
+<hr>
+<h4 id="2-2-Navigator-浏览器"><a href="#2-2-Navigator-浏览器" class="headerlink" title="2.2 Navigator(浏览器)"></a>2.2 Navigator(浏览器)</h4><p> 浏览器对象，通过这个对象可以判定用户所使用的浏览器，包含了浏览器相关信息。 </p>
+<blockquote>
+<p> navigator.appName　　// Web浏览器全称 navigator.appVersion　　// Web浏览器厂商和版本的详细字符串 navigator.userAgent　　// 客户端绝大部分信息 navigator.platform　　　// 浏览器运行所在的操作</p>
+</blockquote>
+<hr>
+<h4 id="2-3-Screen-客户端屏幕"><a href="#2-3-Screen-客户端屏幕" class="headerlink" title="2.3 Screen(客户端屏幕)"></a>2.3 Screen(客户端屏幕)</h4><p> screen对象表示用户的屏幕相关信息</p>
+<blockquote>
+<p>screen.width;            //用户的屏幕分辨率 </p>
+<p>screen.availWidth;    //可用区域大小    </p>
+</blockquote>
+<hr>
+<h4 id="2-4-History-访问历史"><a href="#2-4-History-访问历史" class="headerlink" title="2.4 History(访问历史)"></a>2.4 History(访问历史)</h4><p> history用于记录访问历史 </p>
+<blockquote>
+<p>history.forward()  // 前进一页 </p>
+<p>history.back()  // 后退一页 </p>
+<p>history.go(-2)    //上上一页</p>
+</blockquote>
+<hr>
+<h4 id="2-5-Location-浏览器地址"><a href="#2-5-Location-浏览器地址" class="headerlink" title="2.5 Location(浏览器地址)"></a>2.5 Location(浏览器地址)</h4><p> window.location 对象用于获得当前页面的地址 (URL)，并把浏览器重定向到新的页面。 </p>
+<blockquote>
+<p>location.href  获取URL </p>
+<p>location.href=”URL” // 跳转到指定页面</p>
+<p>location.reload() 重新加载页面 </p>
+</blockquote>
+<p>:seat::seat::seat::seat::seat:</p>
+<h4 id="2-6-弹出框"><a href="#2-6-弹出框" class="headerlink" title="2.6  弹出框"></a>2.6  弹出框</h4><p> 浏览器上常见的弹出框有警告框，确认框，提示框 这些都是通过调用window的方法实现的。 </p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">关键字</th>
+<th style="text-align:center">简介</th>
+<th style="text-align:center">用法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">alert</td>
+<td style="text-align:center">警告框</td>
+<td style="text-align:center">常用于消息提示，比如注册成功等等</td>
+</tr>
+<tr>
+<td style="text-align:center">confirm</td>
+<td style="text-align:center">确认框</td>
+<td style="text-align:center">常用于危险性操作的确认提示。 比如删除一条记录的时候，弹出确认框</td>
+</tr>
+</tbody>
+</table>
+<h4 id="2-7-计时器"><a href="#2-7-计时器" class="headerlink" title="2.7 计时器"></a>2.7 计时器</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">关键字</th>
+<th style="text-align:left">简介</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">setTimeout</td>
+<td style="text-align:left">只执行一次</td>
+</tr>
+<tr>
+<td style="text-align:left">setInterval</td>
+<td style="text-align:left">不停地重复执行函数s，etInterval(函数名, 重复执行的时间间隔毫秒数 );</td>
+</tr>
+<tr>
+<td style="text-align:left">clearInterval</td>
+<td style="text-align:left">终止重复执行</td>
+</tr>
+<tr>
+<td style="text-align:left">document.write()</td>
+<td style="text-align:left">不要在setInterval调用的函数中使用document.write();</td>
+</tr>
+</tbody>
+</table>
+<h3 id="JS事件"><a href="#JS事件" class="headerlink" title="JS事件"></a>JS事件</h3><p><code>onclick</code> 当用户点击某个对象时调用的事件句柄。<br><strong><code>ondblclick</code> 当用户双击某个对象时调用的事件句柄。</strong></p>
+<p><strong><code>onfocus</code> 元素获得焦点。</strong><br><strong><code>onblur</code> 元素失去焦点。</strong> 应用场景：用于表单验证,用户离开某个输入框时,代表已经输入完了,我们可以对它进行验证.<br><strong><code>onchange</code> 域的内容被改变。</strong> 应用场景：通常用于表单元素,当元素内容被改变时触发.（select联动）</p>
+<p><code>onkeydown</code> 某个键盘按键被按下。 应用场景: 当用户在最后一个输入框按下回车按键时,表单提交.<br><code>onkeypress</code> 某个键盘按键被按下并松开。<br><code>onkeyup</code> 某个键盘按键被松开。<br><code>onload</code> 一张页面或一幅图像完成加载。<br><strong><code>onmousedown</code> 鼠标按钮被按下。</strong><br><strong><code>onmousemove</code> 鼠标被移动。</strong><br><strong><code>onmouseout</code> 鼠标从某元素移开。</strong><br><strong><code>onmouseover</code> 鼠标移到某元素之上。</strong></p>
+<p><code>onselect</code> 在文本框中的文本被选中时发生。<br><code>onsubmit</code> 确认按钮被点击，使用的对象是form。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    樊
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://TFwanan00f.github.io/2019/12/04/前端部分-02/" title="JavaScript">https://TFwanan00f.github.io/2019/12/04/前端部分-02/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank"><a herf="https://Oskari.club">樊小太爷的blog</a></a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端/" rel="tag"><i class="fab fa-affiliatetheme"></i>前端</a>
+          
+            <a href="/tags/JS/" rel="tag"><i class="fab fa-affiliatetheme"></i>JS</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/12/02/前端总结/" rel="next" title="前端总结">
+                <i class="fa fa-chevron-left"></i> 前端总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NDkzNi8yMTQ1OA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3249761993,448953672&fm=27&gp=0.jpg" alt="樊">
+            
+              <p class="site-author-name" itemprop="name">樊</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/TFwanan00f" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#一、JavaScrip总结"><span class="nav-number"></span> <span class="nav-text">一、JavaScrip总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、语法"><span class="nav-number"></span> <span class="nav-text">1、语法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-引用方式"><span class="nav-number">1.</span> <span class="nav-text">1.1 引用方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-变量声明"><span class="nav-number">2.</span> <span class="nav-text">1.2 变量声明</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#变量名的定义"><span class="nav-number">2.1.</span> <span class="nav-text">变量名的定义</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-字符串操作"><span class="nav-number">3.</span> <span class="nav-text">1.3 字符串操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-数组操作"><span class="nav-number">4.</span> <span class="nav-text">1.4 数组操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-5-查看数据类型"><span class="nav-number">5.</span> <span class="nav-text">1.5 查看数据类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-6-内置对象和方法"><span class="nav-number">6.</span> <span class="nav-text">1.6 内置对象和方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-7-JavaScript自定义对象"><span class="nav-number">7.</span> <span class="nav-text">1.7 JavaScript自定义对象</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-7-1-通过new-Object创建对象"><span class="nav-number">7.1.</span> <span class="nav-text">1.7.1 通过new Object创建对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-7-2-通过function设计一个对象"><span class="nav-number">7.2.</span> <span class="nav-text">1.7.2 通过function设计一个对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-7-3-为已存在的对象，增加新的方法"><span class="nav-number">7.3.</span> <span class="nav-text">1.7.3 为已存在的对象，增加新的方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、BOM"><span class="nav-number"></span> <span class="nav-text">2、BOM</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-Window-窗口"><span class="nav-number">1.</span> <span class="nav-text">2.1 Window(窗口)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-Navigator-浏览器"><span class="nav-number">2.</span> <span class="nav-text">2.2 Navigator(浏览器)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-Screen-客户端屏幕"><span class="nav-number">3.</span> <span class="nav-text">2.3 Screen(客户端屏幕)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-History-访问历史"><span class="nav-number">4.</span> <span class="nav-text">2.4 History(访问历史)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-5-Location-浏览器地址"><span class="nav-number">5.</span> <span class="nav-text">2.5 Location(浏览器地址)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-6-弹出框"><span class="nav-number">6.</span> <span class="nav-text">2.6  弹出框</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-7-计时器"><span class="nav-number">7.</span> <span class="nav-text">2.7 计时器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JS事件"><span class="nav-number"></span> <span class="nav-text">JS事件</span></a></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">樊</span>
+
+  
+</div>
+
+<!--
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+-->
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      本站访问数 <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      本站总访问数 <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false});</script></body>
+</html>
