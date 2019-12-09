@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="前端,JQuery,Ajax,JSON,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="JSON、Ajax和Jquery相关知识总结；">
+<meta name="keywords" content="前端,JQuery,Ajax,JSON">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端框架">
+<meta property="og:url" content="https://TFwanan00f.github.io/2019/12/04/前端框架/index.html">
+<meta property="og:site_name" content="Oskrai&#39;s Blog">
+<meta property="og:description" content="JSON、Ajax和Jquery相关知识总结；">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://tfwanan00f.github.io/2019/12/04/前端框架/JQuery.png">
+<meta property="og:image" content="https://tfwanan00f.github.io/2019/12/04/前端框架/base_Selector.png">
+<meta property="og:image" content="https://tfwanan00f.github.io/2019/12/04/前端框架/class_Selector.png">
+<meta property="og:image" content="https://tfwanan00f.github.io/2019/12/04/前端框架/filter.png">
+<meta property="og:image" content="https://tfwanan00f.github.io/2019/12/04/前端框架/Atrr_Selector.png">
+<meta property="og:image" content="https://tfwanan00f.github.io/2019/12/04/前端框架/Chose_Selector.png">
+<meta property="og:updated_time" content="2019-12-09T12:24:58.223Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端框架">
+<meta name="twitter:description" content="JSON、Ajax和Jquery相关知识总结；">
+<meta name="twitter:image" content="https://tfwanan00f.github.io/2019/12/04/前端框架/JQuery.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://TFwanan00f.github.io/2019/12/04/前端框架/">
+
+
+
+
+
+  <title>前端框架 | Oskrai's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/click.js"></script>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+<a href="https://github.com/TFwanan00f" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Oskrai's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Stay Hungry!Stay Foolish!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://TFwanan00f.github.io/2019/12/04/前端框架/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="樊">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3249761993,448953672&fm=27&gp=0.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Oskrai's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">前端框架</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-04T14:23:49+08:00">
+                2019-12-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端框架/" itemprop="url" rel="index">
+                    <span itemprop="name">前端框架</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">本文总阅读数 <i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong><code>JSON</code>、<code>Ajax</code>和<code>Jquery</code>相关知识总结；</strong></p>
+<a id="more"></a>
+<h2 id="1、JSON"><a href="#1、JSON" class="headerlink" title="1、JSON"></a>1、JSON</h2><p>JavaScript对象表示方法（ <strong>J</strong>ava<strong>S</strong>cript <strong>O</strong>bject <strong>N</strong>otation ）是一种存储数据的方式。</p>
+<p> JSON对象由 <strong>名称/值对</strong>组成 名称和值之间用<em>冒号:隔开</em>，名称必须用<strong>双引号”</strong> 包含起来<br>值可以是任意<code>Javascript</code>数据类型，字符串，布尔，数字 ，数组甚至是对象<br>不同的<strong>名称/值对</strong>之间用 逗号 <strong>,</strong> 隔开 </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">	<span class="keyword">var</span> stu = [						<span class="comment">//创建JSON对象</span></span><br><span class="line">        &#123;<span class="string">"name"</span>:<span class="string">"张三"</span>, <span class="string">"age"</span>:<span class="string">"12"</span>&#125;,	</span><br><span class="line">        &#123;<span class="string">"name"</span>:<span class="string">"李四"</span>, <span class="string">"age"</span>:<span class="string">"12"</span>&#125;,</span><br><span class="line">        &#123;<span class="string">"name"</span>:<span class="string">"王五"</span>, <span class="string">"age"</span>:<span class="string">"12"</span>&#125;</span><br><span class="line">        ]</span><br><span class="line">	stu[<span class="number">2</span>].name;			<span class="comment">//访问JSON数组对象-&gt;王五</span></span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>JSON</strong>格式字符串转为<strong>JSON</strong>对象：<code>eval(&quot;(&quot;+str+&quot;)&quot;);</code></p>
+<p>JSON对象转换为字符串：<code>JSON.stringify(JsonObj);</code></p>
+<hr>
+<h2 id="2、AJAX"><a href="#2、AJAX" class="headerlink" title="2、AJAX"></a>2、AJAX</h2><p> 通过AJAX (<strong>A</strong>synchronous <strong>J</strong>avaScript <strong>A</strong>nd <strong>X</strong>ML) 实现异步刷新 </p>
+<p> AJAX 最大的优点是在不重新加载整个页面的情况下，可以与服务器交换数据并更新部分网页内容。 </p>
+<p><strong><em>AJAX使用步骤：</em></strong></p>
+<blockquote>
+<p><strong>1）创建对象       var xhr = new XMLHttpRequest()</strong></p>
+<p><strong>2）配置对象        xhr.open( 参数一，参数二 , 参数三 )</strong>   </p>
+<p>​                          <strong>a、参数一：请求方式（GET|POST）</strong>  </p>
+<p>​                         <strong>b、参数二：地址（url 文件在服务器上的位置 ）</strong></p>
+<p>​                          <strong>c、参数三：是否为异步（true|false）—–默认为true</strong></p>
+<p> <strong>3）发送请求         xhr.send( )</strong></p>
+<p><strong>4）监听请求回调</strong>     </p>
+<p>​           <strong>事件 :</strong>  </p>
+<p>​             <strong>(1)xhr.onreadystatechange = function( ){ }</strong></p>
+<p>​             <strong>(2)xhr.onload = function( ){ }</strong></p>
+<p>​             <strong>(3)xhr.onprogress = function( ){ }</strong></p>
+<p><strong>5) 处理响应消息</strong></p>
+<p>​    <strong>服务器响应字符串和XML形式的–&gt;responseText/responseXML</strong></p>
+</blockquote>
+<font color="red">注：onreadystatechange事件</font>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:left">属性</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">onreadystatechange</td>
+<td style="text-align:left">存储函数（或函数名），每当 readyState 属性改变时，就会调用该函数。</td>
+</tr>
+<tr>
+<td style="text-align:left">readyState</td>
+<td style="text-align:left">存有 XMLHttpRequest 的状态。从 0 到 4 发生变化。<br>0: 请求未初始化<br>1: 服务器连接已建立<br>2: 请求已接收<br>3: 请求处理中<br>4: 请求已完成，且响应已就绪</td>
+</tr>
+<tr>
+<td style="text-align:left">status</td>
+<td style="text-align:left">200: “OK” 404: 未找到页面</td>
+</tr>
+</tbody>
+</table>
+<p><strong>AJAX实例：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getInfo</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">var</span> xmlhttp;</span><br><span class="line">	<span class="keyword">if</span> (<span class="built_in">window</span>.XMLHttpRequest)&#123;</span><br><span class="line">            <span class="comment">// IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码</span></span><br><span class="line">		xmlhttp=<span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;	<span class="comment">// IE6, IE5 浏览器执行代码</span></span><br><span class="line">	    xmlhttp=<span class="keyword">new</span> ActiveXObject(<span class="string">"Microsoft.XMLHTTP"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	xmlhttp.onreadystatechange=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	    <span class="keyword">if</span> (xmlhttp.readyState==<span class="number">4</span> &amp;&amp; xmlhttp.status==<span class="number">200</span>)&#123;</span><br><span class="line">                 <span class="keyword">var</span> str = xmlhttp.responseText;</span><br><span class="line">                 alert(str);</span><br><span class="line">	    &#125;</span><br><span class="line">	&#125;</span><br><span class="line">	xmlhttp.open(<span class="string">"GET"</span>,<span class="string">"/url"</span>,<span class="literal">true</span>);</span><br><span class="line">	xmlhttp.send();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>ajax的目标：<strong>无刷新加载页面</strong></p>
+<p>​     1）发送请求  </p>
+<p>​     2）服务器返回内容有两种：</p>
+<p>​         （a）html页面  </p>
+<p>​         （b）数据（在页面内发送的请求服务器当场返回的是数据）（ json ）</p>
+<p><strong>在浏览器地址栏输入url按下Enter键后会发生什么？</strong><font color="red">（面试题）</font><br>       1）域名解析 —–把域名解析成ip地址 （DNS域名解析系统）</p>
+<p>​       2）把ip地址发送到网络供应端，去找相对应的主机服务器</p>
+<p>​       3）TCP的三次握手，简历连接</p>
+<p>​       4）开始发送请求，取回入口文件</p>
+<p>​       5）开始解析入口文件，并取回需要的资源</p>
+<p>​       6）进行后续操作</p>
+<hr>
+<h2 id="3、JQuery"><a href="#3、JQuery" class="headerlink" title="3、JQuery"></a>3、JQuery</h2><p> JQuery是一个<code>Javascript</code>的框架，是对<code>Javascript</code>的一种封装。 </p>
+<p>详细知识参考链接：[JQuery笔记详细版]: <a href="https://blog.csdn.net/qq_37957971/article/details/82812002" target="_blank" rel="noopener">https://blog.csdn.net/qq_37957971/article/details/82812002</a> </p>
+<p>使用JQuery需要导入一个第三方 Javascript库 <a href="jquery.min.js">jquery.min.js </a>(点击下载)</p>
+<p>以下是jQuery的相关信息：</p>
+<ul>
+<li>官网：<a href="http://jquery.com/" target="_blank" rel="noopener">http://jquery.com/</a></li>
+<li>官网API文档：<a href="http://api.jquery.com/" target="_blank" rel="noopener">http://api.jquery.com/</a></li>
+<li>中文汉化API文档：<a href="http://www.css88.com/jqapi-1.9/" target="_blank" rel="noopener">http://www.css88.com/jqapi-1.9/</a></li>
+</ul>
+<p><strong>JQuery的两大特点：</strong></p>
+<p> （1）<strong>链式编程</strong>：比如<code>.show()</code>和<code>.html()</code>可以连写成<code>.show().html()</code>。 </p>
+<p> （2）<strong>隐式迭代</strong>：隐式 对应的是 显式。隐式迭代的意思是：在方法的内部会为匹配到的所有元素进行循环遍历，执行相应的方法；而不用我们再进行循环，简化我们的操作，方便我们调用。 </p>
+<p>使用<code>JQuery</code>的步骤：</p>
+<p><img src="JQuery.png" alt="JQuery使用"></p>
+<hr>
+<h5 id="3-1-入口函数（重点）"><a href="#3-1-入口函数（重点）" class="headerlink" title="3.1 入口函数（重点）"></a>3.1 入口函数（重点）</h5><p>原生<code>JS</code>的入口函数指的是:<code>window.onload = function(){};</code>如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">//原生 js 的入口函数。页面上所有内容加载完毕，才执行。</span></span><br><span class="line"> <span class="comment">//不仅要等文本加载完毕，而且要等图片也要加载完毕，才执行函数。</span></span><br><span class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>JQuery的入口函数，写法：</p>
+<p>写法一：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.文档加载完毕，图片不加载的时候，就可以执行这个函数。</span></span><br><span class="line">     $(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">         alert(<span class="number">1</span>);</span><br><span class="line">     &#125;)</span><br></pre></td></tr></table></figure>
+<p>写法二：（写法一的简洁版）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//2.文档加载完毕，图片不加载的时候，就可以执行这个函数。</span></span><br><span class="line">$(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="number">1</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>写法三：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//3.文档加载完毕，图片也加载完毕的时候，在执行这个函数。</span></span><br><span class="line">$(<span class="built_in">window</span>).ready(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="number">1</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<font color="red">注：$ == JQuery，$表示函数</font>
+
+<h5 id="3-2-js中的DOM对象-和-jQuery对象-比较（重点，难点）"><a href="#3-2-js中的DOM对象-和-jQuery对象-比较（重点，难点）" class="headerlink" title="3.2 js中的DOM对象 和 jQuery对象 比较（重点，难点）"></a>3.2 js中的DOM对象 和 jQuery对象 比较（重点，难点）</h5><h5 id="二者的区别"><a href="#二者的区别" class="headerlink" title="二者的区别"></a>二者的区别</h5><p>通过 jQuery 获取的元素是一个<strong>数组</strong>，数组中包含着原生JS中的DOM对象。举例：</p>
+<p>针对下面这样一个div结构：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"box"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>通过原生 js 获取这些元素节点的方式是：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myBox = <span class="built_in">document</span>.getElementById(<span class="string">"box"</span>);           <span class="comment">//通过 id 获取单个元素</span></span><br><span class="line"><span class="keyword">var</span> boxArr = <span class="built_in">document</span>.getElementsByClassName(<span class="string">"box"</span>);  <span class="comment">//通过 class 获取的是数组</span></span><br><span class="line"><span class="keyword">var</span> divArr = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"div"</span>);    <span class="comment">//通过标签获取的是数组</span></span><br></pre></td></tr></table></figure>
+<p>通过 jQuery 获取这些元素节点的方式是：<strong>（获取的都是数组）</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取的是数组，里面包含着原生 JS 中的DOM对象。</span></span><br><span class="line"><span class="keyword">var</span> jqBox1 = $(<span class="string">"#box"</span>);</span><br><span class="line"><span class="keyword">var</span> jqBox2 = $(<span class="string">".box"</span>);</span><br><span class="line"><span class="keyword">var</span> jqBox3 = $(<span class="string">"div"</span>);</span><br></pre></td></tr></table></figure>
+<p><em>两者互相转换：</em></p>
+<p>1、DOM对象转为JQuery对象</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(JS对象)</span><br></pre></td></tr></table></figure>
+<p>2、JQuery对象转为DOM对象</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">JQuery对象[index];	<span class="comment">//方法一，推荐</span></span><br><span class="line">JQuery对象.get(index);<span class="comment">//方法二</span></span><br></pre></td></tr></table></figure>
+<p>+++</p>
+<h5 id="3-3-JQuery选择器"><a href="#3-3-JQuery选择器" class="headerlink" title="3.3 JQuery选择器"></a>3.3 JQuery选择器</h5><h6 id="1、JQuery基本选择器"><a href="#1、JQuery基本选择器" class="headerlink" title="1、JQuery基本选择器"></a>1、JQuery基本选择器</h6><p><img src="base_Selector.png" alt="基本选择器"></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span><br><span class="line">    &lt;meta http-equiv=<span class="string">"X-UA-Compatible"</span> content=<span class="string">"ie=edge"</span>&gt;</span><br><span class="line">    &lt;title&gt;基本选择器&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">    &lt;script src="jquery.min.js"&gt;&lt;/</span>script&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        <span class="comment">//入口函数</span></span><br><span class="line">        $(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="comment">//以三种方式获取jquery对象</span></span><br><span class="line">            <span class="keyword">var</span> jqBox1 = $(<span class="string">"#box"</span>);</span><br><span class="line">            <span class="keyword">var</span> jqBox2 = $(<span class="string">".box"</span>);</span><br><span class="line">            <span class="keyword">var</span> jqBox3 = $(<span class="string">"div"</span>)</span><br><span class="line"></span><br><span class="line">            <span class="comment">//操作标签选择器</span></span><br><span class="line">            jqBox3.css(<span class="string">"width"</span>,<span class="number">100</span>);</span><br><span class="line">            jqBox3.css(<span class="string">"height"</span>,<span class="number">100</span>);</span><br><span class="line">            jqBox3.css(<span class="string">"backgroundColor"</span>,<span class="string">"pink"</span>);</span><br><span class="line"></span><br><span class="line">             <span class="comment">//操作类选择器(隐式迭代，不用一个一个设置)</span></span><br><span class="line">             jqBox2.css(<span class="string">"background"</span>, <span class="string">"red"</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//操作id选择器</span></span><br><span class="line">            jqBox1.css(<span class="string">"background"</span>, <span class="string">"yellow"</span>);</span><br><span class="line">        &#125;)</span><br><span class="line">    &lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div&gt;<span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"box"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    &lt;div id=<span class="string">"box"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"box"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    &lt;div&gt;<span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;<span class="regexp">/body&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>html&gt;</span><br></pre></td></tr></table></figure>
+<h6 id="2、层级选择器"><a href="#2、层级选择器" class="headerlink" title="2、层级选择器"></a>2、层级选择器</h6><p><img src="class_Selector.png" alt="层级选择器"></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head lang=<span class="string">"en"</span>&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;title&gt;<span class="xml"><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span></span><br><span class="line">    &lt;script src=<span class="string">"jquery-1.11.1.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        $(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="comment">//获取ul中的li设置为粉色</span></span><br><span class="line">            <span class="comment">//后代：儿孙重孙曾孙玄孙....</span></span><br><span class="line">            <span class="keyword">var</span> jqLi = $(<span class="string">"ul li"</span>);</span><br><span class="line">            jqLi.css(<span class="string">"margin"</span>, <span class="number">5</span>);</span><br><span class="line">            jqLi.css(<span class="string">"background"</span>, <span class="string">"pink"</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//子代：亲儿子</span></span><br><span class="line">            <span class="keyword">var</span> jqOtherLi = $(<span class="string">"ul&gt;li"</span>);</span><br><span class="line">            jqOtherLi.css(<span class="string">"background"</span>, <span class="string">"red"</span>);</span><br><span class="line">        &#125;);</span><br><span class="line">    &lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;ul&gt;</span><br><span class="line">    &lt;li&gt;<span class="number">111</span>&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">    &lt;li&gt;222&lt;/</span>li&gt;</span><br><span class="line">    &lt;li&gt;<span class="number">333</span>&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">    &lt;ol&gt;</span></span><br><span class="line"><span class="regexp">        &lt;li&gt;aaa&lt;/</span>li&gt;</span><br><span class="line">        &lt;li&gt;bbb&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">        &lt;li&gt;ccc&lt;/</span>li&gt;</span><br><span class="line">    &lt;<span class="regexp">/ol&gt;</span></span><br><span class="line"><span class="regexp">&lt;/u</span>l&gt;</span><br><span class="line">&lt;<span class="regexp">/body&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>html&gt;</span><br></pre></td></tr></table></figure>
+<h6 id="3、基本过滤器"><a href="#3、基本过滤器" class="headerlink" title="3、基本过滤器"></a>3、基本过滤器</h6><p><img src="filter.png" alt="基本过滤器"></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"jquery-1.11.1.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        $(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// :odd</span></span><br><span class="line">            $(<span class="string">"li:odd"</span>).css(<span class="string">"background"</span>, <span class="string">"red"</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// :even</span></span><br><span class="line">            $(<span class="string">"li:even"</span>).css(<span class="string">"background"</span>, <span class="string">"green"</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// :eq(index)</span></span><br><span class="line">            $(<span class="string">"ul li:eq(3)"</span>).css(<span class="string">"font-size"</span>, <span class="string">"30px"</span>);  <span class="comment">//设置第四个li的字体</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// :lt(index)</span></span><br><span class="line">            $(<span class="string">"li:lt(6)"</span>).css(<span class="string">"font-size"</span>, <span class="string">"30px"</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// :gt(index)</span></span><br><span class="line">            $(<span class="string">".ulList1 li:gt(7)"</span>).css(<span class="string">"font-size"</span>, <span class="string">"40px"</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// :first</span></span><br><span class="line">            $(<span class="string">".ulList li:first"</span>).css(<span class="string">"font-size"</span>, <span class="string">"40px"</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// :last</span></span><br><span class="line">            $(<span class="string">"li:last"</span>).css(<span class="string">"font-size"</span>, <span class="string">"40px"</span>);</span><br><span class="line">        &#125;);</span><br><span class="line">    &lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<h6 id="4、属性选择器"><a href="#4、属性选择器" class="headerlink" title="4、属性选择器"></a>4、属性选择器</h6><p><img src="Atrr_Selector.png" alt="属性选择器"></p>
+<h6 id="5、筛选选择器"><a href="#5、筛选选择器" class="headerlink" title="5、筛选选择器"></a>5、筛选选择器</h6><p><img src="Chose_Selector.png" alt="筛选选择器"></p>
+<h6 id="实例一：鼠标悬停时，弹出下拉菜单"><a href="#实例一：鼠标悬停时，弹出下拉菜单" class="headerlink" title="实例一：鼠标悬停时，弹出下拉菜单"></a>实例一：鼠标悬停时，弹出下拉菜单</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head lang=<span class="string">"en"</span>&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;title&gt;<span class="xml"><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span></span><br><span class="line">    &lt;style type=<span class="string">"text/css"</span>&gt;</span><br><span class="line">        * &#123;</span><br><span class="line">            margin: <span class="number">0</span>;</span><br><span class="line">            padding: <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        ul &#123;</span><br><span class="line">            list-style: none;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .wrap &#123;</span><br><span class="line">            width: <span class="number">330</span>px;</span><br><span class="line">            height: <span class="number">30</span>px;</span><br><span class="line">            margin: <span class="number">100</span>px auto <span class="number">0</span>;</span><br><span class="line">            padding-left: <span class="number">10</span>px;</span><br><span class="line">            background-color: pink;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .wrap li &#123;</span><br><span class="line">            background-color: lightblue;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .wrap &gt; ul &gt; li &#123;</span><br><span class="line">            float: left;</span><br><span class="line">            margin-right: <span class="number">10</span>px;</span><br><span class="line">            position: relative;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .wrap a &#123;</span><br><span class="line">            display: block;</span><br><span class="line">            height: <span class="number">30</span>px;</span><br><span class="line">            width: <span class="number">100</span>px;</span><br><span class="line">            text-decoration: none;</span><br><span class="line">            color: #000;</span><br><span class="line">            line-height: <span class="number">30</span>px;</span><br><span class="line">            text-align: center;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .wrap li ul &#123;</span><br><span class="line">            position: absolute;</span><br><span class="line">            top: <span class="number">30</span>px;</span><br><span class="line">            display: none;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;<span class="regexp">/style&gt;</span></span><br><span class="line"><span class="regexp">    &lt;script src="jquery.min.js"&gt;&lt;/</span>script&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        <span class="comment">//入口函数</span></span><br><span class="line">        $(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="comment">//需求：鼠标放入一级li中，让他里面的ul显示。移开隐藏。</span></span><br><span class="line">            <span class="keyword">var</span> jqli = $(<span class="string">".wrap&gt;ul&gt;li"</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//绑定事件</span></span><br><span class="line">            jqli.mouseenter(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="comment">//这个位置用到了this.</span></span><br><span class="line">                <span class="comment">// console.log(this);  //打印结果是js中的dom对象。注意：jquery对象绑定的事件中，this指js中的dom对象。【重要】</span></span><br><span class="line"></span><br><span class="line">                <span class="comment">//让this中的ul显示出来。</span></span><br><span class="line"><span class="comment">//                原生 js 的做法是：this.children[1].style.display = "block";</span></span><br><span class="line">                <span class="comment">//把js的dom对象包装为jquery对象，然后用jquery方法操作</span></span><br><span class="line">                $(<span class="keyword">this</span>).children(<span class="string">"ul"</span>).show();</span><br><span class="line">            &#125;);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//绑定事件：鼠标移开时，隐藏下拉菜单</span></span><br><span class="line">            jqli.mouseleave(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                $(<span class="keyword">this</span>).children(<span class="string">"ul"</span>).hide();</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;);</span><br><span class="line">    &lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;/</span>head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"wrap"</span>&gt;</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">        &lt;li&gt;</span><br><span class="line">            &lt;a href=<span class="string">"javascript:void(0);"</span>&gt;一级菜单<span class="number">1</span>&lt;<span class="regexp">/a&gt;</span></span><br><span class="line"><span class="regexp">            &lt;ul&gt;</span></span><br><span class="line"><span class="regexp">                &lt;li&gt;&lt;a href="javascript:void(0);"&gt;二级菜单1&lt;/</span>a&gt;<span class="xml"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line">                &lt;li&gt;<span class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:void(0);"</span>&gt;</span>二级菜单2<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line">                &lt;li&gt;<span class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:void(0);"</span>&gt;</span>二级菜单3<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line">            &lt;<span class="regexp">/ul&gt;</span></span><br><span class="line"><span class="regexp">        &lt;/</span>li&gt;</span><br><span class="line">        &lt;li&gt;</span><br><span class="line">            &lt;a href=<span class="string">"javascript:void(0);"</span>&gt;一级菜单<span class="number">1</span>&lt;<span class="regexp">/a&gt;</span></span><br><span class="line"><span class="regexp">            &lt;ul&gt;</span></span><br><span class="line"><span class="regexp">                &lt;li&gt;&lt;a href="javascript:void(0);"&gt;二级菜单1&lt;/</span>a&gt;<span class="xml"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line">                &lt;li&gt;<span class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:void(0);"</span>&gt;</span>二级菜单2<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line">                &lt;li&gt;<span class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:void(0);"</span>&gt;</span>二级菜单3<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line">            &lt;<span class="regexp">/ul&gt;</span></span><br><span class="line"><span class="regexp">        &lt;/</span>li&gt;</span><br><span class="line">        &lt;li&gt;</span><br><span class="line">            &lt;a href=<span class="string">"javascript:void(0);"</span>&gt;一级菜单<span class="number">1</span>&lt;<span class="regexp">/a&gt;</span></span><br><span class="line"><span class="regexp">            &lt;ul&gt;</span></span><br><span class="line"><span class="regexp">                &lt;li&gt;&lt;a href="javascript:void(0);"&gt;二级菜单1&lt;/</span>a&gt;<span class="xml"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line">                &lt;li&gt;<span class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:void(0);"</span>&gt;</span>二级菜单2<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line">                &lt;li&gt;<span class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:void(0);"</span>&gt;</span>二级菜单3<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line">            &lt;<span class="regexp">/ul&gt;</span></span><br><span class="line"><span class="regexp">        &lt;/</span>li&gt;</span><br><span class="line">    &lt;<span class="regexp">/ul&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>div&gt;</span><br><span class="line">&lt;<span class="regexp">/body&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>html&gt;</span><br></pre></td></tr></table></figure>
+<p>可实现两级菜单，水平式布局。</p>
+<iframe height="200" width="100" src="01.gif"><br><br>###### 举例二：鼠标悬停时变色<br><br>完整版代码如下：<br><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head lang=<span class="string">"en"</span>&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;title&gt;<span class="xml"><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span></span><br><span class="line">    &lt;script src=<span class="string">"jquery.min.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        $(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//需求；隔行变色；鼠标悬停时，还要变色。</span></span><br><span class="line">            <span class="keyword">var</span> jqli1 = $(<span class="string">"li:odd"</span>);</span><br><span class="line">            <span class="keyword">var</span> jqli2 = $(<span class="string">"li:even"</span>);</span><br><span class="line">            jqli1.css(<span class="string">"background"</span>, <span class="string">"#cccccc"</span>);</span><br><span class="line">            jqli2.css(<span class="string">"background"</span>, <span class="string">"white"</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//鼠标悬停时变色</span></span><br><span class="line">            <span class="keyword">var</span> color = <span class="string">""</span>;</span><br><span class="line">            $(<span class="string">"li"</span>).mouseenter(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                color = $(<span class="keyword">this</span>).css(<span class="string">"background"</span>);  <span class="comment">//先把之前的颜色保存下来，鼠标离开时还原</span></span><br><span class="line">                $(<span class="keyword">this</span>).css(<span class="string">"background"</span>, <span class="string">"green"</span>);</span><br><span class="line">            &#125;);</span><br><span class="line">            <span class="comment">//鼠标离开时，恢复为原来的颜色</span></span><br><span class="line">            $(<span class="string">"li"</span>).mouseleave(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                $(<span class="keyword">this</span>).css(<span class="string">"background"</span>, color);</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;);</span><br><span class="line">    &lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;ul&gt;</span><br><span class="line">    &lt;li&gt;生命壹号，永不止步&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">    &lt;li&gt;生命壹号，永不止步&lt;/</span>li&gt;</span><br><span class="line">    &lt;li&gt;生命壹号，永不止步&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">    &lt;li&gt;生命壹号，永不止步&lt;/</span>li&gt;</span><br><span class="line">    &lt;li&gt;生命壹号，永不止步&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">    &lt;li&gt;生命壹号，永不止步&lt;/</span>li&gt;</span><br><span class="line">&lt;<span class="regexp">/ul&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;/</span>body&gt;</span><br><span class="line">&lt;<span class="regexp">/html&gt;</span></span><br></pre></td></tr></table></figure><br><br><iframe height="300" width="100" scrolling="no" overflow="hidden" src="前端框架/02.gif"><br><br>###### 举例三：突出显示<br><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head lang=<span class="string">"en"</span>&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;title&gt;<span class="xml"><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span></span><br><span class="line">    &lt;style type=<span class="string">"text/css"</span>&gt;</span><br><span class="line">        * &#123;</span><br><span class="line">            margin: <span class="number">0</span>;</span><br><span class="line">            padding: <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        ul &#123;</span><br><span class="line">            list-style: none;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        body &#123;</span><br><span class="line">            background: #000;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .wrap &#123;</span><br><span class="line">            margin: <span class="number">100</span>px auto <span class="number">0</span>;</span><br><span class="line">            width: <span class="number">630</span>px;</span><br><span class="line">            height: <span class="number">394</span>px;</span><br><span class="line">            padding: <span class="number">10</span>px <span class="number">0</span> <span class="number">0</span> <span class="number">10</span>px;</span><br><span class="line">            background: #000;</span><br><span class="line">            overflow: hidden;</span><br><span class="line">            border: 1px solid #fff;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .wrap li &#123;</span><br><span class="line">            float: left;</span><br><span class="line">            margin: <span class="number">0</span> <span class="number">10</span>px <span class="number">10</span>px <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .wrap img &#123;</span><br><span class="line">            display: block;</span><br><span class="line">            border: <span class="number">0</span>;</span><br><span class="line">            width: <span class="number">200</span>px;</span><br><span class="line">            height: <span class="number">180</span>px;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;<span class="regexp">/style&gt;</span></span><br><span class="line"><span class="regexp">    &lt;script src="jquery.min.js"&gt;&lt;/</span>script&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        jQuery(<span class="built_in">window</span>).ready(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="comment">//需求：鼠标放入li中，其他的li半透明，当前盒子的opacity值为1</span></span><br><span class="line">            $(<span class="string">".wrap"</span>).find(<span class="string">"li"</span>).mouseenter(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="comment">//链式编程</span></span><br><span class="line">                $(<span class="keyword">this</span>).css(<span class="string">"opacity"</span>, <span class="number">1</span>).siblings(<span class="string">"li"</span>).css(<span class="string">"opacity"</span>, <span class="number">0.4</span>);</span><br><span class="line">            &#125;);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//离开wrap的时候所有的li的全部opacity值为1；</span></span><br><span class="line">            $(<span class="string">".wrap"</span>).mouseleave(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                $(<span class="keyword">this</span>).children().children(<span class="string">"li"</span>).css(<span class="string">"opacity"</span>, <span class="number">1</span>);</span><br><span class="line"><span class="comment">//                $(".wrap li").css("opacity",1);</span></span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;);</span><br><span class="line">    &lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"wrap"</span>&gt;</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">        &lt;li&gt;<span class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"images/01.jpg"</span> <span class="attr">alt</span>=<span class="string">""</span>/&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line">        &lt;li&gt;<span class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"images/02.jpg"</span> <span class="attr">alt</span>=<span class="string">""</span>/&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line">        &lt;li&gt;<span class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"images/03.jpg"</span> <span class="attr">alt</span>=<span class="string">""</span>/&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line">        &lt;li&gt;<span class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"images/04.jpg"</span> <span class="attr">alt</span>=<span class="string">""</span>/&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line">        &lt;li&gt;<span class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"images/05.jpg"</span> <span class="attr">alt</span>=<span class="string">""</span>/&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line">        &lt;li&gt;<span class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"images/06.jpg"</span> <span class="attr">alt</span>=<span class="string">""</span>/&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line">    &lt;<span class="regexp">/ul&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>div&gt;</span><br><span class="line">&lt;<span class="regexp">/body&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>html&gt;</span><br></pre></td></tr></table></figure><br><br><iframe height="300" width="100" overflow="hidden" scrolling="no" src="前端框架/03.gif"><br><br>###### 举例四：手风琴效果<br><br><iframe height="400" width="50" overflow="hidden" scrolling="no" src="前端框架/04.gif"></iframe>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head lang=<span class="string">"en"</span>&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;title&gt;<span class="xml"><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span></span><br><span class="line">    &lt;style type=<span class="string">"text/css"</span>&gt;</span><br><span class="line">        * &#123;<span class="attr">padding</span>: <span class="number">0</span>;margin: <span class="number">0</span>;&#125;</span><br><span class="line">        ul &#123; list-style-type: none;&#125;</span><br><span class="line"></span><br><span class="line">        .parentWrap &#123;</span><br><span class="line">            width: <span class="number">200</span>px;</span><br><span class="line">            text-align:center;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .menuGroup &#123;</span><br><span class="line">            border:1px solid #999;</span><br><span class="line">            background-color:#e0ecff;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .groupTitle &#123;</span><br><span class="line">            display:block;</span><br><span class="line">            height:<span class="number">20</span>px;</span><br><span class="line">            line-height:<span class="number">20</span>px;</span><br><span class="line">            font-size: <span class="number">16</span>px;</span><br><span class="line">            border-bottom:1px solid #ccc;</span><br><span class="line">            cursor:pointer;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .menuGroup &gt; div &#123;</span><br><span class="line">            height: <span class="number">200</span>px;</span><br><span class="line">            background-color:#fff;</span><br><span class="line">            display:none;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &lt;<span class="regexp">/style&gt;</span></span><br><span class="line"><span class="regexp">    &lt;script src="jquery.min.js"&gt;&lt;/</span>script&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        $(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="comment">//需求：鼠标点击span，让他下面的div显示出来。让其他的div隐藏。</span></span><br><span class="line">            $(<span class="string">".parentWrap span"</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="comment">//                $(this).next().show();</span></span><br><span class="line"><span class="comment">//                //让其他的隐藏</span></span><br><span class="line"><span class="comment">//                //点击的span的父亲li，的所有的兄弟元素li，的孩子元素div全部隐藏。</span></span><br><span class="line"><span class="comment">//                $(this).parent("li").siblings("li").children("div").hide();</span></span><br><span class="line">                <span class="comment">//连式编程</span></span><br><span class="line">                $(<span class="keyword">this</span>).next().show().parent(<span class="string">"li"</span>).siblings(<span class="string">"li"</span>).find(<span class="string">"div"</span>).hide();</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;)</span><br><span class="line">    &lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;ul <span class="class"><span class="keyword">class</span></span>=<span class="string">"parentWrap"</span>&gt;</span><br><span class="line">    &lt;li <span class="class"><span class="keyword">class</span></span>=<span class="string">"menuGroup"</span>&gt;</span><br><span class="line">        &lt;span <span class="class"><span class="keyword">class</span></span>=<span class="string">"groupTitle"</span>&gt;标题<span class="number">1</span>&lt;<span class="regexp">/span&gt;</span></span><br><span class="line"><span class="regexp">        &lt;div&gt;我是弹出来的div1&lt;/</span>div&gt;</span><br><span class="line">    &lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">    &lt;li class="menuGroup"&gt;</span></span><br><span class="line"><span class="regexp">        &lt;span class="groupTitle"&gt;标题2&lt;/</span>span&gt;</span><br><span class="line">        &lt;div&gt;我是弹出来的div2&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>li&gt;</span><br><span class="line">    &lt;li <span class="class"><span class="keyword">class</span></span>=<span class="string">"menuGroup"</span>&gt;</span><br><span class="line">        &lt;span <span class="class"><span class="keyword">class</span></span>=<span class="string">"groupTitle"</span>&gt;标题<span class="number">3</span>&lt;<span class="regexp">/span&gt;</span></span><br><span class="line"><span class="regexp">        &lt;div&gt;我是弹出来的div3&lt;/</span>div&gt;</span><br><span class="line">    &lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">    &lt;li class="menuGroup"&gt;</span></span><br><span class="line"><span class="regexp">        &lt;span class="groupTitle"&gt;标题4&lt;/</span>span&gt;</span><br><span class="line">        &lt;div&gt;我是弹出来的div4&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>li&gt;</span><br><span class="line">&lt;<span class="regexp">/ul&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>body&gt;</span><br><span class="line">&lt;<span class="regexp">/html&gt;</span></span><br></pre></td></tr></table></figure>
+</iframe></iframe></iframe>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    樊
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://TFwanan00f.github.io/2019/12/04/前端框架/" title="前端框架">https://TFwanan00f.github.io/2019/12/04/前端框架/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank"><a herf="https://Oskari.club">樊小太爷的blog</a></a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端/" rel="tag"><i class="fab fa-affiliatetheme"></i>前端</a>
+          
+            <a href="/tags/JQuery/" rel="tag"><i class="fab fa-affiliatetheme"></i>JQuery</a>
+          
+            <a href="/tags/Ajax/" rel="tag"><i class="fab fa-affiliatetheme"></i>Ajax</a>
+          
+            <a href="/tags/JSON/" rel="tag"><i class="fab fa-affiliatetheme"></i>JSON</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/12/04/前端部分-02/" rel="next" title="JavaScript">
+                <i class="fa fa-chevron-left"></i> JavaScript
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/12/04/前端框架/jquery.min/" rel="prev" title>
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NDkzNi8yMTQ1OA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3249761993,448953672&fm=27&gp=0.jpg" alt="樊">
+            
+              <p class="site-author-name" itemprop="name">樊</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/TFwanan00f" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、JSON"><span class="nav-number">1.</span> <span class="nav-text">1、JSON</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、AJAX"><span class="nav-number">2.</span> <span class="nav-text">2、AJAX</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、JQuery"><span class="nav-number">3.</span> <span class="nav-text">3、JQuery</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#3-1-入口函数（重点）"><span class="nav-number">3.0.0.1.</span> <span class="nav-text">3.1 入口函数（重点）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-2-js中的DOM对象-和-jQuery对象-比较（重点，难点）"><span class="nav-number">3.0.0.2.</span> <span class="nav-text">3.2 js中的DOM对象 和 jQuery对象 比较（重点，难点）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#二者的区别"><span class="nav-number">3.0.0.3.</span> <span class="nav-text">二者的区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-3-JQuery选择器"><span class="nav-number">3.0.0.4.</span> <span class="nav-text">3.3 JQuery选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1、JQuery基本选择器"><span class="nav-number">3.0.0.4.1.</span> <span class="nav-text">1、JQuery基本选择器</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2、层级选择器"><span class="nav-number">3.0.0.4.2.</span> <span class="nav-text">2、层级选择器</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3、基本过滤器"><span class="nav-number">3.0.0.4.3.</span> <span class="nav-text">3、基本过滤器</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#4、属性选择器"><span class="nav-number">3.0.0.4.4.</span> <span class="nav-text">4、属性选择器</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#5、筛选选择器"><span class="nav-number">3.0.0.4.5.</span> <span class="nav-text">5、筛选选择器</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#实例一：鼠标悬停时，弹出下拉菜单"><span class="nav-number">3.0.0.4.6.</span> <span class="nav-text">实例一：鼠标悬停时，弹出下拉菜单</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">樊</span>
+
+  
+</div>
+
+<!--
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+-->
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      本站访问数 <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      本站总访问数 <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false});</script></body>
+</html>
