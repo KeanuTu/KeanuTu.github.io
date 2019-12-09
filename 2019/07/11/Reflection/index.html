@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="数学建模,">
+  <meta name="keywords" content="Java,Reflection,">
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="常用模型&amp;amp;算法总结">
-<meta name="keywords" content="数学建模">
+<meta name="description" content="反射机制">
+<meta name="keywords" content="Java,Reflection">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数学建模总结">
-<meta property="og:url" content="https://TFwanan00f.github.io/2019/08/01/数学建模总结/index.html">
+<meta property="og:title" content="Reflection">
+<meta property="og:url" content="https://TFwanan00f.github.io/2019/07/11/Reflection/index.html">
 <meta property="og:site_name" content="Oskrai&#39;s Blog">
-<meta property="og:description" content="常用模型&amp;amp;算法总结">
+<meta property="og:description" content="反射机制">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-01T06:34:40.897Z">
+<meta property="og:updated_time" content="2019-09-27T07:29:04.878Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="数学建模总结">
-<meta name="twitter:description" content="常用模型&amp;amp;算法总结">
+<meta name="twitter:title" content="Reflection">
+<meta name="twitter:description" content="反射机制">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://TFwanan00f.github.io/2019/08/01/数学建模总结/">
+  <link rel="canonical" href="https://TFwanan00f.github.io/2019/07/11/Reflection/">
 
 
 
 
 
-  <title>数学建模总结 | Oskrai's Blog</title>
+  <title>Reflection | Oskrai's Blog</title>
   
 
 
@@ -287,7 +287,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://TFwanan00f.github.io/2019/08/01/数学建模总结/">
+    <link itemprop="mainEntityOfPage" href="https://TFwanan00f.github.io/2019/07/11/Reflection/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="樊">
@@ -304,7 +304,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">数学建模总结</h1>
+          <h1 class="post-title" itemprop="name headline">Reflection</h1>
         
 
         <div class="post-meta">
@@ -316,8 +316,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-01T10:15:34+08:00">
-                2019-08-01
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-11T15:23:52+08:00">
+                2019-07-11
               </time>
             
 
@@ -339,8 +339,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数学建模/" itemprop="url" rel="index">
-                    <span itemprop="name">数学建模</span>
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
                   </a>
                 </span>
 
@@ -381,26 +381,49 @@
       
 
       
-        <h1 id="常用模型-amp-算法总结"><a href="#常用模型-amp-算法总结" class="headerlink" title="常用模型&amp;算法总结"></a>常用模型&amp;算法总结</h1><a id="more"></a>
-<p>总的来说，常用主成分分析来<strong>降维</strong></p>
-<p><a herf="[https://baike.baidu.com/item/%E7%BB%BC%E5%90%88%E8%AF%84%E4%BB%B7/4913084?fr=aladdin#3](https://baike.baidu.com/item/综合评价/4913084?fr=aladdin#3)"><strong>综合评价</strong></a>的方法因子分析法、层次分析法、秩和比（RSR）法、Topsis法、模糊评价方法、灰色系统评价方法。<a herf="<http://www.doc88.com/p-7886468471288.html>">必看完的资料</a></p>
-<p>蒙特卡罗方法来<strong>随机模拟求解</strong></p>
-<p><strong>数据处理：</strong>数据变换，数据拟合，参数估计，插值等</p>
-<p><strong>线性规划、整数规划、目标规划、动态规划类</strong>问题的求解关键在于根据题目已知信息找出约束条件与目标函数</p>
-<p>通过<strong>插值or拟合or光滑技术</strong>【移动平均之类的】可以把<strong>离散数据连续化</strong>，通过<strong>分组</strong>【把数据划分成不同的小区间】or差分就可以把<strong>连续数据离散化.</strong>…。</p>
-<p><strong>组合优化算法</strong>常用于很难求出最优解的NP问题</p>
-<hr>
-<p>跳转目录</p>
-<p>[TOC]</p>
-<h1 id="【1】主成分分析"><a href="#【1】主成分分析" class="headerlink" title="【1】主成分分析"></a>【1】主成分分析</h1><p><strong>用较少的变量去解释原来资料中大部分变异</strong>，把相关性很高的变量转换为彼此相关独立或不相关的变量，是一种<strong>降维方法</strong>。<br>为减少指标某种程度上的关联性，即<strong>信息冗余</strong>，就需要将他们间不同的特征选出来，也就是降维，常用的降维方法有：<strong>主成分分析（PCA），SVD奇异值分解，逐步回归</strong></p>
-<p>【blog链接】</p>
-<p><a herf="主成分分析（一）：基本思想与主成分估计方法.md">主成分分析（一）：基本思想与主成分估计方法</a></p>
-<p><a herf="<https://blog.csdn.net/qq_29831163/article/details/88900766>"> 主成分分析法（二）：计算步骤</a></p>
-<h1 id="【2】LINGO入门"><a href="#【2】LINGO入门" class="headerlink" title="【2】LINGO入门"></a>【2】LINGO入门</h1><p>   集部分是 LINGO 模型的一个可选部分。在 LINGO 模型中使用集之前，必须在集部分事先定义。<strong>集部分以关键字“sets:”开始以“endsets”结束。</strong>一个模型可以没有集部分，或有一个简单的集部分，或有多个集部分。一个集部分可以放置于模型的任何地方，但是一个集及其属性在模型约束中被引用之前必须定义了它们。</p>
-<h1 id="【3】相关系数"><a href="#【3】相关系数" class="headerlink" title="【3】相关系数"></a>【3】相关系数</h1><p>   最常用的相关系数为皮尔逊Person和斯皮尔曼Spearman，用其来衡量两个变量间的相关性大小，根据数据满足的不同条件，选择不同的相关系数计算和分析。</p>
-<p>​    只有两个变量是线性相关的情况下，才能用相关系数说明其相关程度如何。</p>
-<p>【blog链接】</p>
-<p><a herf="#">相关系数</a></p>
+        <h1 id="反射机制"><a href="#反射机制" class="headerlink" title="反射机制"></a>反射机制</h1><a id="more"></a>
+<p><strong>反射的概念</strong>：在Java中的反射机制是指在运行状态中，对于任意一个类都能够知道这个类所有的属性和方法；并且对于任意一个对象，都能够调用它的任意一个方法；这种动态获取信息以及动态调用对象方法的功能成为Java语言的反射机制。</p>
+<p>Java可以通过一个配置文件来选择程序所调用的方法和类对象</p>
+<p><strong>使用反射机制的步骤：</strong></p>
+<ol>
+<li><h3 id="获取类对象"><a href="#获取类对象" class="headerlink" title="获取类对象"></a>获取类对象</h3><ul>
+<li><p>调用某个对象的getClass()方法</p>
+<blockquote>
+<p>Class p = new Hero().getClass();</p>
+</blockquote>
+</li>
+<li><p>调用某个对象的class属性来获取该类对应的Class对象</p>
+<blockquote>
+<p>Class p=new Hero().class;</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><p>使用Class类中的forName()静态方法（最安全/性能最好）</p>
+<blockquote>
+<p>Class p=Class.forName(“类的全部名称（包名.类名）”)；</p>
+</blockquote>
+</li>
+</ul>
+<ol start="2">
+<li><h3 id="获取方法和属性信息"><a href="#获取方法和属性信息" class="headerlink" title="获取方法和属性信息"></a>获取方法和属性信息</h3><p>getField <strong>只能获取</strong>public的，包括<strong>从父类继承</strong>来的字段。<br>getDeclaredField 可以获取本类所有的字段，<strong>包括private</strong>的，但是<strong>不能获取继承</strong>来的字段。 (<strong>注</strong>： 这里只能获取到private的<strong>字段</strong>，但并不能访问该private字段的<strong>值</strong>,除非加上<strong>setAccessible(true)</strong>)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;使用反射&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span><br><span class="line"><span class="keyword">package</span> reflection;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Constructor;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Field;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Method;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 通过用户输入类的全路径，来获取该类的成员方法和属性</span></span><br><span class="line"><span class="comment"> * Declared获取全部不管是私有和公有</span></span><br><span class="line"><span class="comment"> * 1.获取访问类的Class对象</span></span><br><span class="line"><span class="comment"> * 2.调用Class对象的方法返回访问类的方法和属性信息</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//获取Person类的Class对象</span></span><br><span class="line">            Class clazz=Class.forName(<span class="string">"reflection.Person"</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//获取Person类的所有方法信息</span></span><br><span class="line">            Method[] method=clazz.getDeclaredMethods();</span><br><span class="line">            <span class="keyword">for</span>(Method m:method)&#123;</span><br><span class="line">                System.out.println(m.toString());</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//获取Person类的所有成员属性信息</span></span><br><span class="line">            Field[] field=clazz.getDeclaredFields();</span><br><span class="line">            <span class="keyword">for</span>(Field f:field)&#123;</span><br><span class="line">                System.out.println(f.toString());</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//获取Person类的所有构造方法信息</span></span><br><span class="line">            Constructor[] constructor=clazz.getDeclaredConstructors();</span><br><span class="line">            <span class="keyword">for</span>(Constructor c:constructor)&#123;</span><br><span class="line">                System.out.println(c.toString());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><h3 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h3><p>当我们获取到所需类的Class对象后，可以用它来创建对象，创建对象的方法有两种：</p>
+<ul>
+<li>使用Class对象的<strong>newInstance()</strong>方法来创建该Class对象对应类的实例，但是这种方法要求该Class对象对应的类有默认的空构造器。</li>
+<li>先使用Class对象获取指定的<strong>Constructor</strong>对象，再调用Constructor对象的<strong>newInstance()</strong>方法来创建 Class对象对应类的实例,通过这种方法可以选定构造方法创建实例。</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> reflection;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Constructor;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo01</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//获取Person类的Class对象</span></span><br><span class="line">            Class clazz=Class.forName(<span class="string">"reflection.Person"</span>); </span><br><span class="line">            <span class="comment">/**</span></span><br><span class="line"><span class="comment">             * 第一种方法创建对象</span></span><br><span class="line"><span class="comment">             */</span></span><br><span class="line">            <span class="comment">//创建对象</span></span><br><span class="line">            Person p=(Person) clazz.newInstance();</span><br><span class="line">            <span class="comment">//设置属性</span></span><br><span class="line">            p.setName(<span class="string">"张三"</span>);</span><br><span class="line">            p.setAge(<span class="number">16</span>);</span><br><span class="line">            p.setGender(<span class="string">"男"</span>);</span><br><span class="line">            System.out.println(p.toString());</span><br><span class="line"></span><br><span class="line">            <span class="comment">/**</span></span><br><span class="line"><span class="comment">             * 第二种方法创建</span></span><br><span class="line"><span class="comment">             */</span></span><br><span class="line">            <span class="comment">//获取构造方法</span></span><br><span class="line">            Constructor c=clazz.getDeclaredConstructor(String.class,String.class,<span class="keyword">int</span>.class);</span><br><span class="line">            <span class="comment">//创建对象并设置属性</span></span><br><span class="line">            Person p1=(Person) c.newInstance(<span class="string">"李四"</span>,<span class="string">"男"</span>,<span class="number">20</span>);</span><br><span class="line">            System.out.println(p1.toString());</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li><h3 id="调用方法"><a href="#调用方法" class="headerlink" title="调用方法"></a>调用方法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> reflection;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.BufferedReader;</span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.io.FileReader;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> charactor.ADHero;</span><br><span class="line"><span class="keyword">import</span> charactor.APHero;</span><br><span class="line"><span class="keyword">import</span> charactor.Hero;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.*;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test_03</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		read();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		File f = <span class="keyword">new</span> File(<span class="string">"E:\\Java\\j2se\\src\\reflection\\hero.config"</span>);</span><br><span class="line">		<span class="keyword">try</span>(FileReader fi = <span class="keyword">new</span> FileReader(f);BufferedReader br = <span class="keyword">new</span> BufferedReader(fi); ) </span><br><span class="line">		&#123;</span><br><span class="line">                String line = br.readLine();</span><br><span class="line">                <span class="comment">//charactor.APhero</span></span><br><span class="line">                String line2 = br.readLine();</span><br><span class="line">                <span class="comment">//garen</span></span><br><span class="line">                String line3 = br.readLine();</span><br><span class="line">                <span class="comment">//charactor.ADhero</span></span><br><span class="line">                String line4 = br.readLine();</span><br><span class="line">                <span class="comment">//teemo</span></span><br><span class="line">                line.trim();</span><br><span class="line">                line2.trim();</span><br><span class="line">                line3.trim();</span><br><span class="line">                line4.trim();</span><br><span class="line">                APHero h1 = (APHero) Class.forName(line).newInstance();</span><br><span class="line">                ADHero h2 = (ADHero) Class.forName(line3).newInstance();</span><br><span class="line">                <span class="comment">//通过反射拿到俩个对象 </span></span><br><span class="line">             </span><br><span class="line">                Hero h = <span class="keyword">new</span> Hero();</span><br><span class="line">                Field f1 = h.getClass().getDeclaredField(<span class="string">"name"</span>);</span><br><span class="line">                f1.set(h1, line2);</span><br><span class="line">                f1.set(h2, line4);</span><br><span class="line">                <span class="comment">//通过反射 拿到他们的 name 字段  然后 设置 这两个Hero对象的 name 属性;</span></span><br><span class="line">                Method m = h1.getClass().getMethod(<span class="string">"attackHero"</span>, Hero.class);</span><br><span class="line">                <span class="comment">//Hero.class 代表参数类型是 Hero</span></span><br><span class="line">                m.invoke(h1, h2);</span><br><span class="line">                <span class="comment">//通过反射 拿到 attackHero 这个方法 然后 通过反射调用方法 h1调用 传 h2 这个参数 </span></span><br><span class="line">                 </span><br><span class="line">            &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                <span class="comment">// <span class="doctag">TODO:</span> handle exception</span></span><br><span class="line">            &#125;</span><br><span class="line">                 </span><br><span class="line">             </span><br><span class="line">         &#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>即我们可以不修改源文件，而只用修改.config文件，这样使得程序更健壮。</p>
 
       
     </div>
@@ -421,7 +444,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://TFwanan00f.github.io/2019/08/01/数学建模总结/" title="数学建模总结">https://TFwanan00f.github.io/2019/08/01/数学建模总结/</a>
+    <a href="https://TFwanan00f.github.io/2019/07/11/Reflection/" title="Reflection">https://TFwanan00f.github.io/2019/07/11/Reflection/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -436,7 +459,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/数学建模/" rel="tag"><i class="fab fa-affiliatetheme"></i>数学建模</a>
+            <a href="/tags/Java/" rel="tag"><i class="fab fa-affiliatetheme"></i>Java</a>
+          
+            <a href="/tags/Reflection/" rel="tag"><i class="fab fa-affiliatetheme"></i>Reflection</a>
           
         </div>
       
@@ -449,8 +474,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/11/Reflection/" rel="next" title="Reflection">
-                <i class="fa fa-chevron-left"></i> Reflection
+              <a href="/2019/07/11/Graph/" rel="next" title="数据结构复习（四）">
+                <i class="fa fa-chevron-left"></i> 数据结构复习（四）
               </a>
             
           </div>
@@ -459,8 +484,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/08/08/主成分分析/" rel="prev" title="主成分分析">
-                主成分分析 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/08/01/数学建模总结/" rel="prev" title="数学建模总结">
+                数学建模总结 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -636,7 +661,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#常用模型-amp-算法总结"><span class="nav-number">1.</span> <span class="nav-text">常用模型&amp;算法总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#【1】主成分分析"><span class="nav-number">2.</span> <span class="nav-text">【1】主成分分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#【2】LINGO入门"><span class="nav-number">3.</span> <span class="nav-text">【2】LINGO入门</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#【3】相关系数"><span class="nav-number">4.</span> <span class="nav-text">【3】相关系数</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#反射机制"><span class="nav-number">1.</span> <span class="nav-text">反射机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#获取类对象"><span class="nav-number">1.0.1.</span> <span class="nav-text">获取类对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取方法和属性信息"><span class="nav-number">1.0.2.</span> <span class="nav-text">获取方法和属性信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建对象"><span class="nav-number">1.0.3.</span> <span class="nav-text">创建对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#调用方法"><span class="nav-number">1.0.4.</span> <span class="nav-text">调用方法</span></a></li></ol></li></ol></div>
             
 
           </div>
