@@ -93,7 +93,8 @@
 <meta property="og:image" content="https://tfwanan00f.github.io/2019/12/04/前端框架/filter.png">
 <meta property="og:image" content="https://tfwanan00f.github.io/2019/12/04/前端框架/Atrr_Selector.png">
 <meta property="og:image" content="https://tfwanan00f.github.io/2019/12/04/前端框架/Chose_Selector.png">
-<meta property="og:updated_time" content="2019-12-09T12:57:14.163Z">
+<meta property="og:image" content="https://tfwanan00f.github.io/2019/12/04/前端框架/JQuery-01.png">
+<meta property="og:updated_time" content="2019-12-11T13:13:31.490Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端框架">
 <meta name="twitter:description" content="JSON、Ajax和Jquery相关知识总结；">
@@ -511,6 +512,11 @@
 <iframe height="300" width="100" overflow="hidden" scrolling="no" src="前端框架/03.gif">
 
 <h6 id="举例四：手风琴效果"><a href="#举例四：手风琴效果" class="headerlink" title="举例四：手风琴效果"></a>举例四：手风琴效果</h6><p><iframe height="400" width="50" overflow="hidden" scrolling="no" src="前端框架/04.gif"></iframe><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head lang=<span class="string">"en"</span>&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;title&gt;<span class="xml"><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span></span><br><span class="line">    &lt;style type=<span class="string">"text/css"</span>&gt;</span><br><span class="line">        * &#123;<span class="attr">padding</span>: <span class="number">0</span>;margin: <span class="number">0</span>;&#125;</span><br><span class="line">        ul &#123; list-style-type: none;&#125;</span><br><span class="line"></span><br><span class="line">        .parentWrap &#123;</span><br><span class="line">            width: <span class="number">200</span>px;</span><br><span class="line">            text-align:center;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .menuGroup &#123;</span><br><span class="line">            border:1px solid #999;</span><br><span class="line">            background-color:#e0ecff;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .groupTitle &#123;</span><br><span class="line">            display:block;</span><br><span class="line">            height:<span class="number">20</span>px;</span><br><span class="line">            line-height:<span class="number">20</span>px;</span><br><span class="line">            font-size: <span class="number">16</span>px;</span><br><span class="line">            border-bottom:1px solid #ccc;</span><br><span class="line">            cursor:pointer;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .menuGroup &gt; div &#123;</span><br><span class="line">            height: <span class="number">200</span>px;</span><br><span class="line">            background-color:#fff;</span><br><span class="line">            display:none;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &lt;<span class="regexp">/style&gt;</span></span><br><span class="line"><span class="regexp">    &lt;script src="jquery.min.js"&gt;&lt;/</span>script&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        $(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="comment">//需求：鼠标点击span，让他下面的div显示出来。让其他的div隐藏。</span></span><br><span class="line">            $(<span class="string">".parentWrap span"</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="comment">//                $(this).next().show();</span></span><br><span class="line"><span class="comment">//                //让其他的隐藏</span></span><br><span class="line"><span class="comment">//                //点击的span的父亲li，的所有的兄弟元素li，的孩子元素div全部隐藏。</span></span><br><span class="line"><span class="comment">//                $(this).parent("li").siblings("li").children("div").hide();</span></span><br><span class="line">                <span class="comment">//连式编程</span></span><br><span class="line">                $(<span class="keyword">this</span>).next().show().parent(<span class="string">"li"</span>).siblings(<span class="string">"li"</span>).find(<span class="string">"div"</span>).hide();</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;)</span><br><span class="line">    &lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;ul <span class="class"><span class="keyword">class</span></span>=<span class="string">"parentWrap"</span>&gt;</span><br><span class="line">    &lt;li <span class="class"><span class="keyword">class</span></span>=<span class="string">"menuGroup"</span>&gt;</span><br><span class="line">        &lt;span <span class="class"><span class="keyword">class</span></span>=<span class="string">"groupTitle"</span>&gt;标题<span class="number">1</span>&lt;<span class="regexp">/span&gt;</span></span><br><span class="line"><span class="regexp">        &lt;div&gt;我是弹出来的div1&lt;/</span>div&gt;</span><br><span class="line">    &lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">    &lt;li class="menuGroup"&gt;</span></span><br><span class="line"><span class="regexp">        &lt;span class="groupTitle"&gt;标题2&lt;/</span>span&gt;</span><br><span class="line">        &lt;div&gt;我是弹出来的div2&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>li&gt;</span><br><span class="line">    &lt;li <span class="class"><span class="keyword">class</span></span>=<span class="string">"menuGroup"</span>&gt;</span><br><span class="line">        &lt;span <span class="class"><span class="keyword">class</span></span>=<span class="string">"groupTitle"</span>&gt;标题<span class="number">3</span>&lt;<span class="regexp">/span&gt;</span></span><br><span class="line"><span class="regexp">        &lt;div&gt;我是弹出来的div3&lt;/</span>div&gt;</span><br><span class="line">    &lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">    &lt;li class="menuGroup"&gt;</span></span><br><span class="line"><span class="regexp">        &lt;span class="groupTitle"&gt;标题4&lt;/</span>span&gt;</span><br><span class="line">        &lt;div&gt;我是弹出来的div4&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>li&gt;</span><br><span class="line">&lt;<span class="regexp">/ul&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>body&gt;</span><br><span class="line">&lt;<span class="regexp">/html&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>JQuery思维导图总结：</p>
+<p><img src="JQuery-01.png" alt="JQuery思维导图"></p>
+<p>xmind文件下载：<a href="JQuery.xmind" style=" text-decoration:none "><font color="lightGreen">点击下载</font></a></p>
+<p>参考博文链接： </p>
+<p><a href="https://blog.csdn.net/qq_37957971/article/details/82812002" target="_blank" rel="noopener">https://blog.csdn.net/qq_37957971/article/details/82812002</a> </p>
 </iframe></iframe>
       
     </div>
@@ -574,6 +580,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/12/11/BootStrap/" rel="prev" title="BootStrap">
+                BootStrap <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -683,7 +693,7 @@ var jiathis_config={
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -694,7 +704,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -705,7 +715,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
