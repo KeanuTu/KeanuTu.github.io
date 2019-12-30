@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Java,eclipse,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="引言eclipse调试技巧总结">
+<meta name="keywords" content="Java,eclipse">
+<meta property="og:type" content="article">
+<meta property="og:title" content="elipse调试Java程序技巧">
+<meta property="og:url" content="https://TFwanan00f.github.io/2019/12/30/elipse调试Java程序技巧/index.html">
+<meta property="og:site_name" content="Oskrai&#39;s Blog">
+<meta property="og:description" content="引言eclipse调试技巧总结">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://tfwanan00f.github.io/2019/12/30/elipse调试Java程序技巧/逻辑结构.png">
+<meta property="og:image" content="https://tfwanan00f.github.io/2019/12/30/elipse调试Java程序技巧/2.1.png">
+<meta property="og:image" content="https://tfwanan00f.github.io/2019/12/30/elipse调试Java程序技巧/2.2.png">
+<meta property="og:image" content="https://tfwanan00f.github.io/2019/12/30/elipse调试Java程序技巧/3.1.jpg">
+<meta property="og:image" content="https://tfwanan00f.github.io/2019/12/30/elipse调试Java程序技巧/3.2.png">
+<meta property="og:image" content="https://tfwanan00f.github.io/2019/12/30/elipse调试Java程序技巧/4.1.png">
+<meta property="og:image" content="https://tfwanan00f.github.io/2019/12/30/elipse调试Java程序技巧/6.1.png">
+<meta property="og:image" content="https://tfwanan00f.github.io/2019/12/30/elipse调试Java程序技巧/7.1.png">
+<meta property="og:image" content="https://tfwanan00f.github.io/2019/12/30/elipse调试Java程序技巧/8.png">
+<meta property="og:image" content="https://tfwanan00f.github.io/2019/12/30/elipse调试Java程序技巧/9.png">
+<meta property="og:image" content="https://tfwanan00f.github.io/2019/12/30/elipse调试Java程序技巧/10.1.png">
+<meta property="og:image" content="https://tfwanan00f.github.io/2019/12/30/elipse调试Java程序技巧/10.2.png">
+<meta property="og:image" content="https://tfwanan00f.github.io/2019/12/30/elipse调试Java程序技巧/11.png">
+<meta property="og:image" content="https://tfwanan00f.github.io/2019/12/30/elipse调试Java程序技巧/13.gif">
+<meta property="og:image" content="https://tfwanan00f.github.io/2019/12/30/elipse调试Java程序技巧/14.png">
+<meta property="og:updated_time" content="2019-12-30T15:59:35.541Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="elipse调试Java程序技巧">
+<meta name="twitter:description" content="引言eclipse调试技巧总结">
+<meta name="twitter:image" content="https://tfwanan00f.github.io/2019/12/30/elipse调试Java程序技巧/逻辑结构.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://TFwanan00f.github.io/2019/12/30/elipse调试Java程序技巧/">
+
+
+
+
+
+  <title>elipse调试Java程序技巧 | Oskrai's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/click.js"></script>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+<a href="https://github.com/TFwanan00f" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Oskrai's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Stay Hungry!Stay Foolish!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://TFwanan00f.github.io/2019/12/30/elipse调试Java程序技巧/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="樊">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3249761993,448953672&fm=27&gp=0.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Oskrai's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">elipse调试Java程序技巧</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-30T23:06:27+08:00">
+                2019-12-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/eclipse/" itemprop="url" rel="index">
+                    <span itemprop="name">eclipse</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">本文总阅读数 <i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h4><p><code>eclipse</code>调试技巧总结</p>
+<a id="more"></a>
+<h4 id="0、提要"><a href="#0、提要" class="headerlink" title="0、提要"></a>0、提要</h4><ul>
+<li>不要使用System.out.println作为调试工具</li>
+<li>启用所有组件的详细的日志记录级别</li>
+<li>使用一个日志分析器来阅读日志  </li>
+</ul>
+<p><strong>eclipse调试快捷键</strong></p>
+<blockquote>
+<p>F5    跳进当前执行的方法中（Step Into）</p>
+<p>F6    跳过该行继续执行（Step Over）</p>
+<p>F7    从方法中跳出继续执行（Step Return）</p>
+<p>F8    全部运行通过，从调试状态中恢复（Resume）</p>
+<p>Ctrl+R    运行当前选中行（Run to Line）</p>
+</blockquote>
+<hr>
+<h4 id="1、逻辑结构"><a href="#1、逻辑结构" class="headerlink" title="1、逻辑结构"></a>1、逻辑结构</h4><p>​    逻辑结构主要用来展示map之类的collection数据结构存储的值的，它只展示存储值的逻辑部分，而屏蔽了数据结构详细的内部结构，更方便我们查看map之类collection结构里存储的值，推荐使用。</p>
+<p>​    这个按钮就是展示逻辑结构的按钮，下面两个图，上图是不展示逻辑结构，下图是展示逻辑结构，很明显，下图的结构可读性更强，可以专注于debug的变量。<img src="逻辑结构.png" alt></p>
+<hr>
+<h4 id="2、条件断点或条件debug"><a href="#2、条件断点或条件debug" class="headerlink" title="2、条件断点或条件debug"></a>2、条件断点或条件debug</h4><p>​    想象一下我们平时如何添加断点，通常的做法是双击行号的左边。在debug视图中，<code>BreakPoint View</code>将所有断点都列出来，但是我们可以添加一个<code>boolean</code>类型的条件来决定断点是否被跳过。如果条件为真，在断点处程序将停止，否则断点被跳过，程序继续执行。</p>
+<p><img src="2.1.png" alt></p>
+<p>​    条件debug用在需要满足某种条件才会触发断点的场景，比如只有id是12345这条记录会有问题，那就当id等于12345时才触发断点，其他都放过。</p>
+<p>​    右击断点选择断点属性，就能看到这样一个配置框，右边的文本区块可以填写条件代码，比如id==12345</p>
+<p><img src="2.2.png" alt></p>
+<hr>
+<h4 id="3、异常断点"><a href="#3、异常断点" class="headerlink" title="3、异常断点"></a>3、异常断点</h4><p>​    异常断点只要用在debug某种异常的时候，可以配置当这个异常出现后才触发断点，不需要debug去寻找异常。</p>
+<p>​    点击这个红圈就能弹出异常断点的窗口，会列出你系统里的所有异常类，然后选择需要断点的异常就OK</p>
+<p><img src="3.1.jpg" alt></p>
+<p><img src="3.2.png" alt></p>
+<hr>
+<h4 id="4、观察点"><a href="#4、观察点" class="headerlink" title="4、观察点"></a>4、观察点</h4><p>​    他允许当一个选定的属性被访问或者被更改的时候程序执行暂停，并进行debug。最简单的办法是在类中声明成员变量的语句行号左边双击，就可以加入一个观察点。  </p>
+<p><img src="4.1.png" alt></p>
+<hr>
+<h4 id="5、查看变量"><a href="#5、查看变量" class="headerlink" title="5、查看变量"></a>5、查看变量</h4><p>​    在选中的变量上使用<code>Ctrl+Shift+D</code> 或者 <code>Ctrl+Shift+I</code>可以查看变量值，另外我们还可以在Expressions View中添加监视。</p>
+<hr>
+<h4 id="6、改变变量值"><a href="#6、改变变量值" class="headerlink" title="6、改变变量值"></a>6、改变变量值</h4><p>​    我们可以在Debug的时候改变其中变量的值。在Variables View中可以按下图所示操作。</p>
+<p><img src="6.1.png" alt></p>
+<hr>
+<h4 id="7、在Main方法中停止"><a href="#7、在Main方法中停止" class="headerlink" title="7、在Main方法中停止"></a>7、在Main方法中停止</h4><p>​    在<code>Run/Debug</code>设置中，我们可以按如下图所示的启用这个特性。程序将会在main方法的第一行停住</p>
+<p><img src="7.1.png" alt></p>
+<hr>
+<h4 id="8、环境变量"><a href="#8、环境变量" class="headerlink" title="8、环境变量"></a>8、环境变量</h4><p>我们可以很方便的在<code>Edit Conriguration</code>对话框中添加环境变量</p>
+<p><img src="8.png" alt></p>
+<hr>
+<h4 id="9、单步过滤"><a href="#9、单步过滤" class="headerlink" title="9、单步过滤"></a>9、单步过滤</h4><p>单步过滤的场景是我们在使用F5来跟到某个方法内部的时候，经常会跟到一些我们确定不需要看的方法内部。</p>
+<p><code>this.getTradeDetail(uid, itemStr.subString(0,5))</code></p>
+<p>比如这行代码，想F5进入<code>getTradeDetail</code>内部，会首先执行<code>itemStr.subString</code>方法，会先进入<code>subString</code>方法，而这方法是JDK的String方法，确定没问题，不需要关心，<strong>单步过滤就是跳过这些我们想忽略的方法直接到目标方法内部的一种debug技巧。</strong></p>
+<p>在<strong>Window &gt; PreferencesJava &gt; Debug &gt; Step Filtering</strong> 设置过滤器, 可以选择需要过滤掉的包和类。同时要确保你在debug视图中启用了单步过滤，如下图。这样在使用单步调试的时候，就会使用到这个过滤功能。</p>
+<p>上图是过滤器配置，典型的就是把JDK的一些类和包配置过滤。下图是要在debug时候开启单步过滤，否则不生效。</p>
+<p><img src="9.png" alt></p>
+<hr>
+<h4 id="10、跳出帧Drop-to-frame"><a href="#10、跳出帧Drop-to-frame" class="headerlink" title="10、跳出帧Drop to frame"></a>10、跳出帧Drop to frame</h4><p>跳到帧是一种重入技巧，在debug时，eclipse可以直接跳到调用栈中指定的任意桢，并且使JVM在此处重新运行。这使你可以重新运行你的部分代码，而不需要为了调试之前的代码而重新来一次。</p>
+<p><strong>要注意的是</strong>：已经被修改的变量不会被重置，它们会保留当时的值。</p>
+<p><em>Drop to frame就是说，可以重新跳到当前方法的开始处重新执行，并且所有上下文变量的值也回到那个时候。</em>不一定是当前方法，可以点击当前调用栈中的任何一个frame跳到那里（除了最开始的那个frame）。主要用途是所有变量状态快速恢复到方法开始时候的样子重新执行一遍，即可以一遍又一遍地在那个你关注的上下文中进行多次调试（结合改变变量值等其它功能），而不用重来一遍调试到哪里了。当然，原来执行过程中产生的副作用是不可逆的（比如你往数据库中插入了一条记录）。</p>
+<p><img src="10.1.png" alt></p>
+<p>使用方式：选择调用栈中的一桢，点击按钮“跳到桢”</p>
+<p><img src="10.2.png" alt></p>
+<hr>
+<h4 id="11、Inspect"><a href="#11、Inspect" class="headerlink" title="11、Inspect"></a>11、Inspect</h4><p>inspect用来查看某个表达式的值，对于变量值debug很容查看，但是对于一个表达式的值就不容易查看，还是这句：</p>
+<p><code>this.getTradeDetail(uid, itemStr.subString(0,5))</code></p>
+<p>想看<code>getTradeDetail</code>的值，就没法想看变量值一样（虽然这个很有可能是赋值给一个变量…），要看这种表达式值，就需要inspect，具体做法是选中这行表达式，然后右击-&gt;inspect,或者更方便的快捷键组合：<code>ctrl+shift+I</code>,会弹出如下的展示表达式结果的框：</p>
+<p><img src="11.png" alt></p>
+<hr>
+<h4 id="12、expressions"><a href="#12、expressions" class="headerlink" title="12、expressions"></a>12、expressions</h4><p>expressions窗口也是用来看变量或者表达式的值的，在<code>windows-&gt;show viewz</code>中打开expression窗口，然后在里面添加你想观察的表达式，比如还是这句：</p>
+<p><code>this.getTradeDetail(uid, itemStr.subString(0,5))</code></p>
+<p>然后debug的时候，就能看到被添加的表达式结果了，另外也能根据需要改value的值。</p>
+<hr>
+<h4 id="13、display"><a href="#13、display" class="headerlink" title="13、display"></a>13、display</h4><p>display也是用来观察和修改变量or表达式的，这个应该用的人比较多，在<code>windows-&gt;show view</code>中打开display窗口，可以在display窗口里写表达式，然后右击选择display运行查看结果或者<code>ctrl+shift+D</code>快捷键组合，表达式可以是程序中一行代码或者你自己写的一个赋值语句来改变变量值之类的。</p>
+<p><img src="13.gif" alt></p>
+<hr>
+<h4 id="14、远程debug"><a href="#14、远程debug" class="headerlink" title="14、远程debug"></a>14、远程debug</h4><p>远程debug可以用来调试远程服务器上的代码，保证你本地代码和远程部署的代码是一致，就可以通过这种方式debug服务器代码，这个是java web开发的一大利器，否则定位服务器问题简直是灾难。</p>
+<p>远程debug需要服务器端启动jvm的时候做一些开启和端口的配置，具体的配置网上很多，搜一下即可。然后在本地的debug configuration中双击添加一个<code>remote java application</code>，填写远程主机的host和配置的debug端口，就可以开始debug了，如下图：</p>
+<p><img src="14.png" alt></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    樊
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://TFwanan00f.github.io/2019/12/30/elipse调试Java程序技巧/" title="elipse调试Java程序技巧">https://TFwanan00f.github.io/2019/12/30/elipse调试Java程序技巧/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank"><a herf="https://Oskari.club">樊小太爷的blog</a></a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"><i class="fab fa-affiliatetheme"></i>Java</a>
+          
+            <a href="/tags/eclipse/" rel="tag"><i class="fab fa-affiliatetheme"></i>eclipse</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/12/28/在线商城项目/" rel="next" title="在线商城项目">
+                <i class="fa fa-chevron-left"></i> 在线商城项目
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NDkzNi8yMTQ1OA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3249761993,448953672&fm=27&gp=0.jpg" alt="樊">
+            
+              <p class="site-author-name" itemprop="name">樊</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/TFwanan00f" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#0、提要"><span class="nav-number">2.</span> <span class="nav-text">0、提要</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1、逻辑结构"><span class="nav-number">3.</span> <span class="nav-text">1、逻辑结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、条件断点或条件debug"><span class="nav-number">4.</span> <span class="nav-text">2、条件断点或条件debug</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、异常断点"><span class="nav-number">5.</span> <span class="nav-text">3、异常断点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、观察点"><span class="nav-number">6.</span> <span class="nav-text">4、观察点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、查看变量"><span class="nav-number">7.</span> <span class="nav-text">5、查看变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6、改变变量值"><span class="nav-number">8.</span> <span class="nav-text">6、改变变量值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7、在Main方法中停止"><span class="nav-number">9.</span> <span class="nav-text">7、在Main方法中停止</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8、环境变量"><span class="nav-number">10.</span> <span class="nav-text">8、环境变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9、单步过滤"><span class="nav-number">11.</span> <span class="nav-text">9、单步过滤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10、跳出帧Drop-to-frame"><span class="nav-number">12.</span> <span class="nav-text">10、跳出帧Drop to frame</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11、Inspect"><span class="nav-number">13.</span> <span class="nav-text">11、Inspect</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12、expressions"><span class="nav-number">14.</span> <span class="nav-text">12、expressions</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#13、display"><span class="nav-number">15.</span> <span class="nav-text">13、display</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#14、远程debug"><span class="nav-number">16.</span> <span class="nav-text">14、远程debug</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">樊</span>
+
+  
+</div>
+
+<!--
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+-->
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      本站访问数 <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      本站总访问数 <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false});</script></body>
+</html>
