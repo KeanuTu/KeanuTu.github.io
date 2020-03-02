@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>设计模式00_UML基础</title>
+    <title></title>
     <url>/2020/02/24/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F00-UML%E5%9F%BA%E7%A1%80/</url>
-    <content><![CDATA[<p>​    用标准的工业化设计语言，对待开发的产品进行建模，<strong>建模的目的就是把所要设计的结构和系统的行为联系起来，并对系统的结构进行可视化控制。</strong></p>
+    <content><![CDATA[<p>layout: post<br>title: 设计模式00_UML基础<br>date: 2020-02-24 17:21:54<br>tags:</p>
+<ul>
+<li>设计模式<br>categories:</li>
+<li>设计模式</li>
+</ul>
+<p>​    用标准的工业化设计语言，对待开发的产品进行建模，<strong>建模的目的就是把所要设计的结构和系统的行为联系起来，并对系统的结构进行可视化控制。</strong></p>
 <a id="more"></a>
 <h1 id="UML"><a href="#UML" class="headerlink" title="UML"></a>UML</h1><p>​    UML（<strong>U</strong>nified <strong>M</strong>odeling <strong>L</strong>anguage）统一建模语言，主要图像是：<code>类图</code>，<code>顺序图</code>，<code>状态图</code>。</p>
 <blockquote>
@@ -29,10 +34,39 @@
 </ol>
 <p><strong>连线</strong></p>
 <p>节点间的连线有多种形状，而且可以在连线中加入标签：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;pre class=&quot;mermaid&quot;&gt;graph TB</span><br><span class="line">	A1--&gt;B1</span><br><span class="line">	A2---B2</span><br><span class="line">	A3--text---B3</span><br><span class="line">	A4--text--&gt;B4</span><br><span class="line">	A5-.-B5</span><br><span class="line">	A6-.-&gt;B6</span><br><span class="line">	A7==text==&gt;B7</span><br><span class="line">	</span><br><span class="line">	subgraph 特殊图</span><br><span class="line">	 a1 --&gt; a2</span><br><span class="line">        end</span><br></pre></td></tr></table></figure>
+<pre class="mermaid">graph TB
+    A1-->B1
+    A2---B2
+    A3--text---B3
+    A4--text-->B4
+    A5-.-B5
+    A6-.->B6
+    A7==text==>B7
+
+    subgraph 特殊图
+     a1 --> a2
+        end</pre>
+
+
+
+
+
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line">graph TD	<span class="comment">//横向LR</span></span><br><span class="line">A[方形] --&gt;B(圆角)</span><br><span class="line">    B --&gt; C&#123;条件a&#125;</span><br><span class="line">    C --&gt;|a=<span class="number">1</span>| D[结果<span class="number">1</span>]</span><br><span class="line">    C --&gt;|a=<span class="number">2</span>| E[结果<span class="number">2</span>]</span><br><span class="line">    F[竖向流程图]</span><br><span class="line">        						mermaid</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">graph TD</span><br><span class="line">A[方形] --&gt;B(圆角)</span><br><span class="line">    B --&gt; C&#123;条件a&#125;</span><br><span class="line">    C --&gt;|a=1| D[结果1]</span><br><span class="line">    C --&gt;|a=2| E[结果2]</span><br><span class="line">    G((圆))</span><br><span class="line">    F&gt;非对称节点]</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">graph LR</span><br><span class="line">A[正方形] --&gt; B(圆角)</span><br><span class="line">	B --&gt; C&#123;条件a&#125;</span><br><span class="line">	C --&gt; |a=1| D[结果1]</span><br><span class="line">	C --&gt; |a=2| E[结果2]</span><br><span class="line">	F[横向流程图]</span><br></pre></td></tr></table></figure>
+<pre class="mermaid">graph TD
+A[方形] -->B(圆角)
+    B --> C{条件a}
+    C -->|a=1| D[结果1]
+    C -->|a=2| E[结果2]
+    G((圆))
+    F>非对称节点]</pre>
+
+<pre class="mermaid">graph LR
+A[正方形] --> B(圆角)
+    B --> C{条件a}
+    C --> |a=1| D[结果1]
+    C --> |a=2| E[结果2]
+    F[横向流程图]</pre>
+
 <h4 id="标准流程图"><a href="#标准流程图" class="headerlink" title="标准流程图"></a>标准流程图</h4><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">st=&gt;start: 开始框</span><br><span class="line">op=&gt;operation: 处理框</span><br><span class="line">cond=&gt;condition: 判断框（是或否?)</span><br><span class="line">sub1=&gt;subroutine: 子流程</span><br><span class="line">io=&gt;inputoutput: 输入输出框</span><br><span class="line">e=&gt;end: 结束框</span><br><span class="line"></span><br><span class="line">st-&gt;op-&gt;cond</span><br><span class="line">cond(yes)-&gt;io-&gt;e</span><br><span class="line">cond(no)-&gt;sub1(right)-&gt;op</span><br><span class="line">    							flow</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">st=&gt;start: 开始框</span><br><span class="line">op=&gt;operation: 处理框</span><br><span class="line">cond=&gt;condition: 判断框（是或否?)</span><br><span class="line">sub1=&gt;subroutine: 子流程</span><br><span class="line">io=&gt;inputoutput: 输入输出框</span><br><span class="line">e=&gt;end: 结束框</span><br><span class="line"></span><br><span class="line">st-&gt;op-&gt;cond</span><br><span class="line">cond(yes)-&gt;io-&gt;e</span><br><span class="line">cond(no)-&gt;sub1(right)-&gt;op</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">st=&gt;start: 开始框</span><br><span class="line">op=&gt;operation: 处理框</span><br><span class="line">cond=&gt;condition: 判断框（是或否?)</span><br><span class="line">sub1=&gt;subroutine: 子流程</span><br><span class="line">io=&gt;inputoutput: 输入输出框</span><br><span class="line">e=&gt;end: 结束框</span><br><span class="line"></span><br><span class="line">st(right)-&gt;op-&gt;cond</span><br><span class="line">cond(yes)-&gt;io-&gt;e</span><br><span class="line">cond(no)-&gt;sub1(right)-&gt;op</span><br></pre></td></tr></table></figure>
@@ -41,9 +75,43 @@
 <h4 id="复杂的时序图"><a href="#复杂的时序图" class="headerlink" title="复杂的时序图"></a>复杂的时序图</h4><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">Title: 标题：复杂使用(添狗)</span><br><span class="line">对象A-&gt;对象B: 对象B你好吗？(请求)</span><br><span class="line">Note right of 对象B: 对象B的描述</span><br><span class="line">Note left of 对象A: 对象A的描述(提示)</span><br><span class="line">对象B--&gt;对象A: 我很好(响应)</span><br><span class="line">对象B-&gt;小三: 你好吗</span><br><span class="line">小三--&gt;&gt;对象A: 对象B找我了</span><br><span class="line">对象A-&gt;对象B: 你真的好吗？</span><br><span class="line">Note over 小三,对象B: 我们是朋友</span><br><span class="line">participant C</span><br><span class="line">Note right of C: 没人找我玩</span><br><span class="line">								sequence</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Title: 标题：复杂使用(添狗)</span><br><span class="line">对象A-&gt;对象B: 对象B你好吗？(请求)</span><br><span class="line">Note right of 对象B: 对象B的描述</span><br><span class="line">Note left of 对象A: 对象A的描述(提示)</span><br><span class="line">对象B--&gt;对象A: 我很好(响应)</span><br><span class="line">对象B-&gt;小三: 你好吗</span><br><span class="line">小三--&gt;&gt;对象A: 对象B找我了</span><br><span class="line">对象A-&gt;对象B: 你真的好吗？</span><br><span class="line">Note over 小三,对象B: 我们是朋友</span><br><span class="line">participant C</span><br><span class="line">Note right of C: 没人找我玩</span><br></pre></td></tr></table></figure>
 <h4 id="标准时序图"><a href="#标准时序图" class="headerlink" title="标准时序图"></a>标准时序图</h4><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">%% 时序图例子，-&gt;直线，--&gt;虚线，-&gt;&gt;实线箭头</span><br><span class="line">sequenceDiagram</span><br><span class="line">	participant 张三</span><br><span class="line">	participant 李四</span><br><span class="line">	张三-&gt;王五: 王五你好吗?</span><br><span class="line">	loop 健康检查</span><br><span class="line">		王五-&gt;王五: 与疾病战斗</span><br><span class="line">	end</span><br><span class="line">	Note right of 王五: 合理饮食 &lt;br/&gt;医生...</span><br><span class="line">	李四--&gt;&gt;张三: 很好！</span><br><span class="line">	王五-&gt;李四: 你怎么样？</span><br><span class="line">	李四--&gt;王五: 很好</span><br><span class="line">								mermaid</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">%% 时序图例子，-&gt;直线，--&gt;虚线，-&gt;&gt;实线箭头</span><br><span class="line">sequenceDiagram</span><br><span class="line">	participant 张三</span><br><span class="line">	participant 李四</span><br><span class="line">	张三-&gt;王五: 王五你好吗?</span><br><span class="line">	loop 健康检查</span><br><span class="line">		王五-&gt;王五: 与疾病战斗</span><br><span class="line">	end</span><br><span class="line">	Note right of 王五: 合理饮食 &lt;br/&gt;医生...</span><br><span class="line">	李四--&gt;&gt;张三: 很好！</span><br><span class="line">	王五-&gt;李四: 你怎么样？</span><br><span class="line">	李四--&gt;王五: 很好</span><br></pre></td></tr></table></figure>
+<pre class="mermaid">%% 时序图例子，->直线，-->虚线，->>实线箭头
+sequenceDiagram
+    participant 张三
+    participant 李四
+    张三->王五: 王五你好吗?
+    loop 健康检查
+        王五->王五: 与疾病战斗
+    end
+    Note right of 王五: 合理饮食 <br>医生...
+    李四-->>张三: 很好！
+    王五->李四: 你怎么样？
+    李四-->王五: 很好</pre>
+
 <h3 id="甘特图实例"><a href="#甘特图实例" class="headerlink" title="甘特图实例"></a>甘特图实例</h3><p> <strong>甘特图</strong>，也称为条状图(<a href="https://wiki.mbalib.com/wiki/Bar_chart" target="_blank" rel="noopener">Bar chart</a>)  。是在1917年由<a href="https://wiki.mbalib.com/wiki/亨利·甘特" target="_blank" rel="noopener">亨利·甘特</a>开发的，其内在思想简单，基本是一条线条图，横轴表示时间，纵轴表示活动(项目)，线条表示在整个期间上计划和实际的活动完成情况。它直观地表明任务计划在什么时候进行，及实际进展与计划要求的对比。 </p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">%% 甘特图语法示例</span><br><span class="line">	gantt</span><br><span class="line">	dateFormat YYYY-MM-DD</span><br><span class="line">	title 软件开发甘特图</span><br><span class="line">	</span><br><span class="line">	section 设计</span><br><span class="line">	 需求                      :done,    des1, 2014-01-06,2014-01-08</span><br><span class="line">        原型                      :active,  des2, 2014-01-09, 3d</span><br><span class="line">        UI设计                     :         des3, after des2, 5d</span><br><span class="line">    未来任务                     :         des4, after des3, 5d</span><br><span class="line">    </span><br><span class="line">     section 开发</span><br><span class="line">        学习准备理解需求                      :crit, done, 2014-01-06,24h</span><br><span class="line">        设计框架                             :crit, done, after des2, 2d</span><br><span class="line">        开发                                 :crit, active, 3d</span><br><span class="line">        未来任务                              :crit, 5d</span><br><span class="line">        耍                                   :2d</span><br><span class="line"></span><br><span class="line">        section 测试</span><br><span class="line">        功能测试                              :active, a1, after des3, 3d</span><br><span class="line">        压力测试                               :after a1  , 20h</span><br><span class="line">        测试报告                               : 48h</span><br></pre></td></tr></table></figure>
+<pre class="mermaid">%% 甘特图语法示例
+    gantt
+    dateFormat YYYY-MM-DD
+    title 软件开发甘特图
+
+    section 设计
+     需求                      :done,    des1, 2014-01-06,2014-01-08
+        原型                      :active,  des2, 2014-01-09, 3d
+        UI设计                     :         des3, after des2, 5d
+    未来任务                     :         des4, after des3, 5d
+
+     section 开发
+        学习准备理解需求                      :crit, done, 2014-01-06,24h
+        设计框架                             :crit, done, after des2, 2d
+        开发                                 :crit, active, 3d
+        未来任务                              :crit, 5d
+        耍                                   :2d
+
+        section 测试
+        功能测试                              :active, a1, after des3, 3d
+        压力测试                               :after a1  , 20h
+        测试报告                               : 48h</pre>
+
 <table>
 <thead>
 <tr>
@@ -187,21 +255,15 @@
 </blockquote>
 <p><img src="http://www.plantuml.com/plantuml/png/TKvB2i8m4Dtd50_SAD9SG5VgLl0ACHabq2J5IGgYlRjjf87M-bR3lA-k5JCEYkauN49uvOWRfGcUeZJ9kITMfmoy17h8eiR-NLMuq8E3pzIPA5f_HvY-5soZL7Jpobi8kQZKosyIigsa_banCIxCwUjcna6UV68oSipGcVqXygmjcdIjhKORh44aZklDJdGV" alt="域"></p>
 ]]></content>
-      <categories>
-        <category>设计模式</category>
-      </categories>
-      <tags>
-        <tag>设计模式</tag>
-      </tags>
   </entry>
   <entry>
     <title>GTD学习总结</title>
     <url>/2020/01/22/GTD%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<h5 id="引言"><a href="#引言" class="headerlink" title="引言"></a><strong>引言</strong></h5><p>GTD<em>(<strong>G</strong>etting <strong>T</strong>hings <strong>D</strong>one)</em>把你需要做的事列出来，并处理它✨✨✨</p>
 <p><strong><em>真正的生产力不应该通过实现的计划目标的数量来衡量，而应该由本质上的有价值的结果来衡量。</em></strong></p>
-<p>学习地址：<a href="https://topbook.cc/course/detail/153" target="_blank" rel="noopener">公众号Topbook回复GTD</a></p>
 <a id="more"></a>
-<h2 id="GTD使用过程"><a href="#GTD使用过程" class="headerlink" title="GTD使用过程"></a>GTD使用过程</h2><p>整个GTD的使用过程，就是对事件进行处理的过程。而它的目的如下：</p>
+<h2 id="GTD使用过程"><a href="#GTD使用过程" class="headerlink" title="GTD使用过程"></a>GTD使用过程</h2><p>学习地址：<a href="https://topbook.cc/course/detail/153" target="_blank" rel="noopener">公众号Topbook回复GTD</a></p>
+<p>整个GTD的使用过程，就是对事件进行处理的过程。而它的目的如下：</p>
 <ul>
 <li><strong>清空大脑</strong>，要把脑中“要做什么”和“怎么做”的混乱中分隔出来</li>
 <li><strong>让自己随时都能明确地知道，下一步应该做什么</strong></li>
@@ -222,14 +284,11 @@
 <li><strong>参考资料</strong>（References）</li>
 <li><strong><span style="color:lightblue">日历/软件</span></strong>：有特定时间的将任务记录在日历/软件中，提前提醒自己去按时完成</li>
 </ul>
-<p>+++</p>
 <h3 id="回顾-Reflect"><a href="#回顾-Reflect" class="headerlink" title="回顾(Reflect)"></a>回顾(Reflect)</h3><p>​    做完清单后，大脑重新确认一遍自己要做的事情，任务分化是否合理可执行。</p>
-<p>+++</p>
 <h3 id="执行-Engage"><a href="#执行-Engage" class="headerlink" title="执行(Engage)"></a>执行(Engage)</h3><p>​    为了得到想要的结果去做某件事，并且要能拿着结果去验证这件事是否达成预期，在清单中勾选完成。</p>
 <p>​    执行清单就是你有明确时间和地点，且可行的任务，需要你得到结果。但在任务众多的情况下，要把握好两个原则:🏂</p>
 <p>1、时间有限，人不可能面面俱到；（不应该在消耗你的身体，重视的人际关系，家庭的条件下完成任务，因为人的幸福感是人一生最重要的）</p>
 <p>2、尽可能做离你目标更近的事情。（人只有拥有明确的目标，才能拥有有更充实更快乐的人生）</p>
-<p>+++</p>
 <h2 id="GTD-任务执行的注意事项"><a href="#GTD-任务执行的注意事项" class="headerlink" title="GTD-任务执行的注意事项"></a>GTD-任务执行的注意事项</h2><p>1、能被放进执行清单的，都应该是能一步搞定的。如果时间过长，应该要反思原因，并在有条件的情况下记录。</p>
 <p>2、做方案、做计划是每个人的必修课。<strong>”怎么做“是方法和技巧+”为什么“、”怎么来的“才是和计划相关的。</strong></p>
 <p>3、<span style="color:red">做好时间预估</span>，分配番茄钟，以0.5个番茄钟为基础</p>
