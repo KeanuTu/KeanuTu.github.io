@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="设计模式,">
+  <meta name="keywords" content="设计模式,UML静态建模,">
 
 
 
@@ -84,7 +84,7 @@
 
 
 <meta name="description" content="​    用标准的工业化设计语言，对待开发的产品进行建模，建模的目的就是把所要设计的结构和系统的行为联系起来，并对系统的结构进行可视化控制。">
-<meta name="keywords" content="设计模式">
+<meta name="keywords" content="设计模式,UML静态建模">
 <meta property="og:type" content="article">
 <meta property="og:title" content="设计模式00_UML基础">
 <meta property="og:url" content="https://TFwanan00f.github.io/2020/02/24/设计模式00-UML基础/index.html">
@@ -97,6 +97,7 @@
 <meta property="og:image" content="http://www.plantuml.com/plantuml/png/SoWkIImgAStDuR9ooomgBb5mJ2x9BxBYidBCoo_9I2sAoKi42oWa5YlufkOPAIXmWGL076Ceqyed4QWHHPq9bqDgNWhGM000">
 <meta property="og:image" content="http://www.plantuml.com/plantuml/png/DOqn3i8m34Nd-XH_X2imTQYGM5ZW0WQRDbASeiH1GXLt9q5Yi_N-_syipjchHT0zSYcOgjaR6mqNpo7D47O6Q7YjGM3goofbjmTz_eLZ3FFYsD1JZzzphdRJZ0DEoNLkLqUYpsxAUWscZKtiscPer2JD_mK0">
 <meta property="og:image" content="http://www.plantuml.com/plantuml/png/SoWkIImgAStDuV9FoafDBb6mgT7LLN0iAagizCaiBk622Liff1QM9kOKQsXomIH1WX3Pw5Y5r9pKtDIy4fV4aaGK1SMPLQb0FLmEgNafG5i0">
+<meta property="og:image" content="https://img-my.csdn.net/uploads/201211/28/1354106171_9548.gif">
 <meta property="og:image" content="http://www.plantuml.com/plantuml/png/SoWkIImgAStDuN9BBCb8BRAfqTKDpi_ZSaZDIm6A0W00">
 <meta property="og:image" content="http://www.plantuml.com/plantuml/png/IqmgBYbAJ2vHICv9B2vMS8HoVJABIxWoyqfIYz8IarCLm5mGeM1JewU7eWe0">
 <meta property="og:image" content="http://www.plantuml.com/plantuml/png/yoZDJSnJqDBLLN0gIipC0m00">
@@ -104,7 +105,7 @@
 <meta property="og:image" content="http://www.plantuml.com/plantuml/png/Iyv9B2vM24yiIItYIWQpFKfp4_EumAI2hguTH0u0">
 <meta property="og:image" content="http://www.plantuml.com/plantuml/png/yoZDJSnJqDEpKt3EJ4yiIYqfIGK0">
 <meta property="og:image" content="http://www.plantuml.com/plantuml/png/TKvB2i8m4Dtd50_SAD9SG5VgLl0ACHabq2J5IGgYlRjjf87M-bR3lA-k5JCEYkauN49uvOWRfGcUeZJ9kITMfmoy17h8eiR-NLMuq8E3pzIPA5f_HvY-5soZL7Jpobi8kQZKosyIigsa_banCIxCwUjcna6UV68oSipGcVqXygmjcdIjhKORh44aZklDJdGV">
-<meta property="og:updated_time" content="2020-03-02T08:11:13.855Z">
+<meta property="og:updated_time" content="2020-03-04T10:14:56.280Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式00_UML基础">
 <meta name="twitter:description" content="​    用标准的工业化设计语言，对待开发的产品进行建模，建模的目的就是把所要设计的结构和系统的行为联系起来，并对系统的结构进行可视化控制。">
@@ -430,8 +431,10 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">A[方形] --&gt;B(圆角)</span><br><span class="line">    B --&gt; C&#123;条件a&#125;</span><br><span class="line">    C --&gt;|a=1| D[结果1]</span><br><span class="line">    C --&gt;|a=2| E[结果2]</span><br><span class="line">    G((圆))</span><br><span class="line">    F&gt;非对称节点]</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">A[正方形] --&gt; B(圆角)</span><br><span class="line">	B --&gt; C&#123;条件a&#125;</span><br><span class="line">	C --&gt; |a=1| D[结果1]</span><br><span class="line">	C --&gt; |a=2| E[结果2]</span><br><span class="line">	F[横向流程图]</span><br></pre></td></tr></table></figure>
 <h4 id="标准流程图"><a href="#标准流程图" class="headerlink" title="标准流程图"></a>标准流程图</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">st=&gt;start: 开始框</span><br><span class="line">op=&gt;operation: 处理框</span><br><span class="line">cond=&gt;condition: 判断框（是或否?)</span><br><span class="line">sub1=&gt;subroutine: 子流程</span><br><span class="line">io=&gt;inputoutput: 输入输出框</span><br><span class="line">e=&gt;end: 结束框</span><br><span class="line"></span><br><span class="line">st-&gt;op-&gt;cond</span><br><span class="line">cond(yes)-&gt;io-&gt;e</span><br><span class="line">cond(no)-&gt;sub1(right)-&gt;op</span><br><span class="line">    							flow</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">st=&gt;start: 开始框</span><br><span class="line">op=&gt;operation: 处理框</span><br><span class="line">cond=&gt;condition: 判断框（是或否?)</span><br><span class="line">sub1=&gt;subroutine: 子流程</span><br><span class="line">io=&gt;inputoutput: 输入输出框</span><br><span class="line">e=&gt;end: 结束框</span><br><span class="line"></span><br><span class="line">st-&gt;op-&gt;cond</span><br><span class="line">cond(yes)-&gt;io-&gt;e</span><br><span class="line">cond(no)-&gt;sub1(right)-&gt;op</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">st=&gt;start: 开始框</span><br><span class="line">op=&gt;operation: 处理框</span><br><span class="line">cond=&gt;condition: 判断框（是或否?)</span><br><span class="line">sub1=&gt;subroutine: 子流程</span><br><span class="line">io=&gt;inputoutput: 输入输出框</span><br><span class="line">e=&gt;end: 结束框</span><br><span class="line"></span><br><span class="line">st(right)-&gt;op-&gt;cond</span><br><span class="line">cond(yes)-&gt;io-&gt;e</span><br><span class="line">cond(no)-&gt;sub1(right)-&gt;op</span><br></pre></td></tr></table></figure>
+<div id="flowchart-0" class="flow-chart"></div>
+
+<div id="flowchart-1" class="flow-chart"></div>
+
 <h3 id="UML时序图"><a href="#UML时序图" class="headerlink" title="UML时序图"></a>UML时序图</h3><h4 id="简单时序图"><a href="#简单时序图" class="headerlink" title="简单时序图"></a>简单时序图</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">对象A-&gt;对象B: 对象B你好吗?(请求)</span><br><span class="line">Note right of 对象B: 对B的描述</span><br><span class="line">Note left of 对象A: 对A的描述</span><br><span class="line">对象B-&gt;对象A: 我很好(响应)</span><br><span class="line">对象A-&gt;对象B: 你真的好吗?</span><br><span class="line">								sequence</span><br></pre></td></tr></table></figure>
 <div id="sequence-0"></div>
 
@@ -539,26 +542,32 @@
 <p>打开<a href="http://www.plantuml.com/plantuml" target="_blank" rel="noopener"><span style="color:blue">在线作图网址</span></a>，在上面的代码框里面输入代码。<br>完成后点击 Submit 按钮提交查看预览图，同时在预览图下面的 URL 地址框里面会有生成的 UML 图的 png 地址图，当然你也可以选择生成 SVG 或者 ASCII Art。把这个图片地址复制到 Markdown 就可以使用了。 </p>
 <p>如果想修改怎么办？<br>打开<a href="http://www.plantuml.com/plantuml/uml/SyfFKj2rKt3CoKnELR1Io4ZDoSa70000" target="_blank" rel="noopener">在线作图网址</a>，把图片的 url 复制到下面的 url 框里面，点击 Submit ，在上面代码框里面会出现该图片对应的代码，然后修改即可。修改完成后再次生成图片即可。 </p>
 <p>采用Plant的UML的原因，方便版本控制</p>
-<h3 id="关系"><a href="#关系" class="headerlink" title="关系"></a>关系</h3><h4 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h4><blockquote>
+<p>摘选： <a href="https://blog.csdn.net/liutengteng130/article/details/8233681" target="_blank" rel="noopener">https://blog.csdn.net/liutengteng130/article/details/8233681</a> </p>
+<p><img src="https://img-my.csdn.net/uploads/201211/28/1354106171_9548.gif" alt="类的认识"></p>
+<h3 id="关系"><a href="#关系" class="headerlink" title="关系"></a>关系</h3><h4 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h4><p>继承在Java中体现为extends实体类或抽象类</p>
+<blockquote>
 <p>Father &lt;|– Son</p>
 </blockquote>
 <p><img src="http://www.plantuml.com/plantuml/png/SoWkIImgAStDuN9BBCb8BRAfqTKDpi_ZSaZDIm6A0W00" alt="继承"></p>
-<h4 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h4><blockquote>
+<h4 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h4><p>实现就是实现定义的接口的协议，通常implements关键字</p>
+<blockquote>
 <p> abstract class AbstractList </p>
 <p>interface List </p>
 <p>List &lt;|.. AbstractList </p>
 </blockquote>
 <p><img src="http://www.plantuml.com/plantuml/png/IqmgBYbAJ2vHICv9B2vMS8HoVJABIxWoyqfIYz8IarCLm5mGeM1JewU7eWe0" alt="实现"></p>
-<h4 id="组合"><a href="#组合" class="headerlink" title="组合"></a>组合</h4><p>​     关联关系的一种特例，他体现的是一种<strong>contains-a</strong>的关系，这种关系比聚合更强，也称为强聚合；他同样体现整体与部分间的关系，但此时整体与部分是不可分的，整体的生命周期结束也就意味着部分的生命周期结束。 </p>
+<h4 id="组合"><a href="#组合" class="headerlink" title="组合"></a>组合</h4><p>组合通常为：class A{…}    class B{A a, ….}</p>
+<p>​     关联关系的一种特例，他体现的是一种<strong>contains-a</strong>的关系，这种关系比聚合更强，也称为强聚合；他同样体现整体与部分间的关系，但此时整体与部分是不可分的，整体的生命周期结束也就意味着部分的生命周期结束。 </p>
 <blockquote>
 <p> <em>Human</em> <em>**– </em>Brain* </p>
 </blockquote>
 <p><img src="http://www.plantuml.com/plantuml/png/yoZDJSnJqDBLLN0gIipC0m00" alt="组合"></p>
-<h4 id="聚合"><a href="#聚合" class="headerlink" title="聚合"></a>聚合</h4><p>​     关联关系的一种特例，他体现的是整体与部分、拥有的关系，即<strong>has-a</strong>的关系，此时整体与部分之间是可分离的，他们可以具有各自的生命周期。 </p>
+<h4 id="聚合"><a href="#聚合" class="headerlink" title="聚合"></a>聚合</h4><p>通常为：A{…}    B{A* a，…}</p>
+<p>​     关联关系的一种特例，他体现的是整体与部分、拥有的关系，即<strong>has-a</strong>的关系，此时整体与部分之间是可分离的，他们可以具有各自的生命周期。 </p>
 <blockquote>
 <p> <em>Company</em> <em>o</em>– <em>Human</em> </p>
 </blockquote>
-<p><img src="http://www.plantuml.com/plantuml/png/SyxFBKZCgrJ8rzLLy2ZDJSm30000" alt="聚合"></p>
+<p><img src="http://www.plantuml.com/plantuml/png/SyxFBKZCgrJ8rzLLy2ZDJSm30000" alt="聚合"> </p>
 <h4 id="关联"><a href="#关联" class="headerlink" title="关联"></a>关联</h4><pre><code>类与类之间的联接。强依赖关系，表现在代码层面，为*被关联类B以类属性的形式出现在关联类A中。* 
 </code></pre><blockquote>
 <p>class Water </p>
@@ -583,7 +592,36 @@
 <p>class net.unused.Person {</p>
 <p>+public void test();<br>}</p>
 </blockquote>
-<p><img src="http://www.plantuml.com/plantuml/png/TKvB2i8m4Dtd50_SAD9SG5VgLl0ACHabq2J5IGgYlRjjf87M-bR3lA-k5JCEYkauN49uvOWRfGcUeZJ9kITMfmoy17h8eiR-NLMuq8E3pzIPA5f_HvY-5soZL7Jpobi8kQZKosyIigsa_banCIxCwUjcna6UV68oSipGcVqXygmjcdIjhKORh44aZklDJdGV" alt="域"><script src="https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js"></script><script src="undefined"></script><script src="https://cdn.bootcss.com/underscore.js/1.8.3/underscore-min.js"></script><script src="https://cdn.bootcss.com/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script><textarea id="sequence-0-code" style="display: none">对象A->对象B: 对象B你好吗?(请求)
+<p><img src="http://www.plantuml.com/plantuml/png/TKvB2i8m4Dtd50_SAD9SG5VgLl0ACHabq2J5IGgYlRjjf87M-bR3lA-k5JCEYkauN49uvOWRfGcUeZJ9kITMfmoy17h8eiR-NLMuq8E3pzIPA5f_HvY-5soZL7Jpobi8kQZKosyIigsa_banCIxCwUjcna6UV68oSipGcVqXygmjcdIjhKORh44aZklDJdGV" alt="域"></p>
+<h3 id="关联、聚合和组合的区别："><a href="#关联、聚合和组合的区别：" class="headerlink" title="关联、聚合和组合的区别："></a><strong>关联、聚合和组合的区别：</strong></h3><p>以语言结构为例做理解：</p>
+<p> <strong>聚合关系</strong>是指语言结构某一位置上能够互相替换的具有某种相同作用的单位（如音位，词）之间的关系.  </p>
+<blockquote>
+<p>例如”吃米饭”，其中的”吃”可以用”做”替换，”米饭”可以用”馒头”替换，”吃”和”做”之间的关系就是聚合关系 </p>
+</blockquote>
+<p> <strong>组合关系</strong>是指两个同一性质的结构单位（如音位与音位，词与词等等）按照线性的顺序组合起来的关系.</p>
+<blockquote>
+<p>比如”吃”可以同”米饭，面条，馒头，东西”等组合出”吃米饭，吃馒头”等</p>
+</blockquote>
+<p>其实关联、聚合和组合的实现都差不多，只能单从语意上划分区别。</p>
+<p><script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">st=>start: 开始框
+op=>operation: 处理框
+cond=>condition: 判断框（是或否?)
+sub1=>subroutine: 子流程
+io=>inputoutput: 输入输出框
+e=>end: 结束框
+
+st->op->cond
+cond(yes)->io->e
+cond(no)->sub1(right)->op</textarea><textarea id="flowchart-0-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script><textarea id="flowchart-1-code" style="display: none">st=>start: 开始框
+op=>operation: 处理框
+cond=>condition: 判断框（是或否?)
+sub1=>subroutine: 子流程
+io=>inputoutput: 输入输出框
+e=>end: 结束框
+
+st(right)->op->cond
+cond(yes)->io->e
+cond(no)->sub1(right)->op</textarea><textarea id="flowchart-1-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-1-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-1-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-1", options);</script><script src="https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js"></script><script src="undefined"></script><script src="https://cdn.bootcss.com/underscore.js/1.8.3/underscore-min.js"></script><script src="https://cdn.bootcss.com/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script><textarea id="sequence-0-code" style="display: none">对象A->对象B: 对象B你好吗?(请求)
 Note right of 对象B: 对B的描述
 Note left of 对象A: 对A的描述
 对象B->对象A: 我很好(响应)
@@ -635,6 +673,8 @@ Note right of C: 没人找我玩</textarea><textarea id="sequence-1-options" sty
           
             <a href="/tags/设计模式/" rel="tag"><i class="fab fa-affiliatetheme"></i>设计模式</a>
           
+            <a href="/tags/UML静态建模/" rel="tag"><i class="fab fa-affiliatetheme"></i>UML静态建模</a>
+          
         </div>
       
 
@@ -655,6 +695,10 @@ Note right of C: 没人找我玩</textarea><textarea id="sequence-1-options" sty
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/03/02/设计模式01-设计原则/" rel="prev" title="设计模式01_设计原则(上)">
+                设计模式01_设计原则(上) <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -764,7 +808,7 @@ var jiathis_config={
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">41</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -786,7 +830,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-count">42</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -829,7 +873,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#UML"><span class="nav-number">1.</span> <span class="nav-text">UML</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Markdown画图语法"><span class="nav-number">1.1.</span> <span class="nav-text">Markdown画图语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#流程图"><span class="nav-number">1.1.1.</span> <span class="nav-text">流程图</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#简易流程图"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">简易流程图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#标准流程图"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">标准流程图</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UML时序图"><span class="nav-number">1.1.2.</span> <span class="nav-text">UML时序图</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#简单时序图"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">简单时序图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#复杂的时序图"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">复杂的时序图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#标准时序图"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">标准时序图</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#甘特图实例"><span class="nav-number">1.1.3.</span> <span class="nav-text">甘特图实例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UML用例图"><span class="nav-number">1.2.</span> <span class="nav-text">UML用例图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用例"><span class="nav-number">1.2.1.</span> <span class="nav-text">用例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用户"><span class="nav-number">1.2.2.</span> <span class="nav-text">用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#改变箭头连接方向"><span class="nav-number">1.2.3.</span> <span class="nav-text">改变箭头连接方向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图示方向"><span class="nav-number">1.2.4.</span> <span class="nav-text">图示方向</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UML类图"><span class="nav-number">1.3.</span> <span class="nav-text">UML类图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#类的属性表示方法"><span class="nav-number">1.3.1.</span> <span class="nav-text">类的属性表示方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关系"><span class="nav-number">1.3.2.</span> <span class="nav-text">关系</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#继承"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">继承</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现"><span class="nav-number">1.3.2.2.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#组合"><span class="nav-number">1.3.2.3.</span> <span class="nav-text">组合</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#聚合"><span class="nav-number">1.3.2.4.</span> <span class="nav-text">聚合</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关联"><span class="nav-number">1.3.2.5.</span> <span class="nav-text">关联</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#依赖"><span class="nav-number">1.3.2.6.</span> <span class="nav-text">依赖</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#域"><span class="nav-number">1.3.3.</span> <span class="nav-text">域</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#UML"><span class="nav-number">1.</span> <span class="nav-text">UML</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Markdown画图语法"><span class="nav-number">1.1.</span> <span class="nav-text">Markdown画图语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#流程图"><span class="nav-number">1.1.1.</span> <span class="nav-text">流程图</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#简易流程图"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">简易流程图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#标准流程图"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">标准流程图</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UML时序图"><span class="nav-number">1.1.2.</span> <span class="nav-text">UML时序图</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#简单时序图"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">简单时序图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#复杂的时序图"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">复杂的时序图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#标准时序图"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">标准时序图</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#甘特图实例"><span class="nav-number">1.1.3.</span> <span class="nav-text">甘特图实例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UML用例图"><span class="nav-number">1.2.</span> <span class="nav-text">UML用例图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用例"><span class="nav-number">1.2.1.</span> <span class="nav-text">用例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用户"><span class="nav-number">1.2.2.</span> <span class="nav-text">用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#改变箭头连接方向"><span class="nav-number">1.2.3.</span> <span class="nav-text">改变箭头连接方向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图示方向"><span class="nav-number">1.2.4.</span> <span class="nav-text">图示方向</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UML类图"><span class="nav-number">1.3.</span> <span class="nav-text">UML类图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#类的属性表示方法"><span class="nav-number">1.3.1.</span> <span class="nav-text">类的属性表示方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关系"><span class="nav-number">1.3.2.</span> <span class="nav-text">关系</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#继承"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">继承</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现"><span class="nav-number">1.3.2.2.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#组合"><span class="nav-number">1.3.2.3.</span> <span class="nav-text">组合</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#聚合"><span class="nav-number">1.3.2.4.</span> <span class="nav-text">聚合</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关联"><span class="nav-number">1.3.2.5.</span> <span class="nav-text">关联</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#依赖"><span class="nav-number">1.3.2.6.</span> <span class="nav-text">依赖</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#域"><span class="nav-number">1.3.3.</span> <span class="nav-text">域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关联、聚合和组合的区别："><span class="nav-number">1.3.4.</span> <span class="nav-text">关联、聚合和组合的区别：</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
