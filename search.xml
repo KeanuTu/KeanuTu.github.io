@@ -9,8 +9,200 @@
     <title>设计模式04-结构型模式</title>
     <url>/2020/03/09/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F04-%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F/</url>
     <content><![CDATA[<p><strong>引言</strong></p>
+<p>​    结构型模式主要涉及如何组合各种对象以便于获得更好、更灵活的结构。虽然面向对象的继承机制提供了最基本的子类扩展父类的功能，但结构型更多地通过组合与运行期的动态组合实现更灵活的功能。</p>
+<p>​    将类和对象结合形成更大的结构，类似于堆积木。</p>
 <a id="more"></a>
-<h1 id="适配器模式（Adapter）"><a href="#适配器模式（Adapter）" class="headerlink" title="适配器模式（Adapter）"></a>适配器模式（Adapter）</h1><h1 id="桥接模式（Bridge）"><a href="#桥接模式（Bridge）" class="headerlink" title="桥接模式（Bridge）"></a>桥接模式（Bridge）</h1><h1 id="组合模式（Composite）"><a href="#组合模式（Composite）" class="headerlink" title="组合模式（Composite）"></a>组合模式（Composite）</h1><h1 id="装饰模式（Decorator）"><a href="#装饰模式（Decorator）" class="headerlink" title="装饰模式（Decorator）"></a>装饰模式（Decorator）</h1><h1 id="外观模式（Facade）"><a href="#外观模式（Facade）" class="headerlink" title="外观模式（Facade）"></a>外观模式（Facade）</h1><h1 id="享元模式（Flyweight）"><a href="#享元模式（Flyweight）" class="headerlink" title="享元模式（Flyweight）"></a>享元模式（Flyweight）</h1><h1 id="代理模式（Proxy）"><a href="#代理模式（Proxy）" class="headerlink" title="代理模式（Proxy）"></a>代理模式（Proxy）</h1>]]></content>
+<h1 id="💥适配器模式（Adapter）"><a href="#💥适配器模式（Adapter）" class="headerlink" title="💥适配器模式（Adapter）"></a>💥适配器模式（Adapter）</h1><blockquote>
+<p>​    将一个类的接口转换成客户希望的另一个接口，使得原本由于接口不兼容而不能一起工作的类一起工作。</p>
+</blockquote>
+<h2 id="模式定义"><a href="#模式定义" class="headerlink" title="模式定义"></a>模式定义</h2><p>​    适配器的实现就是把客户类的请求转化为对适配者的相应接口的调用。</p>
+<h2 id="模式结构"><a href="#模式结构" class="headerlink" title="模式结构"></a>模式结构</h2><h3 id="🎏类适配器"><a href="#🎏类适配器" class="headerlink" title="🎏类适配器"></a>🎏类适配器</h3><p><img src="http://www.plantuml.com/plantuml/png/LOv12i9034NtEKMMYlOAKl46uWNIz2i3Owb91eJYtHqPXRgTz_wRz1vYKUwPD8ixdtB250kzI0OF4mrku29sGmKxDZmAF3RRAZMzwmuDVoF7KUQ0CPw1QVnjz-qP2yrbo4d_GkiX-FEDpz1qJNfUMTJNNZts3G00" alt="类适配器"></p>
+<h3 id="🎏对象适配器"><a href="#🎏对象适配器" class="headerlink" title="🎏对象适配器"></a>🎏对象适配器</h3><p><img src="http://www.plantuml.com/plantuml/png/LOz12i8m44NtSufPAj8Bk92ADn0lC4s_4eWbPYOWY7TtD1RhDl_z_pAzcXIhrqGXYIeVKiHa3tgI36f5Wd4BJb8ky6331RSAjTNQ8VhMzgDaGs7S3TFuepkMJu9j8q2v3Yc6vSZ_1lZjq8mGpp4S5rZxMjVjsZZDJd-PkzIxtOzv0G00" alt="对象适配器"></p>
+<h2 id="具体实例"><a href="#具体实例" class="headerlink" title="具体实例"></a>具体实例</h2><p>编写一个Adapter的步骤如下：</p>
+<pre><code>1. 适配器实现目标接口（interface）
+ 2. 内部持有一个待转换接口的引用
+ 3. 在目标接口的实现方法内部，调用待转换接口的方法
+</code></pre><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> BAdapter implements B &#123;</span><br><span class="line">    <span class="keyword">private</span> A a;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">BAdapter</span><span class="params">(A a)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.a = a;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">b</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        a.a();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>只有A、B接口均为抽象接口调用时，才能简单地实现Adapter模式。</p>
+<h2 id="模式分析（优缺点）"><a href="#模式分析（优缺点）" class="headerlink" title="模式分析（优缺点）"></a>模式分析（优缺点）</h2><p><strong><em>优点：</em></strong></p>
+<ul>
+<li>类适配器，可以在适配器类种置换一些适配者的方法，使得适配器的灵活性更强。</li>
+<li>对象适配器，同一个适配器可以把适配者类和它的子类都适配到目标接口。</li>
+</ul>
+<p><strong><em>缺点：</em></strong></p>
+<ul>
+<li>类适配器，由于Java、C#等不支持多重继承，一次只能适配一个适配者类，且必须是抽象者类，（对象适配器就不需要）；</li>
+<li>对象适配器，想要置换适配者类的方法不容易。</li>
+</ul>
+<h2 id="应用举例"><a href="#应用举例" class="headerlink" title="应用举例"></a>应用举例</h2><ul>
+<li><code>JDBC</code>驱动软件是介于<code>JDBC</code>接口和数据库引擎接口之间的适配器软件。</li>
+<li>在Spring AOP框架中，对<code>BeforeAdvice</code>，<code>AfterAdvice</code>，<code>ThrowsAdvice</code>三种通知类借助适配器模式实现</li>
+</ul>
+<h1 id="桥接模式（Bridge）"><a href="#桥接模式（Bridge）" class="headerlink" title="桥接模式（Bridge）"></a>桥接模式（Bridge）</h1><blockquote>
+<p>​    将抽象部分与它的实现部分分离，使它们都可以独立地变化。</p>
+</blockquote>
+<h2 id="模型定义"><a href="#模型定义" class="headerlink" title="模型定义"></a>模型定义</h2><p>重点：<font style="color:red"><strong>抽象化</strong></font>and<font style="color:red"><strong>实现化</strong></font></p>
+<p><strong>抽象化</strong>：将对象的共同性质抽取出来形成类的过程；</p>
+<p><strong>实现化</strong>：针对抽象化给出具体实现；</p>
+<p><strong>解耦</strong>：将抽象角色和实现角色的继承关系改为关联关系。</p>
+<h2 id="模型结构"><a href="#模型结构" class="headerlink" title="模型结构"></a>模型结构</h2><p><img src="桥接模式.png" alt="模式结构"></p>
+<p>桥接模式包含角色：</p>
+<ul>
+<li><code>Abstraction</code>：抽象类</li>
+<li><code>RefinedAbstraction</code>：扩展抽象类</li>
+<li><code>Implementor</code>：实现类接口</li>
+<li><code>ConcreteImplementor</code>：具体实现类</li>
+</ul>
+<h2 id="具体实例-1"><a href="#具体实例-1" class="headerlink" title="具体实例"></a>具体实例</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">       ┌───────────┐</span><br><span class="line">       │    Car    │</span><br><span class="line">       └───────────┘</span><br><span class="line">             ▲</span><br><span class="line">             │</span><br><span class="line">       ┌───────────┐       ┌─────────┐</span><br><span class="line">       │RefinedCar │ ─ ─ ─&gt;│ Engine  │</span><br><span class="line">       └───────────┘       └─────────┘</span><br><span class="line">             ▲                  ▲</span><br><span class="line">    ┌────────┼────────┐         │ ┌──────────────┐</span><br><span class="line">    │        │        │         ├─│  FuelEngine  │</span><br><span class="line">┌───────┐┌───────┐┌───────┐     │ └──────────────┘</span><br><span class="line">│BigCar ││TinyCar││BossCar│     │ ┌──────────────┐</span><br><span class="line">└───────┘└───────┘└───────┘     ├─│ElectricEngine│</span><br><span class="line">                                │ └──────────────┘</span><br><span class="line">                                │ ┌──────────────┐</span><br><span class="line">                                └─│ HybridEngine │</span><br><span class="line">                                  └──────────────┘</span><br></pre></td></tr></table></figure>
+<ul>
+<li>定义一个抽象类<code>Car</code>，引用一个实现类接口<code>Engine</code></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Car</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 引用Engine:</span></span><br><span class="line">    <span class="keyword">protected</span> Engine engine;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Car</span><span class="params">(Engine engine)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.engine = engine;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">drive</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>实现类接口<code>Engine</code>的定义：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Engine</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">start</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>扩展抽象类<code>RefinedCar</code>中定义额外的操作</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">RefinedCar</span> <span class="keyword">extends</span> <span class="title">Car</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">RefinedCar</span><span class="params">(Engine engine)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(engine);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">drive</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.engine.start();</span><br><span class="line">        System.out.println(<span class="string">"Drive "</span> + getBrand() + <span class="string">" car..."</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> String <span class="title">getBrand</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>不同具体类继承来自扩展抽象类，如<code>BoosCar</code></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BossCar</span> <span class="keyword">extends</span> <span class="title">RefinedCar</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">BossCar</span><span class="params">(Engine engine)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(engine);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getBrand</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Boss"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>对于实现类<code>Engine</code>，通过implement实现不同具体子类，如<code>HybridEngine()</code></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HybridEngine</span> <span class="keyword">implements</span> <span class="title">Engine</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Start Hybrid Engine..."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>测试类中，构建</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">RefinedCar car = <span class="keyword">new</span> BossCar(<span class="keyword">new</span> HybridEngine());</span><br><span class="line">car.drive();</span><br></pre></td></tr></table></figure>
+<h2 id="模式分析"><a href="#模式分析" class="headerlink" title="模式分析"></a>模式分析</h2><p>​    桥接就体现在修正抽象类继承实现类（接口）的上。这样 任何<code>RefinedCar</code>的子类都可以和任何一种<code>Engine</code>自由组合，即一辆汽车的两个维度：品牌和引擎都可以独立地变化。 </p>
+<p><strong>总结：</strong>不要过度使用继承，应该优先拆分某些部件，然后通过组合的方式来扩展功能。</p>
+<h1 id="💥组合模式（Composite）"><a href="#💥组合模式（Composite）" class="headerlink" title="💥组合模式（Composite）"></a>💥组合模式（Composite）</h1><blockquote>
+<p>​    将对象组合成树形结构以表示”部分-整体“的层次结构，使得用户对单个对象和组合对象的使用具有一致性。</p>
+</blockquote>
+<h2 id="模式定义-1"><a href="#模式定义-1" class="headerlink" title="模式定义"></a>模式定义</h2><p>​    将容器对象和叶子对象进行<strong>递归</strong>组合，使得用户在使用时无须对它们进行区分，可以一致地对待容器对象和叶子对象。</p>
+<h2 id="模式结构-1"><a href="#模式结构-1" class="headerlink" title="模式结构"></a>模式结构</h2><p><img src="http://www.plantuml.com/plantuml/png/lT712i8m383XUvuYnydO2oZ8PDUzH5oZ1hfsj74eidUt8bHbszLRnX-o3rf7fQ3NtW8TemRg53jBCMBZ-y4xTlg04dCRlHWaOugSiTliPXk1Up_o-j8dd5cRYrXJIFgGXLD-u40gtXKfJl25YwACV5DsveTRePMesqC8T6_J1EKo6yevDgTLOcepM7QrJAS5qXy5ZPNN7oTu3rXL-tm7wkHAJ_q4" alt="组合模式"></p>
+<p><code>Component</code>：抽象构件</p>
+<p><code>Leaf</code>：叶子构件</p>
+<p><code>Composite</code>：容器构件</p>
+<p><code>Client</code>：客户类</p>
+<p><strong>实际引用</strong>：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">...</span><br><span class="line">Component root = <span class="keyword">new</span> Composite(c1);</span><br><span class="line">root.add(<span class="keyword">new</span> Composite(cA)</span><br><span class="line">	.add(<span class="keyword">new</span> Leaf(cA1)));</span><br><span class="line">root.add(<span class="keyword">new</span> Composite(cB)</span><br><span class="line">	.add(<span class="keyword">new</span> Leaf(cB1)));</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<h1 id="💥装饰模式（Decorator）"><a href="#💥装饰模式（Decorator）" class="headerlink" title="💥装饰模式（Decorator）"></a>💥装饰模式（Decorator）</h1><p>给一个类或对象增加行为的两种方式：</p>
+<ul>
+<li><font style="color:red">继承机制</font>：静态增加，通过子类继承父类的基础上增加自己的方法。</li>
+<li><font style="color:red">关联机制</font>：装饰器模式，动态增加，将要扩展的对象嵌入到另一个对象里，由对象本身决定是否调用来扩展自己的行为。</li>
+</ul>
+<h2 id="模型定义-1"><a href="#模型定义-1" class="headerlink" title="模型定义"></a>模型定义</h2><p>​    <strong>动态</strong>地给一个对象<strong>添加</strong>一些额外的职责。</p>
+<h2 id="具体实例-2"><a href="#具体实例-2" class="headerlink" title="具体实例"></a>具体实例</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">   			 ┌───────────┐</span><br><span class="line">             │ Component │</span><br><span class="line">             └───────────┘</span><br><span class="line">                   ▲</span><br><span class="line">      ┌────────────┼─────────────────┐</span><br><span class="line">      │            │                 │</span><br><span class="line">┌───────────┐┌───────────┐     ┌───────────┐</span><br><span class="line">│ComponentA ││ComponentB │...  │ Decorator │</span><br><span class="line">└───────────┘└───────────┘     └───────────┘</span><br><span class="line">                                     ▲</span><br><span class="line">                              ┌──────┴──────┐</span><br><span class="line">                              │             │</span><br><span class="line">                        ┌───────────┐ ┌───────────┐</span><br><span class="line">                        │DecoratorA │ │DecoratorB │...</span><br><span class="line">                        └───────────┘ └───────────┘</span><br></pre></td></tr></table></figure>
+<p><code>Component</code>：抽象构件</p>
+<p><code>ConcreteComponent</code>：具体构件</p>
+<p><code>Decorator</code>：抽象装饰类</p>
+<p><code>ConcreteDecorator</code>：具体装饰类</p>
+<h2 id="具体实例-3"><a href="#具体实例-3" class="headerlink" title="具体实例"></a>具体实例</h2><p> 假设我们需要渲染一个HTML的文本，但是文本还可以附加一些效果，比如加粗、变斜体、加下划线等。为了实现动态附加效果，可以采用Decorator模式 。</p>
+<ul>
+<li>顶层接口（Component）<code>TextNode</code>：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">TextNode</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 设置text:</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">setText</span><span class="params">(String text)</span></span>;</span><br><span class="line">    <span class="comment">// 获取text:</span></span><br><span class="line">    <span class="function">String <span class="title">getText</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>增加核心功能的具体构件（ComcreteComponent）的<code>spanNode</code></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SpanNode</span> <span class="keyword">implements</span> <span class="title">TextNode</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String text;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setText</span><span class="params">(String text)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.text = text;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getText</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"&lt;span&gt;"</span> + text + <span class="string">"&lt;/span&gt;"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>用于增加附加功能的（Decorator）,其核心是<code>TextNode</code>，即要把附加功能加到<code>TextNode</code>实例</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">NodeDecorator</span> <span class="keyword">implements</span> <span class="title">TextNode</span> </span>&#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">final</span> TextNode target;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="title">NodeDecorator</span><span class="params">(TextNode target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.target = target;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setText</span><span class="params">(String text)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.target.setText(text);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>具体的装饰类，增加一个加粗功能</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BoldDecorator</span> <span class="keyword">extends</span> <span class="title">NodeDecorator</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">BoldDecorator</span><span class="params">(TextNode target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(target);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getText</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"&lt;b&gt;"</span> + target.getText() + <span class="string">"&lt;/b&gt;"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>具体测试用例</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">...</span><br><span class="line">TextNode n1 = <span class="keyword">new</span> SpanNode();</span><br><span class="line">TextNode n2 = <span class="keyword">new</span> BoldDecorator(<span class="keyword">new</span> SpanNode());</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>​    使用Decorator模式，可以独立增加核心功能，也可以独立增加附加功能，二者互不影响；</p>
+<p>​    可以在运行期动态地给核心功能增加任意个附加功能。</p>
+<h1 id="外观模式（Facade）"><a href="#外观模式（Facade）" class="headerlink" title="外观模式（Facade）"></a>外观模式（Facade）</h1><p>​    用户只需直接与外观角色交互，用户与子系统之间的复杂关系由外观角色来实现。</p>
+<p><img src="Facade.png" alt="外观者模式"></p>
+<h2 id="模式定义-2"><a href="#模式定义-2" class="headerlink" title="模式定义"></a>模式定义</h2><p>​    客户端只跟中介打交道，中介（<code>Facade</code>）跟各个系统打交道，这样对于客户端简单一点。</p>
+<p><img src="http://www.plantuml.com/plantuml/png/SoWkIImgAStDuNBEoKpDAr7GqxDpIqnEJ4dbWb0Akhfs2i6bIS6LnIMfkOvOHPsmYZfpEQJcfG2D1W00" alt="外观模式结构"></p>
+<h2 id="具体实例-4"><a href="#具体实例-4" class="headerlink" title="具体实例"></a>具体实例</h2><p>1、以一个项目开发背景举例，对于甲方爸爸Demand（<code>Client</code>）提出的需求，由项目长Leader（<code>Facade</code>）与之谈洽，</p>
+<p>2、再由项目长告知开发人员Develop（<code>subSystemA</code>）开发，</p>
+<p>3、开发完毕，有项目长告知测试人员Tester（<code>subSystemB</code>）应有需求。</p>
+<ul>
+<li>子系统类A 测试</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 测试同学</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Tester</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"测试需求："</span> + name);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>子系统类B 开发</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 开发同学</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Developer</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">develop</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"开发需求："</span> + name);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>外观角色<code>Facade</code> Leader</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 技术组长</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Leader</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Developer developer = <span class="keyword">new</span> Developer();</span><br><span class="line">    <span class="keyword">private</span> Tester tester = <span class="keyword">new</span> Tester();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">processDemand</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        developer.develop(name);</span><br><span class="line">        tester.test(name);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>客户端 Demand</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 需求同学</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demander</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> Leader leader = <span class="keyword">new</span> Leader();</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">demand</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"提需求："</span> + name);</span><br><span class="line">        leader.processDemand(name);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>具体应用</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">...</span><br><span class="line">  Demander2 demander2 = <span class="keyword">new</span> Demander2();</span><br><span class="line">  demander2.demand(<span class="string">"开发需求..."</span>);</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p> <code>Facade</code>模式是为了给客户端提供一个统一入口，并对外屏蔽内部子系统的调用细节。 </p>
+<h1 id="享元模式（Flyweight）"><a href="#享元模式（Flyweight）" class="headerlink" title="享元模式（Flyweight）"></a>享元模式（Flyweight）</h1><p>​    当对象数量太多时，将导致运行代价过高，带来的性能下降等问题。享元就是为了解决这类问题的。</p>
+<h2 id="模式定义-3"><a href="#模式定义-3" class="headerlink" title="模式定义"></a>模式定义</h2><p>​    享元模式通过<strong><em>共享技术</em></strong>实现相同或相似对象的重用。</p>
+<p>核心思想：如果一个的对象被创建了，那么就不应该反复创建相同的实例了，直接回调一个共享的实例即可，这样既节省内存，又可以减少创建对象的过程。</p>
+<h2 id="模式分析-1"><a href="#模式分析-1" class="headerlink" title="模式分析"></a>模式分析</h2><ul>
+<li><p><strong>内部状态</strong>：可以共享的相同内容；</p>
+</li>
+<li><p><strong>外部状态</strong>：需要外部环境来设置的不能共享的内容称为外部状态；</p>
+</li>
+</ul>
+<p>享元模式需要配合工厂模式，创建一个享元工厂来负责维护一个<strong>享元池</strong>（Flyweight Pool）用来存储具有相同内部状态的享元对象。</p>
+<h2 id="模式结构-2"><a href="#模式结构-2" class="headerlink" title="模式结构"></a>模式结构</h2><p>if(flyweights.containsKey(key)){<br>   return (Flyweight)flyweights.get(key);<br>}else{<br>   Flyweight fw = new ConcreteFlyweight();<br>   flyweights.put(key,fw);<br>}</p>
+<p><img src="http://www.plantuml.com/plantuml/png/ZP71YeCm48RlUOevAajUmCCYBCXUzYJBdeSuQjWqaMHA6spVlQ5O6zeYlVxpV_CDIHqOFUztHYY38K1ZuX_fOUG65JiVPo6XD_5mpG9Ky8rX_C59VC10tDmcHSjUsm7-APQfjERYBBHbyZqgkgTpejr47baxMz0niK6hbf6fJCHoofUpoXDJXadGDYjlhtdYGShJPtRRulcrOKHFtKiV6lE6Ab-ngNnyNd1IPlEgNvirsIvzomK0" alt="享元模式"></p>
+<p><code>Flyweight</code>：抽象享元类</p>
+<p><code>ConcreteFlyweight</code>：具体享元类</p>
+<p><code>UnsharedConcreteFlyweight</code> ：非共享具体享元类</p>
+<p><code>FlyweightFactory</code>：享元工厂</p>
+<h2 id="享元工厂核心代码"><a href="#享元工厂核心代码" class="headerlink" title="享元工厂核心代码"></a>享元工厂核心代码</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FlyweightFactory</span></span>&#123;</span><br><span class="line">    <span class="comment">//使用map存储内部状态的对象组</span></span><br><span class="line">	<span class="keyword">private</span> HashMap flyweights = <span class="keyword">new</span> HashMap();</span><br><span class="line">    <span class="comment">//如果有则复用，无则新建</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Flyweight <span class="title">getFlyWeight</span><span class="params">(String key)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(flyweights.containsKey(key))&#123;</span><br><span class="line">            <span class="keyword">return</span> (Flyweight)flyweights.get(key);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            Flyweight fw = <span class="keyword">new</span> ConcreteFlyweight();</span><br><span class="line">            flyweights.put(key,fw);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="💥代理模式（Proxy）"><a href="#💥代理模式（Proxy）" class="headerlink" title="💥代理模式（Proxy）"></a>💥代理模式（Proxy）</h1><p>​    通过代理对象<strong>去掉客户不能看到的内容</strong>和服务或者<strong>添加客户需要的额外服务。</strong></p>
+<h2 id="模式定义-4"><a href="#模式定义-4" class="headerlink" title="模式定义"></a>模式定义</h2><p>​    为某一个对象提供一个代理，并由代理对象控制对原对象的引用。</p>
+<h2 id="（静态）代理"><a href="#（静态）代理" class="headerlink" title="（静态）代理"></a>（静态）代理</h2><p><img src="http://www.plantuml.com/plantuml/png/SoWkIImgAStDuVBCAqajIajCJbK8BatAIaqkgURILYXABInDBIxHqEIgvKhEIImkLWXAJSp1go2WAB-YiffB5oW5LwbWXQmFgAsWA3K8fXF8HMONv1UN126PYgHHGLUtnau1PWhO8bGXvvpCrBmI1JqzEuWpu6hiaEstAa9oYqDgNWhG-m00" alt="静态代理"></p>
+<p>​    重点在于代理类<code>Proxy</code>里面引用了<code>RealSubject</code>实例，在重写相同的<code>request</code>的方法前，可以增加实现响应之前和响应之后操作方法<code>preRequest</code>和<code>postRequest</code>；并在<code>request</code>方面里面进行调用这两个方法。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">...</span><br><span class="line">Proxy proxy = <span class="keyword">new</span> Proxy();</span><br><span class="line">proxy.request();</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>执行结果：</p>
+<p>preRequest()</p>
+<p>realRequest.request();</p>
+<p>postRequest()</p>
+</blockquote>
+<h2 id="模式分析（优缺点）-1"><a href="#模式分析（优缺点）-1" class="headerlink" title="模式分析（优缺点）"></a>模式分析（优缺点）</h2><p><strong><em>优点：</em></strong></p>
+<ul>
+<li>协调调用者和被调用者，在一定程度上降低了系统的耦合性</li>
+<li><strong>远程代理</strong>使得客户端可以访问远程机器上的对象</li>
+<li><strong>虚拟代理</strong>通过一个小对象来代表一个大对象，可减少系统资源消耗，对系统进行优化并提高运行速度</li>
+<li><strong>保护代理</strong>可控制对真实对象的使用权限</li>
+</ul>
+<p><strong><em>缺点：</em></strong></p>
+<ul>
+<li>因为多了一层，所以有些类型的代理模式的请求处理速度会很慢</li>
+<li>实现代理模式需要额外的工作，有的代理模式实现非常复杂</li>
+</ul>
+<h2 id="模式适用环境"><a href="#模式适用环境" class="headerlink" title="模式适用环境"></a>模式适用环境</h2><ul>
+<li><strong><em>根据使用目的</em></strong><ol>
+<li><font style="color:gold"><strong>远程代理</strong></font>： 本地的调用者持有的接口实际上是一个代理，这个代理负责把对接口的方法访问转换成远程调用，然后返回结果。Java内置的RMI机制就是一个完整的远程代理模式。 </li>
+<li><font style="color:gold"><strong>虚代理</strong></font>： 它让调用者先持有一个代理对象，但真正的对象尚未创建。如果没有必要，这个真正的对象是不会被创建的，直到客户端需要真的必须调用时，才创建真正的对象。  DBC的连接池返回的JDBC连接（Connection对象）就可以是一个虚代理，即获取连接时根本没有任何实际的数据库连接，直到第一次执行JDBC查询或更新操作时，才真正创建实际的JDBC连接。 </li>
+<li><font style="color:gold"><strong>保护代理</strong></font>： 它用代理对象控制对原始对象的访问，常用于鉴权。 </li>
+<li><font style="color:gold"><strong>智能引用</strong></font>： 是一种代理对象，如果有很多客户端对它进行访问，通过内部的计数器可以在外部调用者都不使用后自动释放它。 </li>
+</ol>
+</li>
+</ul>
+]]></content>
       <categories>
         <category>设计模式</category>
       </categories>
